@@ -185,7 +185,7 @@ mindmap
 - 🧮 **DSA / problem solving** and coding challenges  
 - 🚀 **Hackathons** and project ideas
 
-**📧 Reach out:** [youremail@example.com](mailto:barath5727@gmail.com)  
+**📧 Reach out:** [barath5727@gmail.com](mailto:barath5727@gmail.com)  
 
 </div>
 
