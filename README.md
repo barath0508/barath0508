@@ -48,8 +48,8 @@ class EmbeddedEngineer:
 <td>
 
 **🎯 Current Studies**
-- 🏛️ **Engineering College (Electronics-related branch)**  
-  B.E/B.Tech in Electronics/Communication/Related Domain  
+- 🏛️ **Rajalakshmi Institute of Technology**  
+  B.E in Electronics and Communication Engineering
   📍 **Chennai, Tamil Nadu**
 
 </td>
@@ -107,26 +107,8 @@ class EmbeddedEngineer:
 
 </div>
 
----
-
-## 📊 Skills Proficiency
-
-<div align="center">
-
-| Skill                    | Level           |
-|--------------------------|-----------------||
-| **C++ / DSA**            | Proficient      |
-| **Python**               | Proficient      |
-| **Embedded C / ESP32**   | Proficient      |
-| **IoT (HTTP/MQTT, APIs)**| Intermediate    |
-| **Web Dev (HTML/CSS/JS)**| Intermediate    |
-| **PCB Design (KiCad)**   | Intermediate    |
-| **Machine Learning (Basic)** | Beginner   |
-
-</div>
 
 ---
-
 ## 🧠 Soft Skills
 
 <div align="center">
@@ -140,38 +122,6 @@ class EmbeddedEngineer:
 
 </div>
 
----
-
-## 🚀 Selected Projects
-
-> Replace the placeholders below with your actual projects as you build and push them.
-
-### 🔌 Embedded & IoT Projects
-
-#### 🌱 Smart Environment Monitor (ESP32)
-- Real-time monitoring of sensors (e.g., gas, flame, soil moisture, temperature)
-- Cloud/dashboard integration for visualization
-- Alert or automation logic using relays/buzzers
-
-#### 📦 Warehouse / Inventory Helper
-- Barcode or RFID-based tracking concept
-- Simple web/app interface for logging and viewing items
-- Focus on **low-cost hardware** and **easy deployment**
-
-#### 💡 Repair-Now-Pay-Later (Fintech Idea)
-- Concept for **BNPL-style repair service** for small devices and appliances
-- Targets students and small shop owners
-- Scope for UPI-based **micro-EMI** implementation
-
-### 🌐 Web & Automation Projects
-
-#### 📊 Coding Progress Dashboard
-- Tracks daily solved problems or streaks
-- Simple web UI backed by a sheet / database / GitHub data
-
-#### 🧠 DSA Practice Tracker
-- Logs problems solved across platforms
-- Categorizes by topic and difficulty for revision
 
 ---
 
@@ -210,6 +160,21 @@ mindmap
 
 ---
 
+
+## 📈 GitHub Stats
+
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=barath0508&show_icons=true&theme=radical&count_private=true" alt="GitHub Stats" />
+
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=barath0508&theme=radical" alt="GitHub Streak" />
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=barath0508&layout=compact&theme=radical" alt="Top Languages" />
+
+</div>
+
+---
+
 ## 🤝 Let's Connect!
 
 <div align="left">
@@ -220,7 +185,7 @@ mindmap
 - 🧮 **DSA / problem solving** and coding challenges  
 - 🚀 **Hackathons** and project ideas
 
-**📧 Reach out:** [youremail@example.com](mailto:youremail@example.com)  
+**📧 Reach out:** [youremail@example.com](mailto:barath5727@gmail.com)  
 
 </div>
 
