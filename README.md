@@ -340,7 +340,7 @@ Internships, freelance<br/>& collabs worldwide
   <img alt="Contribution Snake" src="https://raw.githubusercontent.com/barath0508/barath0508/output/github-contribution-grid-snake.svg" width="100%"/>
 </picture>
 
-> ⚙️ *To enable the snake animation, add a GitHub Action to your profile repo — [setup guide here](https://github.com/Platane/snk)*
+
 
 </div>
 
