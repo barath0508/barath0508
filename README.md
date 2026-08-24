@@ -394,7 +394,7 @@ mindmap
 | 🏛️ **Institution** | Rajalakshmi Institute of Technology, Chennai |
 | 📚 **Degree** | B.E — Electronics & Communication Engineering |
 | 🆔 **Register No.** | 2117240040013 |
-| 🏢 **Club** | IETE Students' Forum (ISF) — Event Organizer |
+| 🏢 **Club** | IETE Students' Forum (ISF) — Executive Technical |
 | 📍 **Location** | Chennai, Tamil Nadu, India |
 
 </div>
