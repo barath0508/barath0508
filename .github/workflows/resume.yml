@@ -1,0 +1,78 @@
+name: Build & Deploy Resume
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'resume/**'
+      - 'scripts/**'
+      - '.github/workflows/resume.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate LaTeX and Web Portal
+        run: |
+          python scripts/generate_resume.py
+
+      - name: Compile LaTeX to PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+          working_directory: resume
+          args: "-pdf -interaction=nonstopmode"
+
+      - name: Prepare distribution bundle
+        run: |
+          cp resume/resume.pdf dist/resume.pdf
+          cp resume/resume.pdf ./resume.pdf
+
+      - name: Commit updated resume.pdf to repo
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add resume/resume.pdf ./resume.pdf resume/resume.tex dist/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Automated build: update resume.pdf & generated files [skip ci]"
+            git push origin main
+          else
+            echo "No changes to commit in repository."
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

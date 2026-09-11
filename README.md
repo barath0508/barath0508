@@ -27,6 +27,9 @@
   <a href="https://barath0508-portfolio.vercel.app">
     <img src="https://img.shields.io/badge/Portfolio-Live-00D4FF?style=for-the-badge&logo=vercel&logoColor=white"/>
   </a>
+  <a href="https://barath0508.github.io/barath0508/">
+    <img src="https://img.shields.io/badge/Resume-Live%20PDF-FF6B35?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"/>
+  </a>
 </p>
 
 <!-- Profile Metrics Row -->

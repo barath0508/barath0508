@@ -1,0 +1,99 @@
+{
+  "personal": {
+    "name": "Barath R",
+    "title": "Electronics & Communication Engineering Student | Embedded Systems & IoT",
+    "location": "Chennai, India",
+    "phone": "+91-9442169681",
+    "email": "barath5727@gmail.com",
+    "github": "https://github.com/barath0508",
+    "github_display": "github.com/barath0508",
+    "linkedin": "https://www.linkedin.com/in/barath0508/",
+    "linkedin_display": "linkedin.com/in/barath0508"
+  },
+  "summary": "Third-year Electronics and Communication Engineering student with hands-on experience across embedded firmware, bare-metal systems programming, and IoT hardware design. Comfortable working close to the metal -- from register-level RISC-V trap handlers to production-style sensor and communication pipelines -- and building the cloud/dashboard layers that sit on top of them. Seeking an embedded systems internship/role to contribute to real-time and connected hardware products.",
+  "education": [
+    {
+      "degree": "B.E. Electronics and Communication Engineering",
+      "institution": "Rajalakshmi Institute of Technology, Chennai",
+      "period": "2024 -- 2028 (Expected)",
+      "score": "CGPA: 8.65/10",
+      "notes": "Currently in 3rd year"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Hardware Interactions",
+      "items": "ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 Development Kit"
+    },
+    {
+      "category": "Communication Protocols",
+      "items": "MQTT, LoRaWAN, I2C, UART, HTTP/REST, WebSockets"
+    },
+    {
+      "category": "Programming Languages",
+      "items": "C, Python, C++, Java, SQL"
+    },
+    {
+      "category": "Cloud & Dashboards",
+      "items": "HiveMQ, ThingSpeak, Firebase, BlynkIoT, Google Cloud"
+    },
+    {
+      "category": "Tools",
+      "items": "Git, VS Code, Scilab, MATLAB, Power BI, Arduino IDE, ESP-IDF (v6), CST, ADS"
+    },
+    {
+      "category": "Android/OS",
+      "items": "ADB, custom OS/ROM flashing"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Bare-Metal RISC-V Trap Handler & Context Switcher",
+      "platform": "ESP32-C6",
+      "tech_stack": "RISC-V Assembly, direct MMIO, no RTOS",
+      "bullets": [
+        "Implemented a trap handler and timer-based context switcher entirely in assembly with no FreeRTOS or vendor libraries",
+        "Worked directly with memory-mapped I/O registers for interrupt handling and task switching"
+      ]
+    },
+    {
+      "title": "Dual-Axis Solar Tracker",
+      "platform": "Embedded System",
+      "tech_stack": "Servo Motors, LDR Sensors, Microcontroller Control",
+      "bullets": [
+        "Built a dual-axis solar panel tracking system to maximize sunlight incidence using closed-loop sensor feedback",
+        "Implemented motor control logic for continuous azimuth and elevation tracking"
+      ]
+    },
+    {
+      "title": "Digital Twin for Industrial Monitoring",
+      "platform": "5G-Integrated IoT System",
+      "tech_stack": "Sensor Fusion, 5G Connectivity, Real-Time Dashboard",
+      "bullets": [
+        "Developing a digital twin platform for industrial equipment monitoring with 5G-integrated data pipelines",
+        "Designing real-time sensor fusion and visualization for predictive maintenance use cases"
+      ]
+    },
+    {
+      "title": "Conformal Helmet-Integrated Antenna Array",
+      "platform": "RF / Antenna Design",
+      "tech_stack": "Microstrip Patch Array, Dual-Band UHF/L-Band",
+      "bullets": [
+        "Designing a flexible microstrip patch antenna array conformal to a helmet surface, replacing bulky whip antennas",
+        "Targeting dual-band UHF and L-band support with an RF shielding layer and ruggedized coax interface to existing radio/camera systems"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "bullets": [
+        "Conceptualized, developed, and iterated on multiple embedded and IoT systems end-to-end, from hardware bring-up to firmware and dashboards",
+        "Active organizer with IETE Students' Forum (ISF), coordinating technical hackathons and events"
+      ]
+    }
+  ],
+  "languages": [
+    "English (Fluent)",
+    "Tamil (Native)"
+  ]
+}
