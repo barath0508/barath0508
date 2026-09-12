@@ -8,7 +8,9 @@
     "github": "https://github.com/barath0508",
     "github_display": "github.com/barath0508",
     "linkedin": "https://www.linkedin.com/in/barath0508/",
-    "linkedin_display": "linkedin.com/in/barath0508"
+    "linkedin_display": "linkedin.com/in/barath0508",
+    "portfolio": "https://barath0508-portfolio.vercel.app",
+    "portfolio_display": "barath0508-portfolio.vercel.app"
   },
   "summary": "Third-year Electronics and Communication Engineering student with hands-on experience across embedded firmware, bare-metal systems programming, and IoT hardware design. Comfortable working close to the metal -- from register-level RISC-V trap handlers to production-style sensor and communication pipelines -- and building the cloud/dashboard layers that sit on top of them. Seeking an embedded systems internship/role to contribute to real-time and connected hardware products.",
   "education": [

@@ -51,6 +51,10 @@ def build_latex(data: dict) -> str:
     experience = data.get("experience", [])
     languages = data.get("languages", [])
 
+    contact_row_2 = f"\\href{{{personal['github']}}}{{{personal['github_display']}}} $\\vert$ \\href{{{personal['linkedin']}}}{{{personal['linkedin_display']}}}"
+    if personal.get("portfolio"):
+        contact_row_2 += f" $\\vert$ \\href{{{personal['portfolio']}}}{{{personal.get('portfolio_display', personal['portfolio'])}}}"
+
     lines = [
         r"\documentclass[a4paper,10.5pt]{article}",
         "",
@@ -84,7 +88,7 @@ def build_latex(data: dict) -> str:
         f"    {{\\LARGE \\textbf{{{escape_latex(personal['name'])}}}}} \\\\[2pt]",
         f"    {escape_latex(personal['title'])} \\\\[2pt]",
         f"    {escape_latex(personal['location'])} $\\vert$ {escape_latex(personal['phone'])} $\\vert$ \\href{{mailto:{personal['email']}}}{{{personal['email']}}} \\\\",
-        f"    \\href{{{personal['github']}}}{{{personal['github_display']}}} $\\vert$ \\href{{{personal['linkedin']}}}{{{personal['linkedin_display']}}}",
+        f"    {contact_row_2}",
         r"\end{center}",
         "",
         r"% ---------- SUMMARY ----------",
@@ -207,6 +211,17 @@ def build_html(data: dict) -> str:
             exp_bullets += f"<li>{b}</li>"
 
     lang_tags = "".join(f'<span class="badge badge-accent">{lang}</span>' for lang in languages)
+
+    portfolio_btn = (
+        f'<a href="{personal["portfolio"]}" target="_blank" class="btn btn-secondary">Portfolio</a>'
+        if personal.get("portfolio")
+        else ""
+    )
+    portfolio_contact = (
+        f'<a href="{personal["portfolio"]}" target="_blank">🌐 {personal.get("portfolio_display", personal["portfolio"])}</a>'
+        if personal.get("portfolio")
+        else ""
+    )
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -650,6 +665,7 @@ def build_html(data: dict) -> str:
                 <a href="{personal['github']}" target="_blank" class="btn btn-secondary">
                     GitHub Profile
                 </a>
+                {portfolio_btn}
                 <button class="theme-toggle" id="theme-btn" title="Toggle Dark/Light Mode">🌓</button>
             </div>
         </div>
@@ -687,6 +703,7 @@ def build_html(data: dict) -> str:
                         <a href="mailto:{personal['email']}">✉️ {personal['email']}</a>
                         <a href="{personal['github']}" target="_blank">💻 {personal['github_display']}</a>
                         <a href="{personal['linkedin']}" target="_blank">🔗 {personal['linkedin_display']}</a>
+                        {portfolio_contact}
                     </div>
                 </header>
 
