@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
 Resume Generator Script
-- Reads resume/resume.json
-- Renders resume/resume.tex (with robust LaTeX escaping)
-- Generates a sleek, interactive GitHub Pages web portal in dist/index.html
+- Reads resume/resume.json and resume/resume_full.json
+- Renders resume/resume.tex and resume/resume_full.tex (with robust LaTeX escaping)
+- Generates an interactive GitHub Pages web portal in dist/index.html (dual-resume support)
+- Generates standalone printable HTML resumes in resume/resume_full.html & dist/resume_full.html
 """
 
 import json
@@ -15,9 +16,16 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).resolve().parent.parent
 RESUME_DIR = ROOT_DIR / "resume"
 DIST_DIR = ROOT_DIR / "dist"
+
 DATA_FILE = RESUME_DIR / "resume.json"
+DATA_FILE_FULL = RESUME_DIR / "resume_full.json"
+
 OUTPUT_TEX = RESUME_DIR / "resume.tex"
+OUTPUT_TEX_FULL = RESUME_DIR / "resume_full.tex"
+
 OUTPUT_HTML = DIST_DIR / "index.html"
+OUTPUT_HTML_FULL = DIST_DIR / "resume_full.html"
+OUTPUT_HTML_FULL_RESUME = RESUME_DIR / "resume_full.html"
 
 
 def escape_latex(text: str) -> str:
@@ -30,7 +38,6 @@ def escape_latex(text: str) -> str:
         return text
 
     # Standard LaTeX replacements
-    # Note: & is escaped unless already escaped
     text = re.sub(r'(?<!\\)&', r'\&', text)
     text = re.sub(r'(?<!\\)%', r'\%', text)
     text = re.sub(r'(?<!\\)#', r'\#', text)
@@ -41,8 +48,8 @@ def escape_latex(text: str) -> str:
     return text
 
 
-def build_latex(data: dict) -> str:
-    """Renders resume.tex matching Barath's LaTeX template."""
+def build_latex(data: dict, compact: bool = False) -> str:
+    """Renders resume.tex matching Barath's LaTeX template with auto-fit margins."""
     personal = data["personal"]
     summary = escape_latex(data.get("summary", ""))
     education = data.get("education", [])
@@ -51,6 +58,13 @@ def build_latex(data: dict) -> str:
     experience = data.get("experience", [])
     languages = data.get("languages", [])
 
+    margin = "0.50in" if compact else "0.65in"
+    sec_top_space = "7pt" if compact else "10pt"
+    sec_bot_space = "3.5pt" if compact else "6pt"
+    item_sep = "0.5pt" if compact else "1pt"
+    top_sep = "1.5pt" if compact else "2pt"
+    proj_vspace = "2pt" if compact else "4pt"
+
     contact_row_2 = f"\\href{{{personal['github']}}}{{{personal['github_display']}}} $\\vert$ \\href{{{personal['linkedin']}}}{{{personal['linkedin_display']}}}"
     if personal.get("portfolio"):
         contact_row_2 += f" $\\vert$ \\href{{{personal['portfolio']}}}{{{personal.get('portfolio_display', personal['portfolio'])}}}"
@@ -58,7 +72,7 @@ def build_latex(data: dict) -> str:
     lines = [
         r"\documentclass[a4paper,10.5pt]{article}",
         "",
-        r"\usepackage[margin=0.65in]{geometry}",
+        f"\\usepackage[margin={margin}]{{geometry}}",
         r"\usepackage{titlesec}",
         r"\usepackage{enumitem}",
         r"\usepackage{hyperref}",
@@ -71,10 +85,10 @@ def build_latex(data: dict) -> str:
         r"\setlength{\parindent}{0pt}",
         "",
         r"\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\titlerule]",
-        r"\titlespacing{\section}{0pt}{10pt}{6pt}",
+        f"\\titlespacing{{\\section}}{{0pt}}{{{sec_top_space}}}{{{sec_bot_space}}}",
         "",
         r"\newcommand{\resumeItem}[1]{\item #1}",
-        r"\newenvironment{resumeItemize}{\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=2pt]}{\end{itemize}}",
+        f"\\newenvironment{{resumeItemize}}{{\\begin{{itemize}}[leftmargin=*, itemsep={item_sep}, topsep={top_sep}]}}{{\\end{{itemize}}}}",
         "",
         r"\newcommand{\resumeProject}[3]{",
         r"  \textbf{#1} \hfill \textit{#2} \\",
@@ -126,7 +140,7 @@ def build_latex(data: dict) -> str:
         for bullet in proj.get("bullets", []):
             lines.append(f"    \\resumeItem{{{escape_latex(bullet)}}}")
         lines.append(r"\end{resumeItemize}")
-        lines.append(r"\vspace{4pt}")
+        lines.append(f"\\vspace{{{proj_vspace}}}")
         lines.append("")
 
     lines.extend([
@@ -154,8 +168,8 @@ def build_latex(data: dict) -> str:
     return "\n".join(lines)
 
 
-def build_html(data: dict) -> str:
-    """Builds a responsive, high-aesthetic web resume portal for GitHub Pages."""
+def render_resume_card_html(data: dict, variant_id: str) -> str:
+    """Renders the HTML article markup for a specific resume variant."""
     personal = data["personal"]
     summary = data.get("summary", "")
     education = data.get("education", [])
@@ -212,24 +226,92 @@ def build_html(data: dict) -> str:
 
     lang_tags = "".join(f'<span class="badge badge-accent">{lang}</span>' for lang in languages)
 
-    portfolio_btn = (
-        f'<a href="{personal["portfolio"]}" target="_blank" class="btn btn-secondary">Portfolio</a>'
-        if personal.get("portfolio")
-        else ""
-    )
     portfolio_contact = (
         f'<a href="{personal["portfolio"]}" target="_blank">🌐 {personal.get("portfolio_display", personal["portfolio"])}</a>'
         if personal.get("portfolio")
         else ""
     )
 
+    return f"""
+    <article class="resume-paper" id="resume-article-{variant_id}">
+        <header class="resume-header">
+            <h1>{personal['name']}</h1>
+            <p class="resume-subtitle">{personal['title']}</p>
+            <div class="contact-links">
+                <span>📍 {personal['location']}</span>
+                <span>📞 {personal['phone']}</span>
+                <a href="mailto:{personal['email']}">✉️ {personal['email']}</a>
+                <a href="{personal['github']}" target="_blank">💻 {personal['github_display']}</a>
+                <a href="{personal['linkedin']}" target="_blank">🔗 {personal['linkedin_display']}</a>
+                {portfolio_contact}
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section class="resume-sec">
+            <h2 class="section-heading">Professional Summary</h2>
+            <p class="summary-text">{summary}</p>
+        </section>
+
+        <!-- Education -->
+        <section class="resume-sec">
+            <h2 class="section-heading">Education</h2>
+            {edu_html}
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="resume-sec">
+            <h2 class="section-heading">Technical Skills</h2>
+            {skills_html}
+        </section>
+
+        <!-- Featured Projects -->
+        <section class="resume-sec">
+            <h2 class="section-heading">Featured Projects</h2>
+            {projects_html}
+        </section>
+
+        <!-- Technical Experience -->
+        <section class="resume-sec">
+            <h2 class="section-heading">Technical Experience</h2>
+            <div class="card">
+                <ul class="bullet-list">
+                    {exp_bullets}
+                </ul>
+            </div>
+        </section>
+
+        <!-- Languages -->
+        <section class="resume-sec">
+            <h2 class="section-heading">Languages</h2>
+            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                {lang_tags}
+            </div>
+        </section>
+    </article>
+    """
+
+
+def build_portal_html(data_default: dict, data_full: dict) -> str:
+    """Builds a responsive, high-aesthetic web resume portal for GitHub Pages with dual-resume switching."""
+    personal = data_full["personal"]
+
+    portfolio_btn = (
+        f'<a href="{personal["portfolio"]}" target="_blank" class="btn btn-secondary">Portfolio</a>'
+        if personal.get("portfolio")
+        else ""
+    )
+
+    article_default = render_resume_card_html(data_default, "default")
+    article_full = render_resume_card_html(data_full, "full")
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{personal['name']} | Resume</title>
-    <meta name="description" content="Resume of {personal['name']} - {personal['title']}">
+    <title>{personal['name']} | Resume Portal</title>
+    <meta name="description" content="Resume of {personal['name']} - Embedded Engineer & IoT Developer">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -285,13 +367,13 @@ def build_html(data: dict) -> str:
             top: 0;
             z-index: 100;
             backdrop-filter: blur(14px);
-            background: rgba(10, 14, 23, 0.8);
+            background: rgba(10, 14, 23, 0.85);
             border-bottom: 1px solid var(--border-color);
             padding: 0.85rem 1.5rem;
         }}
 
         [data-theme="light"] header.top-nav {{
-            background: rgba(248, 250, 252, 0.85);
+            background: rgba(248, 250, 252, 0.88);
         }}
 
         .nav-container {{
@@ -305,7 +387,7 @@ def build_html(data: dict) -> str:
         }}
 
         .brand-title {{
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.5px;
             display: flex;
@@ -330,7 +412,7 @@ def build_html(data: dict) -> str:
         .nav-actions {{
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.65rem;
             flex-wrap: wrap;
         }}
 
@@ -338,9 +420,9 @@ def build_html(data: dict) -> str:
             display: inline-flex;
             align-items: center;
             gap: 0.45rem;
-            padding: 0.5rem 1rem;
+            padding: 0.48rem 0.95rem;
             border-radius: 8px;
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             font-weight: 600;
             text-decoration: none;
             cursor: pointer;
@@ -374,7 +456,7 @@ def build_html(data: dict) -> str:
             background: transparent;
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            padding: 0.5rem 0.75rem;
+            padding: 0.48rem 0.75rem;
             border-radius: 8px;
             cursor: pointer;
             font-size: 1rem;
@@ -384,11 +466,47 @@ def build_html(data: dict) -> str:
             border-color: var(--accent-cyan);
         }}
 
-        /* View Mode Tabs */
-        .tabs-container {{
+        /* Control Panel: Resume Profile & Format Switches */
+        .controls-wrapper {{
             max-width: 1200px;
             margin: 1.2rem auto 0;
             padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }}
+
+        .profile-selector {{
+            display: flex;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 4px;
+            gap: 4px;
+        }}
+
+        .profile-btn {{
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 0.45rem 1rem;
+            border-radius: 7px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: var(--font-main);
+        }}
+
+        .profile-btn.active {{
+            background: rgba(0, 212, 255, 0.16);
+            color: var(--accent-cyan);
+            box-shadow: 0 2px 8px var(--accent-glow);
+        }}
+
+        .view-tabs {{
             display: flex;
             gap: 0.5rem;
         }}
@@ -398,7 +516,7 @@ def build_html(data: dict) -> str:
             border: none;
             color: var(--text-secondary);
             padding: 0.5rem 1rem;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 600;
             cursor: pointer;
             border-bottom: 2px solid transparent;
@@ -477,7 +595,7 @@ def build_html(data: dict) -> str:
         .resume-subtitle {{
             font-size: 1.05rem;
             color: var(--accent-cyan);
-            font-weight: 500;
+            font-weight: 600;
             margin-top: 0.3rem;
         }}
 
@@ -641,6 +759,16 @@ def build_html(data: dict) -> str:
             .pdf-frame-wrapper {{
                 height: 65vh;
             }}
+            .controls-wrapper {{
+                flex-direction: column;
+                align-items: stretch;
+            }}
+            .profile-selector {{
+                justify-content: center;
+            }}
+            .view-tabs {{
+                justify-content: center;
+            }}
         }}
     </style>
 </head>
@@ -655,15 +783,18 @@ def build_html(data: dict) -> str:
                 <span class="badge-status">CI/CD Automated</span>
             </div>
             <div class="nav-actions">
-                <a href="resume.pdf" download="Barath_R_Resume.pdf" class="btn btn-primary" id="btn-download">
+                <a href="resume_full.pdf" download="Barath_R_Resume_Full.pdf" class="btn btn-primary" id="btn-download">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
-                    Download PDF
+                    <span id="btn-download-text">Download Full PDF</span>
                 </a>
-                <a href="resume.pdf" target="_blank" class="btn btn-secondary">
+                <a href="resume_full.pdf" target="_blank" class="btn btn-secondary" id="btn-open-tab">
                     Open PDF Tab
                 </a>
+                <a href="resume_full.html" target="_blank" class="btn btn-secondary" title="View print-ready HTML resume">
+                    Printable HTML
+                </a>
                 <a href="{personal['github']}" target="_blank" class="btn btn-secondary">
-                    GitHub Profile
+                    GitHub
                 </a>
                 {portfolio_btn}
                 <button class="theme-toggle" id="theme-btn" title="Toggle Dark/Light Mode">🌓</button>
@@ -671,10 +802,20 @@ def build_html(data: dict) -> str:
         </div>
     </header>
 
-    <!-- View Tabs -->
-    <div class="tabs-container">
-        <button class="tab-btn active" onclick="switchView('pdf-view', this)">PDF Document</button>
-        <button class="tab-btn" onclick="switchView('web-view', this)">Interactive Web Resume</button>
+    <!-- Controls: Profile Selector & View Mode Tabs -->
+    <div class="controls-wrapper">
+        <div class="profile-selector">
+            <button class="profile-btn active" id="pbtn-full" onclick="switchProfile('full')">
+                Embedded Engineer (HW + SW)
+            </button>
+            <button class="profile-btn" id="pbtn-default" onclick="switchProfile('default')">
+                Embedded & IoT (Specialized)
+            </button>
+        </div>
+        <div class="view-tabs">
+            <button class="tab-btn active" id="tbtn-pdf" onclick="switchFormat('pdf')">PDF Document</button>
+            <button class="tab-btn" id="tbtn-web" onclick="switchFormat('web')">Interactive Web View</button>
+        </div>
     </div>
 
     <!-- Main Content Area -->
@@ -682,10 +823,10 @@ def build_html(data: dict) -> str:
         <!-- PDF Viewer View -->
         <section id="pdf-view" class="view-section active">
             <div class="pdf-frame-wrapper">
-                <iframe src="resume.pdf#toolbar=1" class="pdf-frame" title="Barath R Resume PDF">
+                <iframe src="resume_full.pdf#toolbar=1" class="pdf-frame" id="pdf-iframe" title="Barath R Resume PDF">
                     <p style="padding: 2rem; text-align: center;">
                         Your browser does not support embedded PDFs.
-                        <a href="resume.pdf" target="_blank">Click here to download/view the PDF</a>.
+                        <a href="resume_full.pdf" target="_blank" id="pdf-fallback-link">Click here to download/view the PDF</a>.
                     </p>
                 </iframe>
             </div>
@@ -693,75 +834,79 @@ def build_html(data: dict) -> str:
 
         <!-- Web Resume View -->
         <section id="web-view" class="view-section">
-            <article class="resume-paper">
-                <header class="resume-header">
-                    <h1>{personal['name']}</h1>
-                    <p class="resume-subtitle">{personal['title']}</p>
-                    <div class="contact-links">
-                        <span>📍 {personal['location']}</span>
-                        <span>📞 {personal['phone']}</span>
-                        <a href="mailto:{personal['email']}">✉️ {personal['email']}</a>
-                        <a href="{personal['github']}" target="_blank">💻 {personal['github_display']}</a>
-                        <a href="{personal['linkedin']}" target="_blank">🔗 {personal['linkedin_display']}</a>
-                        {portfolio_contact}
-                    </div>
-                </header>
-
-                <!-- Professional Summary -->
-                <section class="resume-sec">
-                    <h2 class="section-heading">Professional Summary</h2>
-                    <p class="summary-text">{summary}</p>
-                </section>
-
-                <!-- Education -->
-                <section class="resume-sec">
-                    <h2 class="section-heading">Education</h2>
-                    {edu_html}
-                </section>
-
-                <!-- Technical Skills -->
-                <section class="resume-sec">
-                    <h2 class="section-heading">Technical Skills</h2>
-                    {skills_html}
-                </section>
-
-                <!-- Featured Projects -->
-                <section class="resume-sec">
-                    <h2 class="section-heading">Featured Projects</h2>
-                    {projects_html}
-                </section>
-
-                <!-- Technical Experience -->
-                <section class="resume-sec">
-                    <h2 class="section-heading">Technical Experience</h2>
-                    <div class="card">
-                        <ul class="bullet-list">
-                            {exp_bullets}
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Languages -->
-                <section class="resume-sec">
-                    <h2 class="section-heading">Languages</h2>
-                    <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-                        {lang_tags}
-                    </div>
-                </section>
-            </article>
+            <div id="web-content-full">
+                {article_full}
+            </div>
+            <div id="web-content-default" style="display: none;">
+                {article_default}
+            </div>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p>Built with automated GitHub Actions &bull; Generated from structured <code>resume.json</code> &bull; Host: GitHub Pages</p>
+        <p>Built with automated GitHub Actions &bull; Generated from structured <code>resume_full.json</code> &amp; <code>resume.json</code> &bull; Host: GitHub Pages</p>
     </footer>
 
     <script>
-        function switchView(viewId, btn) {{
-            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            document.getElementById(viewId).classList.add('active');
-            btn.classList.add('active');
+        let currentProfile = 'full'; // 'full' | 'default'
+        let currentFormat = 'pdf';   // 'pdf' | 'web'
+
+        const pdfMap = {{
+            'full': {{
+                'file': 'resume_full.pdf',
+                'download': 'Barath_R_Resume_Full.pdf',
+                'label': 'Download Full PDF'
+            }},
+            'default': {{
+                'file': 'resume.pdf',
+                'download': 'Barath_R_Resume_Embedded_IoT.pdf',
+                'label': 'Download Embedded PDF'
+            }}
+        }};
+
+        function updateDisplay() {{
+            // 1. Profile buttons
+            document.getElementById('pbtn-full').classList.toggle('active', currentProfile === 'full');
+            document.getElementById('pbtn-default').classList.toggle('active', currentProfile === 'default');
+
+            // 2. Format buttons & view sections
+            document.getElementById('tbtn-pdf').classList.toggle('active', currentFormat === 'pdf');
+            document.getElementById('tbtn-web').classList.toggle('active', currentFormat === 'web');
+            document.getElementById('pdf-view').classList.toggle('active', currentFormat === 'pdf');
+            document.getElementById('web-view').classList.toggle('active', currentFormat === 'web');
+
+            // 3. Web article visibility
+            document.getElementById('web-content-full').style.display = currentProfile === 'full' ? 'block' : 'none';
+            document.getElementById('web-content-default').style.display = currentProfile === 'default' ? 'block' : 'none';
+
+            // 4. Update PDF iframe & action links
+            const info = pdfMap[currentProfile];
+            const iframe = document.getElementById('pdf-iframe');
+            if (iframe && iframe.getAttribute('src') !== info.file + '#toolbar=1') {{
+                iframe.src = info.file + '#toolbar=1';
+            }}
+            const fallback = document.getElementById('pdf-fallback-link');
+            if (fallback) fallback.href = info.file;
+
+            const btnDl = document.getElementById('btn-download');
+            if (btnDl) {{
+                btnDl.href = info.file;
+                btnDl.setAttribute('download', info.download);
+                document.getElementById('btn-download-text').innerText = info.label;
+            }}
+
+            const btnOpen = document.getElementById('btn-open-tab');
+            if (btnOpen) btnOpen.href = info.file;
+        }}
+
+        function switchProfile(profile) {{
+            currentProfile = profile;
+            updateDisplay();
+        }}
+
+        function switchFormat(fmt) {{
+            currentFormat = fmt;
+            updateDisplay();
         }}
 
         // Theme Toggle
@@ -781,26 +926,380 @@ def build_html(data: dict) -> str:
 """
 
 
+def build_standalone_print_html(data: dict) -> str:
+    """Generates an elegant, print-optimized A4 HTML resume with clean typography and instant Ctrl+P support."""
+    personal = data["personal"]
+    summary = data.get("summary", "")
+    education = data.get("education", [])
+    skills = data.get("skills", [])
+    projects = data.get("projects", [])
+    experience = data.get("experience", [])
+    languages = data.get("languages", [])
+
+    skills_rows = ""
+    for s in skills:
+        skills_rows += f"""
+        <div class="skill-line">
+            <span class="skill-name">{s['category']}:</span>
+            <span class="skill-val">{s['items']}</span>
+        </div>
+        """
+
+    projects_rows = ""
+    for p in projects:
+        bullets = "".join(f"<li>{b}</li>" for b in p.get("bullets", []))
+        projects_rows += f"""
+        <div class="proj-item">
+            <div class="proj-head">
+                <span class="proj-title">{p['title']}</span>
+                <span class="proj-plat">{p['platform']}</span>
+            </div>
+            <div class="proj-stack">Tech Stack: {p['tech_stack']}</div>
+            <ul class="proj-bullets">
+                {bullets}
+            </ul>
+        </div>
+        """
+
+    edu_rows = ""
+    for e in education:
+        edu_rows += f"""
+        <div class="edu-item">
+            <div class="edu-head">
+                <span class="edu-deg">{e['degree']}</span>
+                <span class="edu-period">{e['period']}</span>
+            </div>
+            <div class="edu-sub">
+                <span>{e['institution']}</span>
+                <span class="edu-score">{e['score']}</span>
+            </div>
+            <div class="edu-notes">{e['notes']}</div>
+        </div>
+        """
+
+    exp_bullets = ""
+    for exp in experience:
+        for b in exp.get("bullets", []):
+            exp_bullets += f"<li>{b}</li>"
+
+    lang_str = " &nbsp;&bull;&nbsp; ".join(languages)
+
+    portfolio_link = (
+        f'<a href="{personal["portfolio"]}" target="_blank">{personal.get("portfolio_display", personal["portfolio"])}</a>'
+        if personal.get("portfolio")
+        else ""
+    )
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{personal['name']} - {personal['title']}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @page {{
+            size: A4;
+            margin: 12mm 14mm 12mm 14mm;
+        }}
+
+        * {{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }}
+
+        body {{
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 9.6pt;
+            line-height: 1.38;
+            color: #1a1a1a;
+            background: #ffffff;
+        }}
+
+        .print-btn-bar {{
+            background: #0f172a;
+            color: #ffffff;
+            padding: 10px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }}
+
+        .print-btn {{
+            background: #00d4ff;
+            color: #000000;
+            border: none;
+            padding: 6px 14px;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+        }}
+
+        .page-wrap {{
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 24px 28px;
+            background: #ffffff;
+        }}
+
+        header.header {{
+            text-align: center;
+            margin-bottom: 12px;
+        }}
+
+        h1.name {{
+            font-size: 20pt;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #111827;
+            margin-bottom: 2px;
+        }}
+
+        .title {{
+            font-size: 10.5pt;
+            font-weight: 600;
+            color: #0369a1;
+            margin-bottom: 4px;
+        }}
+
+        .contact-line {{
+            font-size: 8.8pt;
+            color: #4b5563;
+        }}
+
+        .contact-line a {{
+            color: #111827;
+            text-decoration: none;
+        }}
+
+        .contact-line a:hover {{
+            text-decoration: underline;
+        }}
+
+        .sec-title {{
+            font-size: 10pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #111827;
+            border-bottom: 1.2px solid #111827;
+            padding-bottom: 2px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }}
+
+        .summary-p {{
+            text-align: justify;
+            color: #27272a;
+            margin-bottom: 4px;
+            font-size: 9.3pt;
+        }}
+
+        .edu-item, .proj-item {{
+            margin-bottom: 6px;
+        }}
+
+        .edu-head, .proj-head {{
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }}
+
+        .edu-deg, .proj-title {{
+            font-weight: 700;
+            color: #09090b;
+        }}
+
+        .edu-period, .proj-plat {{
+            font-style: italic;
+            color: #4b5563;
+            font-size: 9pt;
+        }}
+
+        .edu-sub {{
+            display: flex;
+            justify-content: space-between;
+            font-size: 9pt;
+            color: #374151;
+        }}
+
+        .edu-score {{
+            font-weight: 600;
+        }}
+
+        .edu-notes {{
+            font-size: 8.5pt;
+            font-style: italic;
+            color: #6b7280;
+        }}
+
+        .skill-line {{
+            margin-bottom: 3px;
+            font-size: 9.2pt;
+        }}
+
+        .skill-name {{
+            font-weight: 700;
+            color: #18181b;
+        }}
+
+        .skill-val {{
+            color: #374151;
+        }}
+
+        .proj-stack {{
+            font-size: 8.8pt;
+            font-style: italic;
+            color: #0284c7;
+            margin-bottom: 2px;
+        }}
+
+        ul.proj-bullets, ul.exp-bullets {{
+            list-style: disc outside;
+            margin-left: 18px;
+            color: #27272a;
+        }}
+
+        ul.proj-bullets li, ul.exp-bullets li {{
+            margin-bottom: 1.5px;
+            font-size: 9.2pt;
+        }}
+
+        .languages-line {{
+            font-size: 9.2pt;
+            color: #27272a;
+        }}
+
+        @media print {{
+            .print-btn-bar {{
+                display: none !important;
+            }}
+            .page-wrap {{
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+            }}
+            body {{
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }}
+        }}
+    </style>
+</head>
+<body>
+    <div class="print-btn-bar">
+        <span>Barath R - Embedded Engineer Resume (Printable Preview)</span>
+        <button class="print-btn" onclick="window.print()">Print / Save as PDF (Ctrl+P)</button>
+    </div>
+
+    <div class="page-wrap">
+        <header class="header">
+            <h1 class="name">{personal['name']}</h1>
+            <div class="title">{personal['title']}</div>
+            <div class="contact-line">
+                {personal['location']} &nbsp;|&nbsp; {personal['phone']} &nbsp;|&nbsp; <a href="mailto:{personal['email']}">{personal['email']}</a>
+            </div>
+            <div class="contact-line">
+                <a href="{personal['github']}">{personal['github_display']}</a> &nbsp;|&nbsp;
+                <a href="{personal['linkedin']}">{personal['linkedin_display']}</a> &nbsp;|&nbsp;
+                {portfolio_link}
+            </div>
+        </header>
+
+        <div class="sec-title">Professional Summary</div>
+        <p class="summary-p">{summary}</p>
+
+        <div class="sec-title">Education</div>
+        {edu_rows}
+
+        <div class="sec-title">Technical Skills</div>
+        {skills_rows}
+
+        <div class="sec-title">Featured Projects</div>
+        {projects_rows}
+
+        <div class="sec-title">Technical Experience</div>
+        <ul class="exp-bullets">
+            {exp_bullets}
+        </ul>
+
+        <div class="sec-title">Languages</div>
+        <div class="languages-line">{lang_str}</div>
+    </div>
+</body>
+</html>
+"""
+
+
 def main():
     if not DATA_FILE.exists():
         raise FileNotFoundError(f"Missing {DATA_FILE}")
+    if not DATA_FILE_FULL.exists():
+        raise FileNotFoundError(f"Missing {DATA_FILE_FULL}")
 
     with open(DATA_FILE, "r", encoding="utf-8") as f:
-        data = json.load(f)
+        data_default = json.load(f)
 
-    # 1. Generate resume.tex
-    tex_content = build_latex(data)
+    with open(DATA_FILE_FULL, "r", encoding="utf-8") as f:
+        data_full = json.load(f)
+
+    # 1. Generate resume.tex (Specialized Embedded & IoT)
+    tex_default = build_latex(data_default, compact=False)
     OUTPUT_TEX.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_TEX, "w", encoding="utf-8") as f:
-        f.write(tex_content)
-    print(f"Generated LaTeX: {OUTPUT_TEX}")
+        f.write(tex_default)
+    print(f"Generated LaTeX (Embedded): {OUTPUT_TEX}")
 
-    # 2. Generate dist/index.html
-    html_content = build_html(data)
+    # 2. Generate resume_full.tex (Embedded Engineer HW + SW)
+    tex_full = build_latex(data_full, compact=True)
+    with open(OUTPUT_TEX_FULL, "w", encoding="utf-8") as f:
+        f.write(tex_full)
+    print(f"Generated LaTeX (Full HW & SW): {OUTPUT_TEX_FULL}")
+
+    # 3. Generate dist/index.html (Interactive dual-resume portal)
     DIST_DIR.mkdir(parents=True, exist_ok=True)
+    portal_html = build_portal_html(data_default, data_full)
     with open(OUTPUT_HTML, "w", encoding="utf-8") as f:
-        f.write(html_content)
+        f.write(portal_html)
     print(f"Generated Web Portal: {OUTPUT_HTML}")
+
+    # 4. Generate standalone printable HTML resumes
+    print_html = build_standalone_print_html(data_full)
+    with open(OUTPUT_HTML_FULL, "w", encoding="utf-8") as f:
+        f.write(print_html)
+    with open(OUTPUT_HTML_FULL_RESUME, "w", encoding="utf-8") as f:
+        f.write(print_html)
+    print(f"Generated Printable Resume: {OUTPUT_HTML_FULL} & {OUTPUT_HTML_FULL_RESUME}")
+
+    # 5. Automatically compile resume_full.pdf locally via headless Edge if available
+    edge_paths = [
+        Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"),
+        Path(r"C:\Program Files\Microsoft\Edge\Application\msedge.exe"),
+    ]
+    edge_exe = next((p for p in edge_paths if p.exists()), None)
+    if edge_exe:
+        import subprocess
+        import shutil
+        pdf_target = RESUME_DIR / "resume_full.pdf"
+        try:
+            cmd = [
+                str(edge_exe),
+                "--headless=new",
+                "--disable-gpu",
+                "--no-pdf-header-footer",
+                f"--print-to-pdf={pdf_target}",
+                str(OUTPUT_HTML_FULL_RESUME),
+            ]
+            subprocess.run(cmd, check=True, timeout=15)
+            shutil.copy(pdf_target, DIST_DIR / "resume_full.pdf")
+            shutil.copy(pdf_target, ROOT_DIR / "resume_full.pdf")
+            print(f"Generated PDF (via Edge): {pdf_target}")
+        except Exception as e:
+            print(f"Note: Local PDF generation skipped ({e})")
 
 
 if __name__ == "__main__":

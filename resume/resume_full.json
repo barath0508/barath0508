@@ -1,0 +1,105 @@
+{
+  "personal": {
+    "name": "Barath R",
+    "title": "Embedded Engineer",
+    "location": "Chennai, India",
+    "phone": "+91-9442169681",
+    "email": "barath5727@gmail.com",
+    "github": "https://github.com/barath0508",
+    "github_display": "github.com/barath0508",
+    "linkedin": "https://www.linkedin.com/in/barath0508/",
+    "linkedin_display": "linkedin.com/in/barath0508",
+    "portfolio": "https://barath0508-portfolio.vercel.app",
+    "portfolio_display": "barath0508-portfolio.vercel.app"
+  },
+  "summary": "Third-year Electronics and Communication Engineering student and Embedded Engineer with hands-on proficiency across hardware design, bare-metal firmware, and software engineering. Experienced in building from silicon to software -- from register-level RISC-V assembly and custom PCB/sensor bring-up to full-stack IoT telemetry pipelines, cloud integration, and algorithmic problem solving. Seeking an Embedded Engineer role to architect high-performance, connected hardware and software systems.",
+  "education": [
+    {
+      "degree": "B.E. Electronics and Communication Engineering",
+      "institution": "Rajalakshmi Institute of Technology, Chennai",
+      "period": "2024 -- 2028 (Expected)",
+      "score": "CGPA: 8.65/10",
+      "notes": "Currently in 3rd year"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Hardware & Embedded Systems",
+      "items": "ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Bare-Metal MMIO, KiCad, Proteus, CST, ADS"
+    },
+    {
+      "category": "Hardware Protocols & Interfacing",
+      "items": "I2C, SPI, UART, MQTT, LoRaWAN, GPIO, PWM, ADC, MMIO, WebSockets, HTTP/REST"
+    },
+    {
+      "category": "Programming Languages",
+      "items": "C, C++, Python, JavaScript (ES6+), TypeScript, Java, SQL, RISC-V Assembly"
+    },
+    {
+      "category": "Software & Web Development",
+      "items": "React.js, Next.js, Node.js, Express.js, FastAPI, Flask, HTML5, CSS3, Tailwind CSS, REST APIs"
+    },
+    {
+      "category": "Cloud & Databases",
+      "items": "Firebase, HiveMQ, ThingSpeak, AWS IoT Core, Google Cloud Platform, MongoDB, PostgreSQL, MySQL, SQLite"
+    },
+    {
+      "category": "Engineering Tools & DevOps",
+      "items": "Git, GitHub Actions, Docker, Linux/Bash, ESP-IDF (v6), VS Code, PlatformIO, MATLAB, Scilab, ADB"
+    },
+    {
+      "category": "Core CS & Problem Solving",
+      "items": "Data Structures & Algorithms (LeetCode streak), OOP, Concurrency, RTOS Architecture"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Bare-Metal RISC-V Trap Handler & Context Switcher",
+      "platform": "ESP32-C6",
+      "tech_stack": "RISC-V Assembly, C, Direct MMIO, Hardware Timers, Interrupt Controller",
+      "bullets": [
+        "Designed and implemented a bare-metal trap handler and timer-based preemptive context switcher in assembly with no RTOS or vendor libraries",
+        "Configured memory-mapped I/O (MMIO) registers for hardware interrupt handling, stack frame preservation, and register-level task scheduling"
+      ]
+    },
+    {
+      "title": "Digital Twin for Industrial Monitoring",
+      "platform": "5G-Integrated IoT System",
+      "tech_stack": "ESP32 / Edge Node, Multi-Sensor Fusion, 5G Telemetry, Python, Real-Time Web Dashboard",
+      "bullets": [
+        "Architected an industrial digital twin connecting multi-sensor edge nodes with 5G connectivity for real-time equipment telemetry and predictive maintenance",
+        "Developed cloud data ingestion pipelines and responsive dashboard visualization, bridging sensor-level data acquisition to software analytics"
+      ]
+    },
+    {
+      "title": "Dual-Axis Solar Tracker",
+      "platform": "Embedded Control System",
+      "tech_stack": "Microcontroller, Servo Motors, LDR Sensor Array, Closed-Loop Control, C/C++",
+      "bullets": [
+        "Constructed a dual-axis solar tracker optimizing photovoltaic panel orientation using an analog LDR sensor bridge and closed-loop feedback",
+        "Programmed precision motor control algorithms in C/C++ for continuous azimuth and elevation tracking under dynamic ambient light conditions"
+      ]
+    },
+    {
+      "title": "Conformal Helmet-Integrated Antenna Array",
+      "platform": "RF & Antenna Hardware",
+      "tech_stack": "Microstrip Patch Array, Dual-Band UHF/L-Band, CST Microwave Studio, ADS, RF Shielding",
+      "bullets": [
+        "Engineered a flexible microstrip patch antenna array conformal to curved helmet geometry, replacing bulky whip antennas for tactical gear",
+        "Modeled dual-band UHF/L-band radiation patterns in CST/ADS and integrated an RF shielding layer with ruggedized coax interfacing"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "bullets": [
+        "Conceptualized, engineered, and deployed embedded and IoT solutions end-to-end, from hardware bring-up and firmware to full-stack dashboards and cloud endpoints",
+        "Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and workshops across software and hardware tracks"
+      ]
+    }
+  ],
+  "languages": [
+    "English (Fluent)",
+    "Tamil (Native)"
+  ]
+}

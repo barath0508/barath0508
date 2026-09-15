@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barath R - Embedded Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 12mm 14mm 12mm 14mm;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 9.6pt;
+            line-height: 1.38;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .print-btn-bar {
+            background: #0f172a;
+            color: #ffffff;
+            padding: 10px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .print-btn {
+            background: #00d4ff;
+            color: #000000;
+            border: none;
+            padding: 6px 14px;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .page-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 24px 28px;
+            background: #ffffff;
+        }
+
+        header.header {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        h1.name {
+            font-size: 20pt;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #111827;
+            margin-bottom: 2px;
+        }
+
+        .title {
+            font-size: 10.5pt;
+            font-weight: 600;
+            color: #0369a1;
+            margin-bottom: 4px;
+        }
+
+        .contact-line {
+            font-size: 8.8pt;
+            color: #4b5563;
+        }
+
+        .contact-line a {
+            color: #111827;
+            text-decoration: none;
+        }
+
+        .contact-line a:hover {
+            text-decoration: underline;
+        }
+
+        .sec-title {
+            font-size: 10pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #111827;
+            border-bottom: 1.2px solid #111827;
+            padding-bottom: 2px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .summary-p {
+            text-align: justify;
+            color: #27272a;
+            margin-bottom: 4px;
+            font-size: 9.3pt;
+        }
+
+        .edu-item, .proj-item {
+            margin-bottom: 6px;
+        }
+
+        .edu-head, .proj-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .edu-deg, .proj-title {
+            font-weight: 700;
+            color: #09090b;
+        }
+
+        .edu-period, .proj-plat {
+            font-style: italic;
+            color: #4b5563;
+            font-size: 9pt;
+        }
+
+        .edu-sub {
+            display: flex;
+            justify-content: space-between;
+            font-size: 9pt;
+            color: #374151;
+        }
+
+        .edu-score {
+            font-weight: 600;
+        }
+
+        .edu-notes {
+            font-size: 8.5pt;
+            font-style: italic;
+            color: #6b7280;
+        }
+
+        .skill-line {
+            margin-bottom: 3px;
+            font-size: 9.2pt;
+        }
+
+        .skill-name {
+            font-weight: 700;
+            color: #18181b;
+        }
+
+        .skill-val {
+            color: #374151;
+        }
+
+        .proj-stack {
+            font-size: 8.8pt;
+            font-style: italic;
+            color: #0284c7;
+            margin-bottom: 2px;
+        }
+
+        ul.proj-bullets, ul.exp-bullets {
+            list-style: disc outside;
+            margin-left: 18px;
+            color: #27272a;
+        }
+
+        ul.proj-bullets li, ul.exp-bullets li {
+            margin-bottom: 1.5px;
+            font-size: 9.2pt;
+        }
+
+        .languages-line {
+            font-size: 9.2pt;
+            color: #27272a;
+        }
+
+        @media print {
+            .print-btn-bar {
+                display: none !important;
+            }
+            .page-wrap {
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+            }
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-btn-bar">
+        <span>Barath R - Embedded Engineer Resume (Printable Preview)</span>
+        <button class="print-btn" onclick="window.print()">Print / Save as PDF (Ctrl+P)</button>
+    </div>
+
+    <div class="page-wrap">
+        <header class="header">
+            <h1 class="name">Barath R</h1>
+            <div class="title">Embedded Engineer</div>
+            <div class="contact-line">
+                Chennai, India &nbsp;|&nbsp; +91-9442169681 &nbsp;|&nbsp; <a href="mailto:barath5727@gmail.com">barath5727@gmail.com</a>
+            </div>
+            <div class="contact-line">
+                <a href="https://github.com/barath0508">github.com/barath0508</a> &nbsp;|&nbsp;
+                <a href="https://www.linkedin.com/in/barath0508/">linkedin.com/in/barath0508</a> &nbsp;|&nbsp;
+                <a href="https://barath0508-portfolio.vercel.app" target="_blank">barath0508-portfolio.vercel.app</a>
+            </div>
+        </header>
+
+        <div class="sec-title">Professional Summary</div>
+        <p class="summary-p">Third-year Electronics and Communication Engineering student and Embedded Engineer with hands-on proficiency across hardware design, bare-metal firmware, and software engineering. Experienced in building from silicon to software -- from register-level RISC-V assembly and custom PCB/sensor bring-up to full-stack IoT telemetry pipelines, cloud integration, and algorithmic problem solving. Seeking an Embedded Engineer role to architect high-performance, connected hardware and software systems.</p>
+
+        <div class="sec-title">Education</div>
+        
+        <div class="edu-item">
+            <div class="edu-head">
+                <span class="edu-deg">B.E. Electronics and Communication Engineering</span>
+                <span class="edu-period">2024 -- 2028 (Expected)</span>
+            </div>
+            <div class="edu-sub">
+                <span>Rajalakshmi Institute of Technology, Chennai</span>
+                <span class="edu-score">CGPA: 8.65/10</span>
+            </div>
+            <div class="edu-notes">Currently in 3rd year</div>
+        </div>
+        
+
+        <div class="sec-title">Technical Skills</div>
+        
+        <div class="skill-line">
+            <span class="skill-name">Hardware & Embedded Systems:</span>
+            <span class="skill-val">ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Bare-Metal MMIO, KiCad, Proteus, CST, ADS</span>
+        </div>
+        
+        <div class="skill-line">
+            <span class="skill-name">Hardware Protocols & Interfacing:</span>
+            <span class="skill-val">I2C, SPI, UART, MQTT, LoRaWAN, GPIO, PWM, ADC, MMIO, WebSockets, HTTP/REST</span>
+        </div>
+        
+        <div class="skill-line">
+            <span class="skill-name">Programming Languages:</span>
+            <span class="skill-val">C, C++, Python, JavaScript (ES6+), TypeScript, Java, SQL, RISC-V Assembly</span>
+        </div>
+        
+        <div class="skill-line">
+            <span class="skill-name">Software & Web Development:</span>
+            <span class="skill-val">React.js, Next.js, Node.js, Express.js, FastAPI, Flask, HTML5, CSS3, Tailwind CSS, REST APIs</span>
+        </div>
+        
+        <div class="skill-line">
+            <span class="skill-name">Cloud & Databases:</span>
+            <span class="skill-val">Firebase, HiveMQ, ThingSpeak, AWS IoT Core, Google Cloud Platform, MongoDB, PostgreSQL, MySQL, SQLite</span>
+        </div>
+        
+        <div class="skill-line">
+            <span class="skill-name">Engineering Tools & DevOps:</span>
+            <span class="skill-val">Git, GitHub Actions, Docker, Linux/Bash, ESP-IDF (v6), VS Code, PlatformIO, MATLAB, Scilab, ADB</span>
+        </div>
+        
+        <div class="skill-line">
+            <span class="skill-name">Core CS & Problem Solving:</span>
+            <span class="skill-val">Data Structures & Algorithms (LeetCode streak), OOP, Concurrency, RTOS Architecture</span>
+        </div>
+        
+
+        <div class="sec-title">Featured Projects</div>
+        
+        <div class="proj-item">
+            <div class="proj-head">
+                <span class="proj-title">Bare-Metal RISC-V Trap Handler & Context Switcher</span>
+                <span class="proj-plat">ESP32-C6</span>
+            </div>
+            <div class="proj-stack">Tech Stack: RISC-V Assembly, C, Direct MMIO, Hardware Timers, Interrupt Controller</div>
+            <ul class="proj-bullets">
+                <li>Designed and implemented a bare-metal trap handler and timer-based preemptive context switcher in assembly with no RTOS or vendor libraries</li><li>Configured memory-mapped I/O (MMIO) registers for hardware interrupt handling, stack frame preservation, and register-level task scheduling</li>
+            </ul>
+        </div>
+        
+        <div class="proj-item">
+            <div class="proj-head">
+                <span class="proj-title">Digital Twin for Industrial Monitoring</span>
+                <span class="proj-plat">5G-Integrated IoT System</span>
+            </div>
+            <div class="proj-stack">Tech Stack: ESP32 / Edge Node, Multi-Sensor Fusion, 5G Telemetry, Python, Real-Time Web Dashboard</div>
+            <ul class="proj-bullets">
+                <li>Architected an industrial digital twin connecting multi-sensor edge nodes with 5G connectivity for real-time equipment telemetry and predictive maintenance</li><li>Developed cloud data ingestion pipelines and responsive dashboard visualization, bridging sensor-level data acquisition to software analytics</li>
+            </ul>
+        </div>
+        
+        <div class="proj-item">
+            <div class="proj-head">
+                <span class="proj-title">Dual-Axis Solar Tracker</span>
+                <span class="proj-plat">Embedded Control System</span>
+            </div>
+            <div class="proj-stack">Tech Stack: Microcontroller, Servo Motors, LDR Sensor Array, Closed-Loop Control, C/C++</div>
+            <ul class="proj-bullets">
+                <li>Constructed a dual-axis solar tracker optimizing photovoltaic panel orientation using an analog LDR sensor bridge and closed-loop feedback</li><li>Programmed precision motor control algorithms in C/C++ for continuous azimuth and elevation tracking under dynamic ambient light conditions</li>
+            </ul>
+        </div>
+        
+        <div class="proj-item">
+            <div class="proj-head">
+                <span class="proj-title">Conformal Helmet-Integrated Antenna Array</span>
+                <span class="proj-plat">RF & Antenna Hardware</span>
+            </div>
+            <div class="proj-stack">Tech Stack: Microstrip Patch Array, Dual-Band UHF/L-Band, CST Microwave Studio, ADS, RF Shielding</div>
+            <ul class="proj-bullets">
+                <li>Engineered a flexible microstrip patch antenna array conformal to curved helmet geometry, replacing bulky whip antennas for tactical gear</li><li>Modeled dual-band UHF/L-band radiation patterns in CST/ADS and integrated an RF shielding layer with ruggedized coax interfacing</li>
+            </ul>
+        </div>
+        
+
+        <div class="sec-title">Technical Experience</div>
+        <ul class="exp-bullets">
+            <li>Conceptualized, engineered, and deployed embedded and IoT solutions end-to-end, from hardware bring-up and firmware to full-stack dashboards and cloud endpoints</li><li>Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and workshops across software and hardware tracks</li>
+        </ul>
+
+        <div class="sec-title">Languages</div>
+        <div class="languages-line">English (Fluent) &nbsp;&bull;&nbsp; Tamil (Native)</div>
+    </div>
+</body>
+</html>
