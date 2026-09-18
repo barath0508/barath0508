@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barath R - Embedded Engineer</title>
+    <title>Barath R - Electronics & Communication Engineering Student | Embedded Systems & IoT</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -207,7 +207,7 @@
     <div class="page-wrap">
         <header class="header">
             <h1 class="name">Barath R</h1>
-            <div class="title">Embedded Engineer</div>
+            <div class="title">Electronics & Communication Engineering Student | Embedded Systems & IoT</div>
             <div class="contact-line">
                 Chennai, India &nbsp;|&nbsp; +91-9442169681 &nbsp;|&nbsp; <a href="mailto:barath5727@gmail.com">barath5727@gmail.com</a>
             </div>
@@ -219,7 +219,7 @@
         </header>
 
         <div class="sec-title">Professional Summary</div>
-        <p class="summary-p">Third-year Electronics and Communication Engineering student and Embedded Engineer with hands-on proficiency across hardware design, bare-metal firmware, and software engineering. Experienced in building from silicon to software -- from register-level RISC-V assembly and custom PCB/sensor bring-up to full-stack IoT telemetry pipelines, cloud integration, and algorithmic problem solving. Seeking an Embedded Engineer role to architect high-performance, connected hardware and software systems.</p>
+        <p class="summary-p">Third-year Electronics and Communication Engineering student with hands-on experience across embedded firmware, bare-metal systems programming, and IoT hardware design. Comfortable working close to the metal -- from register-level RISC-V trap handlers to production-style sensor and communication pipelines -- and building the cloud/dashboard layers that sit on top of them. Seeking an embedded systems internship/role to contribute to real-time and connected hardware products.</p>
 
         <div class="sec-title">Education</div>
         
@@ -239,43 +239,38 @@
         <div class="sec-title">Technical Skills</div>
         
         <div class="skill-line">
-            <span class="skill-name">Hardware & Embedded Systems:</span>
-            <span class="skill-val">ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Bare-Metal MMIO, CST Studio, Keysight ADS</span>
+            <span class="skill-name">Hardware & Development Boards:</span>
+            <span class="skill-val">ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 Development Kit</span>
         </div>
         
         <div class="skill-line">
             <span class="skill-name">PCB Design & EDA Tools:</span>
-            <span class="skill-val">PCB/PCD Design, KiCad, Proteus, EasyEDA, Schematic Capture, Multi-Layer PCB Layout, Routing, DRC/ERC, Gerber & BOM Generation, Component Footprints, SMD/THT Soldering, Hardware Bring-up</span>
+            <span class="skill-val">PCB/PCD Design, KiCad, Proteus, Schematic Capture, 2/4-Layer PCB Layout, Routing, DRC/ERC, Gerber & BOM Generation, Soldering & Board Bring-up</span>
         </div>
         
         <div class="skill-line">
-            <span class="skill-name">Hardware Protocols & Interfacing:</span>
-            <span class="skill-val">I2C, SPI, UART, MQTT, LoRaWAN, GPIO, PWM, ADC, MMIO, WebSockets, HTTP/REST</span>
+            <span class="skill-name">Communication Protocols:</span>
+            <span class="skill-val">MQTT, LoRaWAN, I2C, SPI, UART, HTTP/REST, WebSockets</span>
         </div>
         
         <div class="skill-line">
             <span class="skill-name">Programming Languages:</span>
-            <span class="skill-val">C, C++, Python, JavaScript (ES6+), TypeScript, Java, SQL, RISC-V Assembly</span>
+            <span class="skill-val">C, Python, C++, Java, SQL</span>
         </div>
         
         <div class="skill-line">
-            <span class="skill-name">Software & Web Development:</span>
-            <span class="skill-val">React.js, Next.js, Node.js, Express.js, FastAPI, Flask, HTML5, CSS3, Tailwind CSS, REST APIs</span>
+            <span class="skill-name">Cloud & Dashboards:</span>
+            <span class="skill-val">HiveMQ, ThingSpeak, Firebase, BlynkIoT, Google Cloud</span>
         </div>
         
         <div class="skill-line">
-            <span class="skill-name">Cloud & Databases:</span>
-            <span class="skill-val">Firebase, HiveMQ, ThingSpeak, AWS IoT Core, Google Cloud Platform, MongoDB, PostgreSQL, MySQL, SQLite</span>
+            <span class="skill-name">Tools:</span>
+            <span class="skill-val">Git, VS Code, PlatformIO, ESP-IDF (v6), Arduino IDE, MATLAB, Scilab, CST Studio, Keysight ADS</span>
         </div>
         
         <div class="skill-line">
-            <span class="skill-name">Engineering Tools & DevOps:</span>
-            <span class="skill-val">Git, GitHub Actions, Docker, Linux/Bash, ESP-IDF (v6), VS Code, PlatformIO, MATLAB, Scilab, ADB</span>
-        </div>
-        
-        <div class="skill-line">
-            <span class="skill-name">Core CS & Problem Solving:</span>
-            <span class="skill-val">Data Structures & Algorithms (LeetCode streak), OOP, Concurrency, RTOS Architecture</span>
+            <span class="skill-name">Android/OS:</span>
+            <span class="skill-val">ADB, custom OS/ROM flashing</span>
         </div>
         
 
@@ -286,9 +281,20 @@
                 <span class="proj-title">Bare-Metal RISC-V Trap Handler & Context Switcher</span>
                 <span class="proj-plat">ESP32-C6</span>
             </div>
-            <div class="proj-stack">Tech Stack: RISC-V Assembly, C, Direct MMIO, Hardware Timers, Interrupt Controller</div>
+            <div class="proj-stack">Tech Stack: RISC-V Assembly, direct MMIO, no RTOS</div>
             <ul class="proj-bullets">
-                <li>Designed and implemented a bare-metal trap handler and timer-based preemptive context switcher in assembly with no RTOS or vendor libraries</li><li>Configured memory-mapped I/O (MMIO) registers for hardware interrupt handling, stack frame preservation, and register-level task scheduling</li>
+                <li>Implemented a trap handler and timer-based context switcher entirely in assembly with no FreeRTOS or vendor libraries</li><li>Worked directly with memory-mapped I/O registers for interrupt handling and task switching</li>
+            </ul>
+        </div>
+        
+        <div class="proj-item">
+            <div class="proj-head">
+                <span class="proj-title">Dual-Axis Solar Tracker</span>
+                <span class="proj-plat">Embedded System</span>
+            </div>
+            <div class="proj-stack">Tech Stack: Servo Motors, LDR Sensors, Microcontroller Control</div>
+            <ul class="proj-bullets">
+                <li>Built a dual-axis solar panel tracking system to maximize sunlight incidence using closed-loop sensor feedback</li><li>Implemented motor control logic for continuous azimuth and elevation tracking</li>
             </ul>
         </div>
         
@@ -297,38 +303,27 @@
                 <span class="proj-title">Digital Twin for Industrial Monitoring</span>
                 <span class="proj-plat">5G-Integrated IoT System</span>
             </div>
-            <div class="proj-stack">Tech Stack: ESP32 / Edge Node, Multi-Sensor Fusion, 5G Telemetry, Python, Real-Time Web Dashboard</div>
+            <div class="proj-stack">Tech Stack: Sensor Fusion, 5G Connectivity, Real-Time Dashboard</div>
             <ul class="proj-bullets">
-                <li>Architected an industrial digital twin connecting multi-sensor edge nodes with 5G connectivity for real-time equipment telemetry and predictive maintenance</li><li>Developed cloud data ingestion pipelines and responsive dashboard visualization, bridging sensor-level data acquisition to software analytics</li>
-            </ul>
-        </div>
-        
-        <div class="proj-item">
-            <div class="proj-head">
-                <span class="proj-title">Dual-Axis Solar Tracker</span>
-                <span class="proj-plat">Embedded Control System</span>
-            </div>
-            <div class="proj-stack">Tech Stack: Custom PCB Prototyping, Microcontroller, Servo Motors, LDR Sensor Array, Closed-Loop Control, C/C++</div>
-            <ul class="proj-bullets">
-                <li>Constructed a dual-axis solar tracker optimizing photovoltaic panel orientation using an analog LDR sensor bridge and closed-loop feedback</li><li>Designed custom sensor interfacing and motor driver circuitry with voltage regulation; programmed precision tracking algorithms in C/C++</li>
+                <li>Developing a digital twin platform for industrial equipment monitoring with 5G-integrated data pipelines</li><li>Designing real-time sensor fusion and visualization for predictive maintenance use cases</li>
             </ul>
         </div>
         
         <div class="proj-item">
             <div class="proj-head">
                 <span class="proj-title">Conformal Helmet-Integrated Antenna Array</span>
-                <span class="proj-plat">RF & Antenna Hardware</span>
+                <span class="proj-plat">RF / Antenna Design</span>
             </div>
-            <div class="proj-stack">Tech Stack: Microstrip Patch Array, Dual-Band UHF/L-Band, Flexible PCB Substrate, CST Microwave Studio, ADS, RF Shielding</div>
+            <div class="proj-stack">Tech Stack: Microstrip Patch Array, Dual-Band UHF/L-Band</div>
             <ul class="proj-bullets">
-                <li>Engineered a flexible microstrip patch antenna array conformal to curved helmet geometry, replacing bulky whip antennas for tactical gear</li><li>Modeled dual-band UHF/L-band radiation patterns in CST/ADS and integrated an RF shielding layer with ruggedized coax interfacing</li>
+                <li>Designing a flexible microstrip patch antenna array conformal to a helmet surface, replacing bulky whip antennas</li><li>Targeting dual-band UHF and L-band support with an RF shielding layer and ruggedized coax interface to existing radio/camera systems</li>
             </ul>
         </div>
         
 
         <div class="sec-title">Technical Experience</div>
         <ul class="exp-bullets">
-            <li>Conceptualized, engineered, and deployed embedded and IoT solutions end-to-end, from custom PCB design (schematic to fabrication) and board bring-up to bare-metal firmware and full-stack dashboards</li><li>Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and workshops across software and hardware tracks</li>
+            <li>Conceptualized, developed, and iterated on multiple embedded and IoT systems end-to-end, from hardware bring-up to firmware and dashboards</li><li>Active organizer with IETE Students' Forum (ISF), coordinating technical hackathons and events</li>
         </ul>
 
         <div class="sec-title">Languages</div>

@@ -24,12 +24,16 @@
   ],
   "skills": [
     {
-      "category": "Hardware Interactions",
+      "category": "Hardware & Development Boards",
       "items": "ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 Development Kit"
     },
     {
+      "category": "PCB Design & EDA Tools",
+      "items": "PCB/PCD Design, KiCad, Proteus, Schematic Capture, 2/4-Layer PCB Layout, Routing, DRC/ERC, Gerber & BOM Generation, Soldering & Board Bring-up"
+    },
+    {
       "category": "Communication Protocols",
-      "items": "MQTT, LoRaWAN, I2C, UART, HTTP/REST, WebSockets"
+      "items": "MQTT, LoRaWAN, I2C, SPI, UART, HTTP/REST, WebSockets"
     },
     {
       "category": "Programming Languages",
@@ -41,7 +45,7 @@
     },
     {
       "category": "Tools",
-      "items": "Git, VS Code, Scilab, MATLAB, Power BI, Arduino IDE, ESP-IDF (v6), CST, ADS"
+      "items": "Git, VS Code, PlatformIO, ESP-IDF (v6), Arduino IDE, MATLAB, Scilab, CST Studio, Keysight ADS"
     },
     {
       "category": "Android/OS",

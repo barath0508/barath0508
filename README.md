@@ -60,7 +60,7 @@ class BarathR:
     reg_no     = "2117240040013"
     
     languages  = ["C", "C++", "Python", "JavaScript"]
-    hardware   = ["ESP32-C6", "Arduino", "Sensors", "OLED/I2C"]
+    hardware   = ["PCB Design", "ESP32-C6", "Arduino", "Sensors", "OLED/I2C"]
     protocols  = ["UART", "I2C", "SPI", "MQTT", "HTTP/REST"]
     
     interests  = [
@@ -145,6 +145,7 @@ Internships, freelance<br/>& collabs worldwide
   <img src="https://skillicons.dev/icons?i=arduino&theme=dark" />
   <img src="https://img.shields.io/badge/ESP32-000000?style=for-the-badge&logo=espressif&logoColor=E7352C"/>
   <img src="https://img.shields.io/badge/ESP32--C6-FF6B35?style=for-the-badge&logo=espressif&logoColor=white"/>
+  <img src="https://img.shields.io/badge/PCB%20Design-00D4FF?style=for-the-badge&logoColor=black"/>
   <img src="https://img.shields.io/badge/KiCad-314CB0?style=for-the-badge&logo=kicad&logoColor=white"/>
   <img src="https://img.shields.io/badge/Proteus-FF6600?style=for-the-badge&logo=autodesk&logoColor=white"/>
   <img src="https://img.shields.io/badge/Scilab-CC0000?style=for-the-badge&logoColor=white"/>

@@ -25,7 +25,11 @@
   "skills": [
     {
       "category": "Hardware & Embedded Systems",
-      "items": "ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Bare-Metal MMIO, KiCad, Proteus, CST, ADS"
+      "items": "ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Bare-Metal MMIO, CST Studio, Keysight ADS"
+    },
+    {
+      "category": "PCB Design & EDA Tools",
+      "items": "PCB/PCD Design, KiCad, Proteus, EasyEDA, Schematic Capture, Multi-Layer PCB Layout, Routing, DRC/ERC, Gerber & BOM Generation, Component Footprints, SMD/THT Soldering, Hardware Bring-up"
     },
     {
       "category": "Hardware Protocols & Interfacing",
@@ -74,16 +78,16 @@
     {
       "title": "Dual-Axis Solar Tracker",
       "platform": "Embedded Control System",
-      "tech_stack": "Microcontroller, Servo Motors, LDR Sensor Array, Closed-Loop Control, C/C++",
+      "tech_stack": "Custom PCB Prototyping, Microcontroller, Servo Motors, LDR Sensor Array, Closed-Loop Control, C/C++",
       "bullets": [
         "Constructed a dual-axis solar tracker optimizing photovoltaic panel orientation using an analog LDR sensor bridge and closed-loop feedback",
-        "Programmed precision motor control algorithms in C/C++ for continuous azimuth and elevation tracking under dynamic ambient light conditions"
+        "Designed custom sensor interfacing and motor driver circuitry with voltage regulation; programmed precision tracking algorithms in C/C++"
       ]
     },
     {
       "title": "Conformal Helmet-Integrated Antenna Array",
       "platform": "RF & Antenna Hardware",
-      "tech_stack": "Microstrip Patch Array, Dual-Band UHF/L-Band, CST Microwave Studio, ADS, RF Shielding",
+      "tech_stack": "Microstrip Patch Array, Dual-Band UHF/L-Band, Flexible PCB Substrate, CST Microwave Studio, ADS, RF Shielding",
       "bullets": [
         "Engineered a flexible microstrip patch antenna array conformal to curved helmet geometry, replacing bulky whip antennas for tactical gear",
         "Modeled dual-band UHF/L-band radiation patterns in CST/ADS and integrated an RF shielding layer with ruggedized coax interfacing"
@@ -93,7 +97,7 @@
   "experience": [
     {
       "bullets": [
-        "Conceptualized, engineered, and deployed embedded and IoT solutions end-to-end, from hardware bring-up and firmware to full-stack dashboards and cloud endpoints",
+        "Conceptualized, engineered, and deployed embedded and IoT solutions end-to-end, from custom PCB design (schematic to fabrication) and board bring-up to bare-metal firmware and full-stack dashboards",
         "Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and workshops across software and hardware tracks"
       ]
     }

@@ -26,6 +26,8 @@ OUTPUT_TEX_FULL = RESUME_DIR / "resume_full.tex"
 OUTPUT_HTML = DIST_DIR / "index.html"
 OUTPUT_HTML_FULL = DIST_DIR / "resume_full.html"
 OUTPUT_HTML_FULL_RESUME = RESUME_DIR / "resume_full.html"
+OUTPUT_HTML_DEFAULT = DIST_DIR / "resume.html"
+OUTPUT_HTML_DEFAULT_RESUME = RESUME_DIR / "resume.html"
 
 
 def escape_latex(text: str) -> str:
@@ -58,12 +60,12 @@ def build_latex(data: dict, compact: bool = False) -> str:
     experience = data.get("experience", [])
     languages = data.get("languages", [])
 
-    margin = "0.50in" if compact else "0.65in"
-    sec_top_space = "7pt" if compact else "10pt"
-    sec_bot_space = "3.5pt" if compact else "6pt"
-    item_sep = "0.5pt" if compact else "1pt"
-    top_sep = "1.5pt" if compact else "2pt"
-    proj_vspace = "2pt" if compact else "4pt"
+    margin = "0.48in" if compact else "0.55in"
+    sec_top_space = "6pt" if compact else "8pt"
+    sec_bot_space = "3pt" if compact else "4pt"
+    item_sep = "0.5pt" if compact else "0.8pt"
+    top_sep = "1.2pt" if compact else "1.8pt"
+    proj_vspace = "2pt" if compact else "3pt"
 
     contact_row_2 = f"\\href{{{personal['github']}}}{{{personal['github_display']}}} $\\vert$ \\href{{{personal['linkedin']}}}{{{personal['linkedin_display']}}}"
     if personal.get("portfolio"):
@@ -790,7 +792,7 @@ def build_portal_html(data_default: dict, data_full: dict) -> str:
                 <a href="resume_full.pdf" target="_blank" class="btn btn-secondary" id="btn-open-tab">
                     Open PDF Tab
                 </a>
-                <a href="resume_full.html" target="_blank" class="btn btn-secondary" title="View print-ready HTML resume">
+                <a href="resume_full.html" target="_blank" class="btn btn-secondary" id="btn-printable" title="View print-ready HTML resume">
                     Printable HTML
                 </a>
                 <a href="{personal['github']}" target="_blank" class="btn btn-secondary">
@@ -854,11 +856,13 @@ def build_portal_html(data_default: dict, data_full: dict) -> str:
         const pdfMap = {{
             'full': {{
                 'file': 'resume_full.pdf',
+                'html': 'resume_full.html',
                 'download': 'Barath_R_Resume_Full.pdf',
                 'label': 'Download Full PDF'
             }},
             'default': {{
                 'file': 'resume.pdf',
+                'html': 'resume.html',
                 'download': 'Barath_R_Resume_Embedded_IoT.pdf',
                 'label': 'Download Embedded PDF'
             }}
@@ -897,6 +901,9 @@ def build_portal_html(data_default: dict, data_full: dict) -> str:
 
             const btnOpen = document.getElementById('btn-open-tab');
             if (btnOpen) btnOpen.href = info.file;
+
+            const btnPrint = document.getElementById('btn-printable');
+            if (btnPrint) btnPrint.href = info.html;
         }}
 
         function switchProfile(profile) {{
@@ -1268,38 +1275,55 @@ def main():
     print(f"Generated Web Portal: {OUTPUT_HTML}")
 
     # 4. Generate standalone printable HTML resumes
-    print_html = build_standalone_print_html(data_full)
+    print_html_full = build_standalone_print_html(data_full)
     with open(OUTPUT_HTML_FULL, "w", encoding="utf-8") as f:
-        f.write(print_html)
+        f.write(print_html_full)
     with open(OUTPUT_HTML_FULL_RESUME, "w", encoding="utf-8") as f:
-        f.write(print_html)
-    print(f"Generated Printable Resume: {OUTPUT_HTML_FULL} & {OUTPUT_HTML_FULL_RESUME}")
+        f.write(print_html_full)
 
-    # 5. Automatically compile resume_full.pdf locally via headless Edge if available
-    edge_paths = [
+    print_html_default = build_standalone_print_html(data_default)
+    with open(OUTPUT_HTML_DEFAULT, "w", encoding="utf-8") as f:
+        f.write(print_html_default)
+    with open(OUTPUT_HTML_DEFAULT_RESUME, "w", encoding="utf-8") as f:
+        f.write(print_html_default)
+    print(f"Generated Printable Resumes: {OUTPUT_HTML_FULL} & {OUTPUT_HTML_DEFAULT}")
+
+    # 5. Automatically compile PDFs locally via headless Chrome / Edge if available
+    browser_paths = [
+        Path(r"C:\Program Files\Google\Chrome\Application\chrome.exe"),
+        Path(r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"),
         Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"),
         Path(r"C:\Program Files\Microsoft\Edge\Application\msedge.exe"),
     ]
-    edge_exe = next((p for p in edge_paths if p.exists()), None)
-    if edge_exe:
+    browser_exe = next((p for p in browser_paths if p.exists()), None)
+    if browser_exe:
         import subprocess
         import shutil
-        pdf_target = RESUME_DIR / "resume_full.pdf"
-        try:
-            cmd = [
-                str(edge_exe),
-                "--headless=new",
-                "--disable-gpu",
-                "--no-pdf-header-footer",
-                f"--print-to-pdf={pdf_target}",
-                str(OUTPUT_HTML_FULL_RESUME),
-            ]
-            subprocess.run(cmd, check=True, timeout=15)
-            shutil.copy(pdf_target, DIST_DIR / "resume_full.pdf")
-            shutil.copy(pdf_target, ROOT_DIR / "resume_full.pdf")
-            print(f"Generated PDF (via Edge): {pdf_target}")
-        except Exception as e:
-            print(f"Note: Local PDF generation skipped ({e})")
+        import tempfile
+        pdf_targets = [
+            (OUTPUT_HTML_FULL_RESUME, RESUME_DIR / "resume_full.pdf"),
+            (OUTPUT_HTML_DEFAULT_RESUME, RESUME_DIR / "resume.pdf"),
+        ]
+        for src_html, target_pdf in pdf_targets:
+            temp_profile = tempfile.mkdtemp(prefix="browser_pdf_")
+            try:
+                cmd = [
+                    str(browser_exe),
+                    "--headless",
+                    "--disable-gpu",
+                    "--no-pdf-header-footer",
+                    f"--user-data-dir={temp_profile}",
+                    f"--print-to-pdf={target_pdf}",
+                    str(src_html),
+                ]
+                subprocess.run(cmd, check=True, timeout=15)
+                shutil.copy(target_pdf, DIST_DIR / target_pdf.name)
+                shutil.copy(target_pdf, ROOT_DIR / target_pdf.name)
+                print(f"Generated PDF (via {browser_exe.name}): {target_pdf}")
+            except Exception as e:
+                print(f"Note: Local PDF generation for {target_pdf.name} skipped ({e})")
+            finally:
+                shutil.rmtree(temp_profile, ignore_errors=True)
 
 
 if __name__ == "__main__":

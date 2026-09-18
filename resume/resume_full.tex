@@ -1,6 +1,6 @@
 \documentclass[a4paper,10.5pt]{article}
 
-\usepackage[margin=0.50in]{geometry}
+\usepackage[margin=0.48in]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
@@ -13,10 +13,10 @@
 \setlength{\parindent}{0pt}
 
 \titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{7pt}{3.5pt}
+\titlespacing{\section}{0pt}{6pt}{3pt}
 
 \newcommand{\resumeItem}[1]{\item #1}
-\newenvironment{resumeItemize}{\begin{itemize}[leftmargin=*, itemsep=0.5pt, topsep=1.5pt]}{\end{itemize}}
+\newenvironment{resumeItemize}{\begin{itemize}[leftmargin=*, itemsep=0.5pt, topsep=1.2pt]}{\end{itemize}}
 
 \newcommand{\resumeProject}[3]{
   \textbf{#1} \hfill \textit{#2} \\
@@ -46,7 +46,8 @@ Rajalakshmi Institute of Technology, Chennai \hfill CGPA: 8.65/10 \\
 % ---------- TECHNICAL SKILLS ----------
 \section*{Technical Skills}
 \begin{resumeItemize}
-    \resumeItem{\textbf{Hardware \& Embedded Systems:} ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Bare-Metal MMIO, KiCad, Proteus, CST, ADS}
+    \resumeItem{\textbf{Hardware \& Embedded Systems:} ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Bare-Metal MMIO, CST Studio, Keysight ADS}
+    \resumeItem{\textbf{PCB Design \& EDA Tools:} PCB/PCD Design, KiCad, Proteus, EasyEDA, Schematic Capture, Multi-Layer PCB Layout, Routing, DRC/ERC, Gerber \& BOM Generation, Component Footprints, SMD/THT Soldering, Hardware Bring-up}
     \resumeItem{\textbf{Hardware Protocols \& Interfacing:} I2C, SPI, UART, MQTT, LoRaWAN, GPIO, PWM, ADC, MMIO, WebSockets, HTTP/REST}
     \resumeItem{\textbf{Programming Languages:} C, C++, Python, JavaScript (ES6+), TypeScript, Java, SQL, RISC-V Assembly}
     \resumeItem{\textbf{Software \& Web Development:} React.js, Next.js, Node.js, Express.js, FastAPI, Flask, HTML5, CSS3, Tailwind CSS, REST APIs}
@@ -72,14 +73,14 @@ Rajalakshmi Institute of Technology, Chennai \hfill CGPA: 8.65/10 \\
 \end{resumeItemize}
 \vspace{2pt}
 
-\resumeProject{Dual-Axis Solar Tracker}{Embedded Control System}{Microcontroller, Servo Motors, LDR Sensor Array, Closed-Loop Control, C/C++}
+\resumeProject{Dual-Axis Solar Tracker}{Embedded Control System}{Custom PCB Prototyping, Microcontroller, Servo Motors, LDR Sensor Array, Closed-Loop Control, C/C++}
 \begin{resumeItemize}
     \resumeItem{Constructed a dual-axis solar tracker optimizing photovoltaic panel orientation using an analog LDR sensor bridge and closed-loop feedback}
-    \resumeItem{Programmed precision motor control algorithms in C/C++ for continuous azimuth and elevation tracking under dynamic ambient light conditions}
+    \resumeItem{Designed custom sensor interfacing and motor driver circuitry with voltage regulation; programmed precision tracking algorithms in C/C++}
 \end{resumeItemize}
 \vspace{2pt}
 
-\resumeProject{Conformal Helmet-Integrated Antenna Array}{RF \& Antenna Hardware}{Microstrip Patch Array, Dual-Band UHF/L-Band, CST Microwave Studio, ADS, RF Shielding}
+\resumeProject{Conformal Helmet-Integrated Antenna Array}{RF \& Antenna Hardware}{Microstrip Patch Array, Dual-Band UHF/L-Band, Flexible PCB Substrate, CST Microwave Studio, ADS, RF Shielding}
 \begin{resumeItemize}
     \resumeItem{Engineered a flexible microstrip patch antenna array conformal to curved helmet geometry, replacing bulky whip antennas for tactical gear}
     \resumeItem{Modeled dual-band UHF/L-band radiation patterns in CST/ADS and integrated an RF shielding layer with ruggedized coax interfacing}
@@ -88,7 +89,7 @@ Rajalakshmi Institute of Technology, Chennai \hfill CGPA: 8.65/10 \\
 
 \section*{Technical Experience}
 \begin{resumeItemize}
-    \resumeItem{Conceptualized, engineered, and deployed embedded and IoT solutions end-to-end, from hardware bring-up and firmware to full-stack dashboards and cloud endpoints}
+    \resumeItem{Conceptualized, engineered, and deployed embedded and IoT solutions end-to-end, from custom PCB design (schematic to fabrication) and board bring-up to bare-metal firmware and full-stack dashboards}
     \resumeItem{Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and workshops across software and hardware tracks}
 \end{resumeItemize}
 

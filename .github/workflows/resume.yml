@@ -62,7 +62,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add resume/resume.pdf ./resume.pdf resume/resume_full.pdf ./resume_full.pdf resume/resume.tex resume/resume_full.tex resume/resume_full.json dist/
+          git add resume/ ./resume.pdf ./resume_full.pdf dist/
           if ! git diff --cached --quiet; then
             git commit -m "Automated build: update resumes & generated files [skip ci]"
             git push origin main
