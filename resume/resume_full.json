@@ -20,6 +20,20 @@
       "period": "2024 -- 2028 (Expected)",
       "score": "CGPA: 8.65/10",
       "notes": "Currently in 3rd year"
+    },
+    {
+      "degree": "Higher Secondary Certificate (HSC) -- Class XII",
+      "institution": "Montfort Matriculation Higher Secondary School, Chennai",
+      "period": "2023 -- 2024",
+      "score": "Percentage: 95%",
+      "notes": "Tamil Nadu State Board"
+    },
+    {
+      "degree": "Secondary School Leaving Certificate (SSLC) -- Class X",
+      "institution": "Montfort Matriculation Higher Secondary School, Chennai",
+      "period": "2021 -- 2022",
+      "score": "Percentage: 94%",
+      "notes": "Tamil Nadu State Board"
     }
   ],
   "skills": [

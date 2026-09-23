@@ -60,12 +60,12 @@ def build_latex(data: dict, compact: bool = False) -> str:
     experience = data.get("experience", [])
     languages = data.get("languages", [])
 
-    margin = "0.48in" if compact else "0.55in"
-    sec_top_space = "6pt" if compact else "8pt"
-    sec_bot_space = "3pt" if compact else "4pt"
-    item_sep = "0.5pt" if compact else "0.8pt"
-    top_sep = "1.2pt" if compact else "1.8pt"
-    proj_vspace = "2pt" if compact else "3pt"
+    margin = "0.42in" if compact else "0.46in"
+    sec_top_space = "5pt" if compact else "6pt"
+    sec_bot_space = "2pt" if compact else "3pt"
+    item_sep = "0.4pt" if compact else "0.6pt"
+    top_sep = "1.0pt" if compact else "1.2pt"
+    proj_vspace = "1.5pt" if compact else "2.2pt"
 
     contact_row_2 = f"\\href{{{personal['github']}}}{{{personal['github_display']}}} $\\vert$ \\href{{{personal['linkedin']}}}{{{personal['linkedin_display']}}}"
     if personal.get("portfolio"):
@@ -115,10 +115,20 @@ def build_latex(data: dict, compact: bool = False) -> str:
         r"\section*{Education}",
     ]
 
-    for edu in education:
+    for i, edu in enumerate(education):
         lines.append(f"\\textbf{{{escape_latex(edu['degree'])}}} \\hfill {edu['period']} \\\\")
-        lines.append(f"{escape_latex(edu['institution'])} \\hfill {escape_latex(edu['score'])} \\\\")
-        lines.append(f"\\textit{{{escape_latex(edu['notes'])}}}")
+        notes = edu.get("notes", "")
+        if notes:
+            lines.append(f"{escape_latex(edu['institution'])} \\hfill {escape_latex(edu['score'])} \\\\")
+            if i < len(education) - 1:
+                lines.append(f"\\textit{{{escape_latex(notes)}}} \\\\[2pt]")
+            else:
+                lines.append(f"\\textit{{{escape_latex(notes)}}}")
+        else:
+            if i < len(education) - 1:
+                lines.append(f"{escape_latex(edu['institution'])} \\hfill {escape_latex(edu['score'])} \\\\[2pt]")
+            else:
+                lines.append(f"{escape_latex(edu['institution'])} \\hfill {escape_latex(edu['score'])}")
 
     lines.extend([
         "",
@@ -210,6 +220,7 @@ def render_resume_card_html(data: dict, variant_id: str) -> str:
 
     edu_html = ""
     for e in education:
+        notes_html = f'<p class="notes">{e["notes"]}</p>' if e.get("notes") else ""
         edu_html += f"""
         <div class="card edu-card">
             <div class="card-header">
@@ -217,7 +228,7 @@ def render_resume_card_html(data: dict, variant_id: str) -> str:
                 <span class="period-badge">{e['period']}</span>
             </div>
             <p class="institution">{e['institution']} <span class="score">&bull; {e['score']}</span></p>
-            <p class="notes">{e['notes']}</p>
+            {notes_html}
         </div>
         """
 
@@ -933,7 +944,7 @@ def build_portal_html(data_default: dict, data_full: dict) -> str:
 """
 
 
-def build_standalone_print_html(data: dict) -> str:
+def build_standalone_print_html(data: dict, compact: bool = False) -> str:
     """Generates an elegant, print-optimized A4 HTML resume with clean typography and instant Ctrl+P support."""
     personal = data["personal"]
     summary = data.get("summary", "")
@@ -942,6 +953,15 @@ def build_standalone_print_html(data: dict) -> str:
     projects = data.get("projects", [])
     experience = data.get("experience", [])
     languages = data.get("languages", [])
+
+    page_margin = "9mm 12mm 9mm 12mm" if compact else "12mm 14mm 12mm 14mm"
+    body_size = "9.1pt" if compact else "9.6pt"
+    body_lh = "1.33" if compact else "1.38"
+    header_mb = "8px" if compact else "12px"
+    sec_title_mt = "7px" if compact else "10px"
+    sec_title_mb = "3px" if compact else "5px"
+    edu_proj_mb = "3.5px" if compact else "6px"
+    bullet_mb = "1px" if compact else "1.5px"
 
     skills_rows = ""
     for s in skills:
@@ -970,6 +990,7 @@ def build_standalone_print_html(data: dict) -> str:
 
     edu_rows = ""
     for e in education:
+        notes_div = f'<div class="edu-notes">{e["notes"]}</div>' if e.get("notes") else ""
         edu_rows += f"""
         <div class="edu-item">
             <div class="edu-head">
@@ -980,7 +1001,7 @@ def build_standalone_print_html(data: dict) -> str:
                 <span>{e['institution']}</span>
                 <span class="edu-score">{e['score']}</span>
             </div>
-            <div class="edu-notes">{e['notes']}</div>
+            {notes_div}
         </div>
         """
 
@@ -1009,7 +1030,7 @@ def build_standalone_print_html(data: dict) -> str:
     <style>
         @page {{
             size: A4;
-            margin: 12mm 14mm 12mm 14mm;
+            margin: {page_margin};
         }}
 
         * {{
@@ -1020,8 +1041,8 @@ def build_standalone_print_html(data: dict) -> str:
 
         body {{
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 9.6pt;
-            line-height: 1.38;
+            font-size: {body_size};
+            line-height: {body_lh};
             color: #1a1a1a;
             background: #ffffff;
         }}
@@ -1055,7 +1076,7 @@ def build_standalone_print_html(data: dict) -> str:
 
         header.header {{
             text-align: center;
-            margin-bottom: 12px;
+            margin-bottom: {header_mb};
         }}
 
         h1.name {{
@@ -1095,8 +1116,8 @@ def build_standalone_print_html(data: dict) -> str:
             color: #111827;
             border-bottom: 1.2px solid #111827;
             padding-bottom: 2px;
-            margin-top: 10px;
-            margin-bottom: 5px;
+            margin-top: {sec_title_mt};
+            margin-bottom: {sec_title_mb};
         }}
 
         .summary-p {{
@@ -1107,7 +1128,7 @@ def build_standalone_print_html(data: dict) -> str:
         }}
 
         .edu-item, .proj-item {{
-            margin-bottom: 6px;
+            margin-bottom: {edu_proj_mb};
         }}
 
         .edu-head, .proj-head {{
@@ -1172,7 +1193,7 @@ def build_standalone_print_html(data: dict) -> str:
         }}
 
         ul.proj-bullets li, ul.exp-bullets li {{
-            margin-bottom: 1.5px;
+            margin-bottom: {bullet_mb};
             font-size: 9.2pt;
         }}
 
@@ -1281,7 +1302,7 @@ def main():
     with open(OUTPUT_HTML_FULL_RESUME, "w", encoding="utf-8") as f:
         f.write(print_html_full)
 
-    print_html_default = build_standalone_print_html(data_default)
+    print_html_default = build_standalone_print_html(data_default, compact=True)
     with open(OUTPUT_HTML_DEFAULT, "w", encoding="utf-8") as f:
         f.write(print_html_default)
     with open(OUTPUT_HTML_DEFAULT_RESUME, "w", encoding="utf-8") as f:

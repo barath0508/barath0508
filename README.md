@@ -395,8 +395,10 @@ mindmap
 
 | | |
 |---|---|
-| 🏛️ **Institution** | Rajalakshmi Institute of Technology, Chennai |
-| 📚 **Degree** | B.E — Electronics & Communication Engineering |
+| 🏛️ **College** | Rajalakshmi Institute of Technology, Chennai |
+| 📚 **Degree** | B.E — Electronics & Communication Engineering (CGPA: 8.65) |
+| 🏫 **Higher Secondary (12th)** | Montfort Matriculation Higher Secondary School — 95% |
+| 🏫 **Secondary School (10th)** | Montfort Matriculation Higher Secondary School — 94% |
 | 🆔 **Register No.** | 2117240040013 |
 | 🏢 **Club** | IETE Students' Forum (ISF) — Executive Technical |
 | 📍 **Location** | Chennai, Tamil Nadu, India |
