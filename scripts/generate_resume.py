@@ -164,13 +164,17 @@ def build_latex(data: dict, compact: bool = False) -> str:
             lines.append(f"    \\resumeItem{{{escape_latex(bullet)}}}")
     lines.extend([
         r"\end{resumeItemize}",
-        "",
-        r"% ---------- LANGUAGES ----------",
-        r"\section*{Languages}",
     ])
 
-    lang_str = " \\quad $\\vert$ \\quad ".join(escape_latex(l) for l in languages)
-    lines.append(lang_str)
+    if languages:
+        lines.extend([
+            "",
+            r"% ---------- LANGUAGES ----------",
+            r"\section*{Languages}",
+        ])
+        lang_str = " \\quad $\\vert$ \\quad ".join(escape_latex(l) for l in languages)
+        lines.append(lang_str)
+
     lines.extend([
         "",
         r"\end{document}",
@@ -245,6 +249,20 @@ def render_resume_card_html(data: dict, variant_id: str) -> str:
         else ""
     )
 
+    languages_sec = (
+        f"""
+        <!-- Languages -->
+        <section class="resume-sec">
+            <h2 class="section-heading">Languages</h2>
+            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                {lang_tags}
+            </div>
+        </section>
+        """
+        if languages
+        else ""
+    )
+
     return f"""
     <article class="resume-paper" id="resume-article-{variant_id}">
         <header class="resume-header">
@@ -293,14 +311,7 @@ def render_resume_card_html(data: dict, variant_id: str) -> str:
                 </ul>
             </div>
         </section>
-
-        <!-- Languages -->
-        <section class="resume-sec">
-            <h2 class="section-heading">Languages</h2>
-            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-                {lang_tags}
-            </div>
-        </section>
+        {languages_sec}
     </article>
     """
 
@@ -1010,7 +1021,14 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         for b in exp.get("bullets", []):
             exp_bullets += f"<li>{b}</li>"
 
-    lang_str = " &nbsp;&bull;&nbsp; ".join(languages)
+    languages_sec = (
+        f"""
+        <div class="sec-title">Languages</div>
+        <div class="languages-line">{" &nbsp;&bull;&nbsp; ".join(languages)}</div>
+        """
+        if languages
+        else ""
+    )
 
     portfolio_link = (
         f'<a href="{personal["portfolio"]}" target="_blank">{personal.get("portfolio_display", personal["portfolio"])}</a>'
@@ -1254,9 +1272,7 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         <ul class="exp-bullets">
             {exp_bullets}
         </ul>
-
-        <div class="sec-title">Languages</div>
-        <div class="languages-line">{lang_str}</div>
+        {languages_sec}
     </div>
 </body>
 </html>
