@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.1)  23 SEP 2026 12:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.1)  26 SEP 2026 10:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -230,24 +230,24 @@ LaTeX Warning: Unused global option(s):
 (./resume_full.aux)
 \openout1 = `resume_full.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -257,15 +257,15 @@ LaTeX Font Info:    ... okay on input line 26.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(30.35326pt, 536.80136pt, 30.35326pt)
-* v-part:(T,H,B)=(30.35326pt, 784.34033pt, 30.35326pt)
+* h-part:(L,W,R)=(27.46295pt, 542.58197pt, 27.46295pt)
+* v-part:(T,H,B)=(27.46295pt, 790.12094pt, 27.46295pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=536.80136pt
-* \textheight=784.34033pt
-* \oddsidemargin=-41.91673pt
-* \evensidemargin=-41.91673pt
-* \topmargin=-78.91673pt
+* \textwidth=542.58197pt
+* \textheight=790.12094pt
+* \oddsidemargin=-44.80704pt
+* \evensidemargin=-44.80704pt
+* \topmargin=-81.80704pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -283,7 +283,7 @@ LaTeX Font Info:    ... okay on input line 26.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 26.
+Package hyperref Info: Link coloring ON on input line 31.
 (./resume_full.out) (./resume_full.out)
 \@outlinefile=\write3
 \openout3 = `resume_full.out'.
@@ -304,13 +304,13 @@ Package hyperref Info: Link coloring ON on input line 26.
 \everyMPtoPDFconversion=\toks22
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 32.
+(Font)              <7> on input line 37.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 32.
+(Font)              <5> on input line 37.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 37.
+(Font)              using `OT1/cmr/bx/n' instead on input line 42.
 
 [1
 
@@ -329,20 +329,20 @@ Package rerunfilecheck Info: File `resume_full.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 9630 strings out of 467168
- 148797 string characters out of 5411585
- 600997 words of memory out of 5000000
- 38829 multiletter control sequences out of 15000+600000
+ 9631 strings out of 467168
+ 148813 string characters out of 5411585
+ 602035 words of memory out of 5000000
+ 38830 multiletter control sequences out of 15000+600000
  629921 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,5n,79p,532b,556s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,5n,79p,532b,566s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></o
 pt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></opt/te
 xlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/texlive/
 texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/texlive/texdi
 r/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></opt/texlive/texdir/tex
 mf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on resume_full.pdf (2 pages, 98219 bytes).
+Output written on resume_full.pdf (2 pages, 105096 bytes).
 PDF statistics:
  52 PDF objects out of 1000 (max. 8388607)
  35 compressed objects within 1 object stream
