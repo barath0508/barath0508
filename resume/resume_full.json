@@ -39,7 +39,7 @@
   "skills": [
     {
       "category": "Hardware & Embedded Systems",
-      "items": "ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Bare-Metal MMIO, CST Studio, Keysight ADS"
+      "items": "ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Bare-Metal MMIO, Oscilloscope, Logic Analyzer, JTAG/SWD, GDB, CST Studio, Keysight ADS"
     },
     {
       "category": "Firmware & Low-Level Development",
@@ -167,10 +167,14 @@
   ],
   "experience": [
     {
+      "role": "Executive Technical Organizer",
+      "organization": "IETE Students' Forum (ISF)",
+      "period": "2024 -- Present",
+      "location": "Chennai, India",
       "bullets": [
+        "Spearheaded technical hackathons and hands-on embedded workshops, mentoring 500+ student engineers across firmware development, microcontroller interfacing, and MCU bring-up",
         "Conceptualized, engineered, and brought up 10+ embedded and full-stack systems end-to-end, spanning custom 2/4-layer PCB layout, bare-metal firmware, and real-time cloud telemetry",
-        "Architected open-source software tools (iCreatePDF, QRLoop, FlashESP), adopting WebAssembly, TypeScript, and modern API architectures with 100% test pass rate",
-        "Executive Technical Organizer at IETE Students' Forum (ISF), spearheading technical hackathons and embedded workshops mentoring 500+ student engineers"
+        "Architected open-source software tools (iCreatePDF, QRLoop, FlashESP), adopting WebAssembly, TypeScript, and modern API architectures with 100% test pass rate"
       ]
     }
   ]

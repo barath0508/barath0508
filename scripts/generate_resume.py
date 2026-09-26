@@ -167,15 +167,23 @@ def build_latex(data: dict, compact: bool = False) -> str:
         lines.append("")
 
     lines.extend([
-        r"\section*{Technical Experience}",
-        r"\begin{resumeItemize}",
+        r"\section*{Leadership \& Experience}",
     ])
     for exp in experience:
+        if exp.get("role") and exp.get("organization"):
+            role = escape_latex(exp["role"])
+            org = escape_latex(exp["organization"])
+            period = escape_latex(exp.get("period", ""))
+            loc = escape_latex(exp.get("location", ""))
+            lines.append(f"\\textbf{{{role}}} \\hfill {period} \\\\")
+            if loc:
+                lines.append(f"{org} \\hfill \\textit{{{loc}}}")
+            else:
+                lines.append(f"{org}")
+        lines.append(r"\begin{resumeItemize}")
         for bullet in exp.get("bullets", []):
             lines.append(f"    \\resumeItem{{{escape_latex(bullet)}}}")
-    lines.extend([
-        r"\end{resumeItemize}",
-    ])
+        lines.append(r"\end{resumeItemize}")
 
     if languages:
         lines.extend([
@@ -258,10 +266,29 @@ def render_resume_card_html(data: dict, variant_id: str) -> str:
         </div>
         """
 
-    exp_bullets = ""
+    exp_html = ""
     for exp in experience:
-        for b in exp.get("bullets", []):
-            exp_bullets += f"<li>{b}</li>"
+        role_header = ""
+        if exp.get("role") and exp.get("organization"):
+            loc_str = f' &bull; {exp["location"]}' if exp.get("location") else ""
+            role_header = f"""
+            <div class="card-header" style="margin-bottom: 0.25rem;">
+                <div>
+                    <h3 class="card-title">{exp['role']}</h3>
+                    <p class="institution">{exp['organization']}{loc_str}</p>
+                </div>
+                <span class="period-badge">{exp.get('period', '')}</span>
+            </div>
+            """
+        bullets = "".join(f"<li>{b}</li>" for b in exp.get("bullets", []))
+        exp_html += f"""
+        <div class="card exp-card">
+            {role_header}
+            <ul class="bullet-list">
+                {bullets}
+            </ul>
+        </div>
+        """
 
     lang_tags = "".join(f'<span class="badge badge-accent">{lang}</span>' for lang in languages)
 
@@ -324,14 +351,10 @@ def render_resume_card_html(data: dict, variant_id: str) -> str:
             {projects_html}
         </section>
 
-        <!-- Technical Experience -->
+        <!-- Leadership & Experience -->
         <section class="resume-sec">
-            <h2 class="section-heading">Technical Experience</h2>
-            <div class="card">
-                <ul class="bullet-list">
-                    {exp_bullets}
-                </ul>
-            </div>
+            <h2 class="section-heading">Leadership & Experience</h2>
+            {exp_html}
         </section>
         {languages_sec}
     </article>
@@ -1074,10 +1097,30 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         </div>
         """
 
-    exp_bullets = ""
+    exp_rows = ""
     for exp in experience:
-        for b in exp.get("bullets", []):
-            exp_bullets += f"<li>{b}</li>"
+        role_head = ""
+        if exp.get("role") and exp.get("organization"):
+            loc_span = f'<span class="exp-loc">{exp["location"]}</span>' if exp.get("location") else ""
+            role_head = f"""
+            <div class="exp-head">
+                <span class="exp-role">{exp['role']}</span>
+                <span class="exp-period">{exp.get('period', '')}</span>
+            </div>
+            <div class="exp-sub">
+                <span>{exp['organization']}</span>
+                {loc_span}
+            </div>
+            """
+        bullets = "".join(f"<li>{b}</li>" for b in exp.get("bullets", []))
+        exp_rows += f"""
+        <div class="exp-item">
+            {role_head}
+            <ul class="exp-bullets">
+                {bullets}
+            </ul>
+        </div>
+        """
 
     languages_sec = (
         f"""
@@ -1207,25 +1250,25 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
             margin-bottom: {edu_proj_mb};
         }}
 
-        .edu-head, .proj-head {{
+        .edu-head, .proj-head, .exp-head {{
             display: flex;
             justify-content: space-between;
             align-items: baseline;
         }}
 
-        .edu-deg, .proj-title {{
+        .edu-deg, .proj-title, .exp-role {{
             font-weight: 700;
             color: #09090b;
             font-size: {bullet_size};
         }}
 
-        .edu-period, .proj-plat {{
+        .edu-period, .proj-plat, .exp-period {{
             font-style: italic;
             color: #4b5563;
             font-size: 8.5pt;
         }}
 
-        .edu-sub {{
+        .edu-sub, .exp-sub {{
             display: flex;
             justify-content: space-between;
             font-size: 8.5pt;
@@ -1293,7 +1336,7 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
             page-break-after: avoid;
         }}
 
-        .proj-item, .edu-item, .card {{
+        .proj-item, .edu-item, .exp-item, .card {{
             break-inside: avoid;
             page-break-inside: avoid;
         }}
@@ -1351,10 +1394,8 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         <div class="sec-title">Featured Projects</div>
         {projects_rows}
 
-        <div class="sec-title">Technical Experience</div>
-        <ul class="exp-bullets">
-            {exp_bullets}
-        </ul>
+        <div class="sec-title">Leadership & Experience</div>
+        {exp_rows}
         {languages_sec}
     </div>
 </body>

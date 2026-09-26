@@ -111,25 +111,25 @@
             margin-bottom: 1.2px;
         }
 
-        .edu-head, .proj-head {
+        .edu-head, .proj-head, .exp-head {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
         }
 
-        .edu-deg, .proj-title {
+        .edu-deg, .proj-title, .exp-role {
             font-weight: 700;
             color: #09090b;
             font-size: 8.1pt;
         }
 
-        .edu-period, .proj-plat {
+        .edu-period, .proj-plat, .exp-period {
             font-style: italic;
             color: #4b5563;
             font-size: 8.5pt;
         }
 
-        .edu-sub {
+        .edu-sub, .exp-sub {
             display: flex;
             justify-content: space-between;
             font-size: 8.5pt;
@@ -197,7 +197,7 @@
             page-break-after: avoid;
         }
 
-        .proj-item, .edu-item, .card {
+        .proj-item, .edu-item, .exp-item, .card {
             break-inside: avoid;
             page-break-inside: avoid;
         }
@@ -318,8 +318,8 @@
         </div>
         
         <div class="skill-line">
-            <span class="skill-name">Developer Tools & RF:</span>
-            <span class="skill-val">Git, VS Code, PlatformIO, Linux/Bash, MATLAB, Scilab, CST Microwave Studio, Keysight ADS, ADB</span>
+            <span class="skill-name">Developer Tools & Lab Equipment:</span>
+            <span class="skill-val">Git, VS Code, PlatformIO, Linux/Bash, GDB, Oscilloscope, Logic Analyzer, Multimeter, JTAG/SWD, CST Microwave Studio, Keysight ADS</span>
         </div>
         
 
@@ -381,10 +381,24 @@
         </div>
         
 
-        <div class="sec-title">Technical Experience</div>
-        <ul class="exp-bullets">
-            <li>Conceptualized, engineered, and deployed 10+ embedded and IoT systems end-to-end, spanning custom PCB bring-up, bare-metal firmware, and real-time cloud dashboards</li><li>Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and hands-on embedded workshops mentoring 500+ student engineers</li>
-        </ul>
+        <div class="sec-title">Leadership & Experience</div>
+        
+        <div class="exp-item">
+            
+            <div class="exp-head">
+                <span class="exp-role">Executive Technical Organizer</span>
+                <span class="exp-period">2024 -- Present</span>
+            </div>
+            <div class="exp-sub">
+                <span>IETE Students' Forum (ISF)</span>
+                <span class="exp-loc">Chennai, India</span>
+            </div>
+            
+            <ul class="exp-bullets">
+                <li>Spearheaded technical hackathons and hands-on embedded systems workshops, mentoring 500+ student engineers across firmware development, sensor interfacing, and MCU bring-up</li><li>Conceptualized, engineered, and deployed 10+ embedded and IoT systems end-to-end, spanning custom PCB bring-up, bare-metal firmware, and real-time cloud dashboards</li>
+            </ul>
+        </div>
+        
         
     </div>
 </body>

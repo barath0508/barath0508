@@ -62,8 +62,8 @@
       "items": "HiveMQ, ThingSpeak, Firebase, BlynkIoT, Google Cloud Platform (GCP)"
     },
     {
-      "category": "Developer Tools & RF",
-      "items": "Git, VS Code, PlatformIO, Linux/Bash, MATLAB, Scilab, CST Microwave Studio, Keysight ADS, ADB"
+      "category": "Developer Tools & Lab Equipment",
+      "items": "Git, VS Code, PlatformIO, Linux/Bash, GDB, Oscilloscope, Logic Analyzer, Multimeter, JTAG/SWD, CST Microwave Studio, Keysight ADS"
     }
   ],
   "projects": [
@@ -115,9 +115,13 @@
   ],
   "experience": [
     {
+      "role": "Executive Technical Organizer",
+      "organization": "IETE Students' Forum (ISF)",
+      "period": "2024 -- Present",
+      "location": "Chennai, India",
       "bullets": [
-        "Conceptualized, engineered, and deployed 10+ embedded and IoT systems end-to-end, spanning custom PCB bring-up, bare-metal firmware, and real-time cloud dashboards",
-        "Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and hands-on embedded workshops mentoring 500+ student engineers"
+        "Spearheaded technical hackathons and hands-on embedded systems workshops, mentoring 500+ student engineers across firmware development, sensor interfacing, and MCU bring-up",
+        "Conceptualized, engineered, and deployed 10+ embedded and IoT systems end-to-end, spanning custom PCB bring-up, bare-metal firmware, and real-time cloud dashboards"
       ]
     }
   ]

@@ -111,25 +111,25 @@
             margin-bottom: 3.2px;
         }
 
-        .edu-head, .proj-head {
+        .edu-head, .proj-head, .exp-head {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
         }
 
-        .edu-deg, .proj-title {
+        .edu-deg, .proj-title, .exp-role {
             font-weight: 700;
             color: #09090b;
             font-size: 8.8pt;
         }
 
-        .edu-period, .proj-plat {
+        .edu-period, .proj-plat, .exp-period {
             font-style: italic;
             color: #4b5563;
             font-size: 8.5pt;
         }
 
-        .edu-sub {
+        .edu-sub, .exp-sub {
             display: flex;
             justify-content: space-between;
             font-size: 8.5pt;
@@ -197,7 +197,7 @@
             page-break-after: avoid;
         }
 
-        .proj-item, .edu-item, .card {
+        .proj-item, .edu-item, .exp-item, .card {
             break-inside: avoid;
             page-break-inside: avoid;
         }
@@ -289,7 +289,7 @@
         
         <div class="skill-line">
             <span class="skill-name">Hardware & Embedded Systems:</span>
-            <span class="skill-val">ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Bare-Metal MMIO, CST Studio, Keysight ADS</span>
+            <span class="skill-val">ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Bare-Metal MMIO, Oscilloscope, Logic Analyzer, JTAG/SWD, GDB, CST Studio, Keysight ADS</span>
         </div>
         
         <div class="skill-line">
@@ -434,10 +434,24 @@
         </div>
         
 
-        <div class="sec-title">Technical Experience</div>
-        <ul class="exp-bullets">
-            <li>Conceptualized, engineered, and brought up 10+ embedded and full-stack systems end-to-end, spanning custom 2/4-layer PCB layout, bare-metal firmware, and real-time cloud telemetry</li><li>Architected open-source software tools (iCreatePDF, QRLoop, FlashESP), adopting WebAssembly, TypeScript, and modern API architectures with 100% test pass rate</li><li>Executive Technical Organizer at IETE Students' Forum (ISF), spearheading technical hackathons and embedded workshops mentoring 500+ student engineers</li>
-        </ul>
+        <div class="sec-title">Leadership & Experience</div>
+        
+        <div class="exp-item">
+            
+            <div class="exp-head">
+                <span class="exp-role">Executive Technical Organizer</span>
+                <span class="exp-period">2024 -- Present</span>
+            </div>
+            <div class="exp-sub">
+                <span>IETE Students' Forum (ISF)</span>
+                <span class="exp-loc">Chennai, India</span>
+            </div>
+            
+            <ul class="exp-bullets">
+                <li>Spearheaded technical hackathons and hands-on embedded workshops, mentoring 500+ student engineers across firmware development, microcontroller interfacing, and MCU bring-up</li><li>Conceptualized, engineered, and brought up 10+ embedded and full-stack systems end-to-end, spanning custom 2/4-layer PCB layout, bare-metal firmware, and real-time cloud telemetry</li><li>Architected open-source software tools (iCreatePDF, QRLoop, FlashESP), adopting WebAssembly, TypeScript, and modern API architectures with 100% test pass rate</li>
+            </ul>
+        </div>
+        
         
     </div>
 </body>
