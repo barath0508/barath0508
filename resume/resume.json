@@ -77,6 +77,15 @@
       ]
     },
     {
+      "title": "POWER GUARD -- ESP32-C6 Smart Power Monitor",
+      "platform": "ESP32-C6 / Embedded Firmware",
+      "tech_stack": "C++, ESP-IDF, FreeRTOS, I2C (SH1106 OLED), ThingSpeak IoT, ADC, Relay Control",
+      "bullets": [
+        "Developed embedded firmware on ESP32-C6 for real-time AC voltage/current monitoring and GPIO10 overload cut-off protection",
+        "Implemented modular SH1106 OLED driver over I2C with 10-phase diagnostics boot sequence and ThingSpeak cloud telemetry"
+      ]
+    },
+    {
       "title": "Dual-Axis Solar Tracker",
       "platform": "Embedded System",
       "tech_stack": "Servo Motors, LDR Sensors, Microcontroller Control",

@@ -1,6 +1,6 @@
 \documentclass[a4paper,10.5pt]{article}
 
-\usepackage[margin=0.46in]{geometry}
+\usepackage[margin=0.38in]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
@@ -13,14 +13,19 @@
 \setlength{\parindent}{0pt}
 
 \titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{6pt}{3pt}
+\titlespacing{\section}{0pt}{4pt}{1.5pt}
 
 \newcommand{\resumeItem}[1]{\item #1}
-\newenvironment{resumeItemize}{\begin{itemize}[leftmargin=*, itemsep=0.6pt, topsep=1.2pt]}{\end{itemize}}
+\newenvironment{resumeItemize}{\begin{itemize}[leftmargin=*, itemsep=0.3pt, topsep=0.8pt]}{\end{itemize}}
 
 \newcommand{\resumeProject}[3]{
   \textbf{#1} \hfill \textit{#2} \\
   \textit{Tech Stack: #3}
+}
+
+\newcommand{\resumeSubSection}[1]{%
+  \vspace{3pt}%
+  \noindent\textbf{\textcolor{darkblue}{#1}}\par\vspace{1.5pt}%
 }
 
 \begin{document}
@@ -69,28 +74,35 @@ Montfort Matriculation Higher Secondary School, Chennai \hfill Percentage: 94\% 
     \resumeItem{Implemented a trap handler and timer-based context switcher entirely in assembly with no FreeRTOS or vendor libraries}
     \resumeItem{Worked directly with memory-mapped I/O registers for interrupt handling and task switching}
 \end{resumeItemize}
-\vspace{2.2pt}
+\vspace{1.2pt}
+
+\resumeProject{POWER GUARD -- ESP32-C6 Smart Power Monitor}{ESP32-C6 / Embedded Firmware}{C++, ESP-IDF, FreeRTOS, I2C (SH1106 OLED), ThingSpeak IoT, ADC, Relay Control}
+\begin{resumeItemize}
+    \resumeItem{Developed embedded firmware on ESP32-C6 for real-time AC voltage/current monitoring and GPIO10 overload cut-off protection}
+    \resumeItem{Implemented modular SH1106 OLED driver over I2C with 10-phase diagnostics boot sequence and ThingSpeak cloud telemetry}
+\end{resumeItemize}
+\vspace{1.2pt}
 
 \resumeProject{Dual-Axis Solar Tracker}{Embedded System}{Servo Motors, LDR Sensors, Microcontroller Control}
 \begin{resumeItemize}
     \resumeItem{Built a dual-axis solar panel tracking system to maximize sunlight incidence using closed-loop sensor feedback}
     \resumeItem{Implemented motor control logic for continuous azimuth and elevation tracking}
 \end{resumeItemize}
-\vspace{2.2pt}
+\vspace{1.2pt}
 
 \resumeProject{Digital Twin for Industrial Monitoring}{5G-Integrated IoT System}{Sensor Fusion, 5G Connectivity, Real-Time Dashboard}
 \begin{resumeItemize}
     \resumeItem{Developing a digital twin platform for industrial equipment monitoring with 5G-integrated data pipelines}
     \resumeItem{Designing real-time sensor fusion and visualization for predictive maintenance use cases}
 \end{resumeItemize}
-\vspace{2.2pt}
+\vspace{1.2pt}
 
 \resumeProject{Conformal Helmet-Integrated Antenna Array}{RF / Antenna Design}{Microstrip Patch Array, Dual-Band UHF/L-Band}
 \begin{resumeItemize}
     \resumeItem{Designing a flexible microstrip patch antenna array conformal to a helmet surface, replacing bulky whip antennas}
     \resumeItem{Targeting dual-band UHF and L-band support with an RF shielding layer and ruggedized coax interface to existing radio/camera systems}
 \end{resumeItemize}
-\vspace{2.2pt}
+\vspace{1.2pt}
 
 \section*{Technical Experience}
 \begin{resumeItemize}

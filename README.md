@@ -30,6 +30,9 @@
   <a href="https://barath0508.github.io/barath0508/">
     <img src="https://img.shields.io/badge/Resume%20Portal-Live%20HTML-FF6B35?style=for-the-badge&logo=githubpages&logoColor=white"/>
   </a>
+  <a href="https://barath0508.github.io/barath0508/resume.pdf">
+    <img src="https://img.shields.io/badge/Resume%20PDF-Embedded%20%26%20IoT-00D4FF?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"/>
+  </a>
   <a href="https://barath0508.github.io/barath0508/resume_full.pdf">
     <img src="https://img.shields.io/badge/Resume%20PDF-Full%20HW%20%26%20SW-E7352C?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"/>
   </a>
@@ -93,7 +96,7 @@ class BarathR:
 <td align="center" width="33%">
 
 🔭 &nbsp;**Currently Building**<br/>
-Power monitoring systems<br/>with ESP32 + OLED
+ESP32-C6 firmware & power<br/>monitoring systems with OLED
 
 </td>
 <td align="center" width="33%">
@@ -451,19 +454,21 @@ Interactive 3D dual-axis solar tracking station with React Three Fiber, geospati
 <td width="50%" valign="top">
 
 ### 🔌 POWER GUARD
-**ESP32-C6 Smart Power Monitor** &nbsp; ![Badge](https://img.shields.io/badge/Hardware-ESP32--C6-FF6B35?style=flat-square)
+**ESP32-C6 Smart Power Monitor & Embedded Firmware** &nbsp; ![Badge](https://img.shields.io/badge/Firmware-ESP32--C6-FF6B35?style=flat-square)
 
-Compact power intelligence system with real-time AC voltage/current measurement, custom OLED boot sequence, and cloud IoT telemetry.
+Real-time AC power intelligence system and low-level firmware engineered on the ESP32-C6 RISC-V microcontroller with modular I2C display drivers, automated overcurrent relay protection, and IoT cloud telemetry.
 
 ```
-🔹 SH1106 OLED display driver (GME12864-78 over I2C)
-🔹 ThingSpeak cloud integration for real-time analytics
-🔹 Relay control and overload cut-off protection on GPIO10
-🔹 10-phase animated boot sequence & hardware diagnostics
+🔹 Embedded C++ & ESP-IDF firmware for real-time AC voltage & current telemetry
+🔹 Modular SH1106 OLED display driver (GME12864-78 over I2C) with diagnostics
+🔹 Relay control & automated overload cut-off protection on GPIO10
+🔹 10-phase animated boot sequence, health checks & ThingSpeak cloud integration
 ```
 
 ![ESP32-C6](https://img.shields.io/badge/ESP32--C6-000000?style=flat-square&logo=espressif&logoColor=E7352C)
 ![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus)
+![ESP-IDF](https://img.shields.io/badge/ESP--IDF-v6-E7352C?style=flat-square&logo=espressif)
+![FreeRTOS](https://img.shields.io/badge/RTOS-FreeRTOS-00D4FF?style=flat-square)
 ![ThingSpeak](https://img.shields.io/badge/IoT-ThingSpeak-0096D6?style=flat-square)
 ![I2C](https://img.shields.io/badge/I2C-SH1106-FF6B35?style=flat-square)
 
@@ -952,8 +957,12 @@ mindmap
   <img src="https://img.shields.io/badge/Resume%20Portal-View%20HTML-FF6B35?style=for-the-badge&logo=githubpages&logoColor=white"/>
 </a>
 &nbsp;
+<a href="https://barath0508.github.io/barath0508/resume.pdf">
+  <img src="https://img.shields.io/badge/Resume%20PDF-Embedded%20%26%20IoT-00D4FF?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"/>
+</a>
+&nbsp;
 <a href="https://barath0508.github.io/barath0508/resume_full.pdf">
-  <img src="https://img.shields.io/badge/Resume%20PDF-Download-E7352C?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Resume%20PDF-Full%20HW%20%26%20SW-E7352C?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"/>
 </a>
 
 <br/><br/>

@@ -433,6 +433,28 @@
             border-radius: 6px;
         }
 
+        .project-group-banner {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin: 1.8rem 0 0.9rem 0;
+            padding: 0.55rem 1rem;
+            background: rgba(0, 212, 255, 0.08);
+            border-left: 3px solid var(--accent-cyan);
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .project-group-banner .group-icon {
+            font-size: 1.15rem;
+        }
+
+        .project-group-banner .group-title {
+            letter-spacing: -0.2px;
+        }
+
         footer.site-footer {
             border-top: 1px solid var(--border-color);
             text-align: center;
@@ -632,16 +654,34 @@
         <section class="resume-sec">
             <h2 class="section-heading">Featured Projects</h2>
             
+            <div class="project-group-banner">
+                <span class="group-icon">⚡</span>
+                <span class="group-title">Embedded Systems & Hardware Engineering</span>
+            </div>
+            
         <div class="card project-card">
             <div class="card-header">
                 <div>
                     <h3 class="card-title">Bare-Metal RISC-V Trap Handler & Context Switcher</h3>
-                    <div class="card-platform"><span class="badge">ESP32-C6</span></div>
+                    <div class="card-platform"><span class="badge">ESP32-C6 / Bare-Metal</span></div>
                 </div>
             </div>
             <p class="tech-stack"><strong>Tech Stack:</strong> RISC-V Assembly, C, Direct MMIO, Hardware Timers, Interrupt Controller</p>
             <ul class="bullet-list">
                 <li>Designed and implemented a bare-metal trap handler and timer-based preemptive context switcher in assembly with no RTOS or vendor libraries</li><li>Configured memory-mapped I/O (MMIO) registers for hardware interrupt handling, stack frame preservation, and register-level task scheduling</li>
+            </ul>
+        </div>
+        
+        <div class="card project-card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">POWER GUARD -- ESP32-C6 Smart Power Monitor</h3>
+                    <div class="card-platform"><span class="badge">ESP32-C6 / Embedded Firmware</span></div>
+                </div>
+            </div>
+            <p class="tech-stack"><strong>Tech Stack:</strong> C++, ESP-IDF, FreeRTOS, I2C, SH1106 OLED Driver, ThingSpeak IoT, ADC, Relay Protection</p>
+            <ul class="bullet-list">
+                <li>Developed embedded C++ firmware on the ESP32-C6 for real-time AC voltage/current monitoring and automated overload cut-off protection</li><li>Engineered a modular SH1106 OLED display driver over I2C featuring a 10-phase diagnostic boot sequence and cloud IoT telemetry via ThingSpeak</li>
             </ul>
         </div>
         
@@ -675,12 +715,69 @@
             <div class="card-header">
                 <div>
                     <h3 class="card-title">Conformal Helmet-Integrated Antenna Array</h3>
-                    <div class="card-platform"><span class="badge">RF & Antenna Hardware</span></div>
+                    <div class="card-platform"><span class="badge">RF & Defense Hardware</span></div>
                 </div>
             </div>
             <p class="tech-stack"><strong>Tech Stack:</strong> Microstrip Patch Array, Dual-Band UHF/L-Band, Flexible PCB Substrate, CST Microwave Studio, ADS, RF Shielding</p>
             <ul class="bullet-list">
                 <li>Engineered a flexible microstrip patch antenna array conformal to curved helmet geometry, replacing bulky whip antennas for tactical gear</li><li>Modeled dual-band UHF/L-band radiation patterns in CST/ADS and integrated an RF shielding layer with ruggedized coax interfacing</li>
+            </ul>
+        </div>
+        
+            <div class="project-group-banner">
+                <span class="group-icon">💻</span>
+                <span class="group-title">Software & Full-Stack Web Engineering</span>
+            </div>
+            
+        <div class="card project-card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">iCreatePDF</h3>
+                    <div class="card-platform"><span class="badge">100% Client-Side Privacy PDF Suite</span></div>
+                </div>
+            </div>
+            <p class="tech-stack"><strong>Tech Stack:</strong> Next.js 16, TypeScript, WebAssembly (WASM), Web Workers, Tailwind CSS</p>
+            <ul class="bullet-list">
+                <li>Architected a 100% client-side privacy-first document suite featuring 37+ PDF tools running entirely in-browser with zero server uploads</li><li>Implemented high-throughput in-memory execution using WebAssembly and Web Workers for sub-second compression, merging, and booklet imposition</li><li>Deployed production web application at icreatepdf.online featuring responsive UI, dark mode, and offline PWA capability</li>
+            </ul>
+        </div>
+        
+        <div class="card project-card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">QRLoop</h3>
+                    <div class="card-platform"><span class="badge">Dynamic QR & Scan Analytics Platform</span></div>
+                </div>
+            </div>
+            <p class="tech-stack"><strong>Tech Stack:</strong> React.js, Node.js, Express.js, Supabase (PostgreSQL), JWT, HTML5 Canvas</p>
+            <ul class="bullet-list">
+                <li>Engineered a full-stack dynamic QR platform enabling post-print destination redirection without reprinting physical media</li><li>Built real-time scan analytics capturing device telemetry, referrers, and geolocation with rate-limited JWT authentication</li><li>Developed custom HTML5 canvas rendering engine supporting brand color palettes, custom logos, and dot-matrix visual styling</li>
+            </ul>
+        </div>
+        
+        <div class="card project-card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">FlashESP</h3>
+                    <div class="card-platform"><span class="badge">Web Serial Firmware Flasher & In-Browser IDE</span></div>
+                </div>
+            </div>
+            <p class="tech-stack"><strong>Tech Stack:</strong> Next.js, Web Serial API, esptool-js, Monaco Editor, Supabase, Tailwind CSS</p>
+            <ul class="bullet-list">
+                <li>Built an in-browser ESP32 firmware flasher and editor eliminating desktop driver and toolchain dependencies via Web Serial API and esptool-js</li><li>Integrated Monaco Editor with C/C++ syntax highlighting, real-time serial baud rate monitoring, and interactive terminal telemetry</li>
+            </ul>
+        </div>
+        
+        <div class="card project-card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">Energize 2026 Hackathon Portal</h3>
+                    <div class="card-platform"><span class="badge">Interactive 3D Web Application</span></div>
+                </div>
+            </div>
+            <p class="tech-stack"><strong>Tech Stack:</strong> React.js, TypeScript, Three.js, GSAP, Web Audio API, Vercel</p>
+            <ul class="bullet-list">
+                <li>Engineered official symposium and hackathon web portals featuring interactive 3D digital twins and dynamic models rendered with Three.js</li><li>Implemented GSAP timeline choreography, magnetic cursor interactions, ambient Web Audio API state machine, and registration flows</li>
             </ul>
         </div>
         
@@ -691,7 +788,7 @@
             <h2 class="section-heading">Technical Experience</h2>
             <div class="card">
                 <ul class="bullet-list">
-                    <li>Conceptualized, engineered, and deployed embedded and IoT solutions end-to-end, from custom PCB design (schematic to fabrication) and board bring-up to bare-metal firmware and full-stack dashboards</li><li>Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and workshops across software and hardware tracks</li>
+                    <li>Conceptualized, engineered, and deployed embedded and full-stack solutions end-to-end, spanning custom PCB fabrication, bare-metal firmware, high-throughput cloud telemetry, and responsive web applications</li><li>Architected open-source client-side and full-stack software products (iCreatePDF, QRLoop, FlashESP), adopting WebAssembly, TypeScript, and modern API architectures</li><li>Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and workshops across software and hardware tracks</li>
                 </ul>
             </div>
         </section>
@@ -809,6 +906,19 @@
             <p class="tech-stack"><strong>Tech Stack:</strong> RISC-V Assembly, direct MMIO, no RTOS</p>
             <ul class="bullet-list">
                 <li>Implemented a trap handler and timer-based context switcher entirely in assembly with no FreeRTOS or vendor libraries</li><li>Worked directly with memory-mapped I/O registers for interrupt handling and task switching</li>
+            </ul>
+        </div>
+        
+        <div class="card project-card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">POWER GUARD -- ESP32-C6 Smart Power Monitor</h3>
+                    <div class="card-platform"><span class="badge">ESP32-C6 / Embedded Firmware</span></div>
+                </div>
+            </div>
+            <p class="tech-stack"><strong>Tech Stack:</strong> C++, ESP-IDF, FreeRTOS, I2C (SH1106 OLED), ThingSpeak IoT, ADC, Relay Control</p>
+            <ul class="bullet-list">
+                <li>Developed embedded firmware on ESP32-C6 for real-time AC voltage/current monitoring and GPIO10 overload cut-off protection</li><li>Implemented modular SH1106 OLED driver over I2C with 10-phase diagnostics boot sequence and ThingSpeak cloud telemetry</li>
             </ul>
         </div>
         

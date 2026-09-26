@@ -10,7 +10,7 @@
     <style>
         @page {
             size: A4;
-            margin: 9mm 12mm 9mm 12mm;
+            margin: 6.5mm 11mm 6.5mm 11mm;
         }
 
         * {
@@ -21,8 +21,8 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 9.1pt;
-            line-height: 1.33;
+            font-size: 8.65pt;
+            line-height: 1.27;
             color: #1a1a1a;
             background: #ffffff;
         }
@@ -56,7 +56,7 @@
 
         header.header {
             text-align: center;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         h1.name {
@@ -96,8 +96,8 @@
             color: #111827;
             border-bottom: 1.2px solid #111827;
             padding-bottom: 2px;
-            margin-top: 7px;
-            margin-bottom: 3px;
+            margin-top: 5px;
+            margin-bottom: 2px;
         }
 
         .summary-p {
@@ -108,7 +108,7 @@
         }
 
         .edu-item, .proj-item {
-            margin-bottom: 3.5px;
+            margin-bottom: 2.2px;
         }
 
         .edu-head, .proj-head {
@@ -173,13 +173,37 @@
         }
 
         ul.proj-bullets li, ul.exp-bullets li {
-            margin-bottom: 1px;
+            margin-bottom: 0.8px;
             font-size: 9.2pt;
         }
 
         .languages-line {
             font-size: 9.2pt;
             color: #27272a;
+        }
+
+        .proj-group-title {
+            font-size: 9.3pt;
+            font-weight: 700;
+            color: #0369a1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+            margin-bottom: 4px;
+            padding-bottom: 2px;
+            border-bottom: 1px dashed #cbd5e1;
+            break-after: avoid;
+            page-break-after: avoid;
+        }
+
+        .proj-item, .edu-item, .card {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .sec-title {
+            break-after: avoid;
+            page-break-after: avoid;
         }
 
         @media print {
@@ -308,6 +332,17 @@
             <div class="proj-stack">Tech Stack: RISC-V Assembly, direct MMIO, no RTOS</div>
             <ul class="proj-bullets">
                 <li>Implemented a trap handler and timer-based context switcher entirely in assembly with no FreeRTOS or vendor libraries</li><li>Worked directly with memory-mapped I/O registers for interrupt handling and task switching</li>
+            </ul>
+        </div>
+        
+        <div class="proj-item">
+            <div class="proj-head">
+                <span class="proj-title">POWER GUARD -- ESP32-C6 Smart Power Monitor</span>
+                <span class="proj-plat">ESP32-C6 / Embedded Firmware</span>
+            </div>
+            <div class="proj-stack">Tech Stack: C++, ESP-IDF, FreeRTOS, I2C (SH1106 OLED), ThingSpeak IoT, ADC, Relay Control</div>
+            <ul class="proj-bullets">
+                <li>Developed embedded firmware on ESP32-C6 for real-time AC voltage/current monitoring and GPIO10 overload cut-off protection</li><li>Implemented modular SH1106 OLED driver over I2C with 10-phase diagnostics boot sequence and ThingSpeak cloud telemetry</li>
             </ul>
         </div>
         

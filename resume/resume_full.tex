@@ -1,6 +1,6 @@
 \documentclass[a4paper,10.5pt]{article}
 
-\usepackage[margin=0.42in]{geometry}
+\usepackage[margin=0.38in]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
@@ -13,14 +13,19 @@
 \setlength{\parindent}{0pt}
 
 \titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{5pt}{2pt}
+\titlespacing{\section}{0pt}{4pt}{1.5pt}
 
 \newcommand{\resumeItem}[1]{\item #1}
-\newenvironment{resumeItemize}{\begin{itemize}[leftmargin=*, itemsep=0.4pt, topsep=1.0pt]}{\end{itemize}}
+\newenvironment{resumeItemize}{\begin{itemize}[leftmargin=*, itemsep=0.3pt, topsep=0.8pt]}{\end{itemize}}
 
 \newcommand{\resumeProject}[3]{
   \textbf{#1} \hfill \textit{#2} \\
   \textit{Tech Stack: #3}
+}
+
+\newcommand{\resumeSubSection}[1]{%
+  \vspace{3pt}%
+  \noindent\textbf{\textcolor{darkblue}{#1}}\par\vspace{1.5pt}%
 }
 
 \begin{document}
@@ -65,37 +70,77 @@ Montfort Matriculation Higher Secondary School, Chennai \hfill Percentage: 94\% 
 % ---------- PROJECTS ----------
 \section*{Featured Projects}
 
-\resumeProject{Bare-Metal RISC-V Trap Handler \& Context Switcher}{ESP32-C6}{RISC-V Assembly, C, Direct MMIO, Hardware Timers, Interrupt Controller}
+\resumeSubSection{Embedded Systems \& Hardware Engineering}
+\resumeProject{Bare-Metal RISC-V Trap Handler \& Context Switcher}{ESP32-C6 / Bare-Metal}{RISC-V Assembly, C, Direct MMIO, Hardware Timers, Interrupt Controller}
 \begin{resumeItemize}
     \resumeItem{Designed and implemented a bare-metal trap handler and timer-based preemptive context switcher in assembly with no RTOS or vendor libraries}
     \resumeItem{Configured memory-mapped I/O (MMIO) registers for hardware interrupt handling, stack frame preservation, and register-level task scheduling}
 \end{resumeItemize}
-\vspace{1.5pt}
+\vspace{1.2pt}
+
+\resumeProject{POWER GUARD -- ESP32-C6 Smart Power Monitor}{ESP32-C6 / Embedded Firmware}{C++, ESP-IDF, FreeRTOS, I2C, SH1106 OLED Driver, ThingSpeak IoT, ADC, Relay Protection}
+\begin{resumeItemize}
+    \resumeItem{Developed embedded C++ firmware on the ESP32-C6 for real-time AC voltage/current monitoring and automated overload cut-off protection}
+    \resumeItem{Engineered a modular SH1106 OLED display driver over I2C featuring a 10-phase diagnostic boot sequence and cloud IoT telemetry via ThingSpeak}
+\end{resumeItemize}
+\vspace{1.2pt}
 
 \resumeProject{Digital Twin for Industrial Monitoring}{5G-Integrated IoT System}{ESP32 / Edge Node, Multi-Sensor Fusion, 5G Telemetry, Python, Real-Time Web Dashboard}
 \begin{resumeItemize}
     \resumeItem{Architected an industrial digital twin connecting multi-sensor edge nodes with 5G connectivity for real-time equipment telemetry and predictive maintenance}
     \resumeItem{Developed cloud data ingestion pipelines and responsive dashboard visualization, bridging sensor-level data acquisition to software analytics}
 \end{resumeItemize}
-\vspace{1.5pt}
+\vspace{1.2pt}
 
 \resumeProject{Dual-Axis Solar Tracker}{Embedded Control System}{Custom PCB Prototyping, Microcontroller, Servo Motors, LDR Sensor Array, Closed-Loop Control, C/C++}
 \begin{resumeItemize}
     \resumeItem{Constructed a dual-axis solar tracker optimizing photovoltaic panel orientation using an analog LDR sensor bridge and closed-loop feedback}
     \resumeItem{Designed custom sensor interfacing and motor driver circuitry with voltage regulation; programmed precision tracking algorithms in C/C++}
 \end{resumeItemize}
-\vspace{1.5pt}
+\vspace{1.2pt}
 
-\resumeProject{Conformal Helmet-Integrated Antenna Array}{RF \& Antenna Hardware}{Microstrip Patch Array, Dual-Band UHF/L-Band, Flexible PCB Substrate, CST Microwave Studio, ADS, RF Shielding}
+\resumeProject{Conformal Helmet-Integrated Antenna Array}{RF \& Defense Hardware}{Microstrip Patch Array, Dual-Band UHF/L-Band, Flexible PCB Substrate, CST Microwave Studio, ADS, RF Shielding}
 \begin{resumeItemize}
     \resumeItem{Engineered a flexible microstrip patch antenna array conformal to curved helmet geometry, replacing bulky whip antennas for tactical gear}
     \resumeItem{Modeled dual-band UHF/L-band radiation patterns in CST/ADS and integrated an RF shielding layer with ruggedized coax interfacing}
 \end{resumeItemize}
-\vspace{1.5pt}
+\vspace{1.2pt}
+
+\resumeSubSection{Software \& Full-Stack Web Engineering}
+\resumeProject{iCreatePDF}{100\% Client-Side Privacy PDF Suite}{Next.js 16, TypeScript, WebAssembly (WASM), Web Workers, Tailwind CSS}
+\begin{resumeItemize}
+    \resumeItem{Architected a 100\% client-side privacy-first document suite featuring 37+ PDF tools running entirely in-browser with zero server uploads}
+    \resumeItem{Implemented high-throughput in-memory execution using WebAssembly and Web Workers for sub-second compression, merging, and booklet imposition}
+    \resumeItem{Deployed production web application at icreatepdf.online featuring responsive UI, dark mode, and offline PWA capability}
+\end{resumeItemize}
+\vspace{1.2pt}
+
+\resumeProject{QRLoop}{Dynamic QR \& Scan Analytics Platform}{React.js, Node.js, Express.js, Supabase (PostgreSQL), JWT, HTML5 Canvas}
+\begin{resumeItemize}
+    \resumeItem{Engineered a full-stack dynamic QR platform enabling post-print destination redirection without reprinting physical media}
+    \resumeItem{Built real-time scan analytics capturing device telemetry, referrers, and geolocation with rate-limited JWT authentication}
+    \resumeItem{Developed custom HTML5 canvas rendering engine supporting brand color palettes, custom logos, and dot-matrix visual styling}
+\end{resumeItemize}
+\vspace{1.2pt}
+
+\resumeProject{FlashESP}{Web Serial Firmware Flasher \& In-Browser IDE}{Next.js, Web Serial API, esptool-js, Monaco Editor, Supabase, Tailwind CSS}
+\begin{resumeItemize}
+    \resumeItem{Built an in-browser ESP32 firmware flasher and editor eliminating desktop driver and toolchain dependencies via Web Serial API and esptool-js}
+    \resumeItem{Integrated Monaco Editor with C/C++ syntax highlighting, real-time serial baud rate monitoring, and interactive terminal telemetry}
+\end{resumeItemize}
+\vspace{1.2pt}
+
+\resumeProject{Energize 2026 Hackathon Portal}{Interactive 3D Web Application}{React.js, TypeScript, Three.js, GSAP, Web Audio API, Vercel}
+\begin{resumeItemize}
+    \resumeItem{Engineered official symposium and hackathon web portals featuring interactive 3D digital twins and dynamic models rendered with Three.js}
+    \resumeItem{Implemented GSAP timeline choreography, magnetic cursor interactions, ambient Web Audio API state machine, and registration flows}
+\end{resumeItemize}
+\vspace{1.2pt}
 
 \section*{Technical Experience}
 \begin{resumeItemize}
-    \resumeItem{Conceptualized, engineered, and deployed embedded and IoT solutions end-to-end, from custom PCB design (schematic to fabrication) and board bring-up to bare-metal firmware and full-stack dashboards}
+    \resumeItem{Conceptualized, engineered, and deployed embedded and full-stack solutions end-to-end, spanning custom PCB fabrication, bare-metal firmware, high-throughput cloud telemetry, and responsive web applications}
+    \resumeItem{Architected open-source client-side and full-stack software products (iCreatePDF, QRLoop, FlashESP), adopting WebAssembly, TypeScript, and modern API architectures}
     \resumeItem{Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and workshops across software and hardware tracks}
 \end{resumeItemize}
 

@@ -10,7 +10,7 @@
     <style>
         @page {
             size: A4;
-            margin: 12mm 14mm 12mm 14mm;
+            margin: 6.5mm 11mm 6.5mm 11mm;
         }
 
         * {
@@ -21,8 +21,8 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 9.6pt;
-            line-height: 1.38;
+            font-size: 8.65pt;
+            line-height: 1.27;
             color: #1a1a1a;
             background: #ffffff;
         }
@@ -56,7 +56,7 @@
 
         header.header {
             text-align: center;
-            margin-bottom: 12px;
+            margin-bottom: 6px;
         }
 
         h1.name {
@@ -96,8 +96,8 @@
             color: #111827;
             border-bottom: 1.2px solid #111827;
             padding-bottom: 2px;
-            margin-top: 10px;
-            margin-bottom: 5px;
+            margin-top: 5px;
+            margin-bottom: 2px;
         }
 
         .summary-p {
@@ -108,7 +108,7 @@
         }
 
         .edu-item, .proj-item {
-            margin-bottom: 6px;
+            margin-bottom: 2.2px;
         }
 
         .edu-head, .proj-head {
@@ -173,13 +173,37 @@
         }
 
         ul.proj-bullets li, ul.exp-bullets li {
-            margin-bottom: 1.5px;
+            margin-bottom: 0.8px;
             font-size: 9.2pt;
         }
 
         .languages-line {
             font-size: 9.2pt;
             color: #27272a;
+        }
+
+        .proj-group-title {
+            font-size: 9.3pt;
+            font-weight: 700;
+            color: #0369a1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+            margin-bottom: 4px;
+            padding-bottom: 2px;
+            border-bottom: 1px dashed #cbd5e1;
+            break-after: avoid;
+            page-break-after: avoid;
+        }
+
+        .proj-item, .edu-item, .card {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .sec-title {
+            break-after: avoid;
+            page-break-after: avoid;
         }
 
         @media print {
@@ -305,14 +329,27 @@
 
         <div class="sec-title">Featured Projects</div>
         
+            <div class="proj-group-title">Embedded Systems & Hardware Engineering</div>
+            
         <div class="proj-item">
             <div class="proj-head">
                 <span class="proj-title">Bare-Metal RISC-V Trap Handler & Context Switcher</span>
-                <span class="proj-plat">ESP32-C6</span>
+                <span class="proj-plat">ESP32-C6 / Bare-Metal</span>
             </div>
             <div class="proj-stack">Tech Stack: RISC-V Assembly, C, Direct MMIO, Hardware Timers, Interrupt Controller</div>
             <ul class="proj-bullets">
                 <li>Designed and implemented a bare-metal trap handler and timer-based preemptive context switcher in assembly with no RTOS or vendor libraries</li><li>Configured memory-mapped I/O (MMIO) registers for hardware interrupt handling, stack frame preservation, and register-level task scheduling</li>
+            </ul>
+        </div>
+        
+        <div class="proj-item">
+            <div class="proj-head">
+                <span class="proj-title">POWER GUARD -- ESP32-C6 Smart Power Monitor</span>
+                <span class="proj-plat">ESP32-C6 / Embedded Firmware</span>
+            </div>
+            <div class="proj-stack">Tech Stack: C++, ESP-IDF, FreeRTOS, I2C, SH1106 OLED Driver, ThingSpeak IoT, ADC, Relay Protection</div>
+            <ul class="proj-bullets">
+                <li>Developed embedded C++ firmware on the ESP32-C6 for real-time AC voltage/current monitoring and automated overload cut-off protection</li><li>Engineered a modular SH1106 OLED display driver over I2C featuring a 10-phase diagnostic boot sequence and cloud IoT telemetry via ThingSpeak</li>
             </ul>
         </div>
         
@@ -341,7 +378,7 @@
         <div class="proj-item">
             <div class="proj-head">
                 <span class="proj-title">Conformal Helmet-Integrated Antenna Array</span>
-                <span class="proj-plat">RF & Antenna Hardware</span>
+                <span class="proj-plat">RF & Defense Hardware</span>
             </div>
             <div class="proj-stack">Tech Stack: Microstrip Patch Array, Dual-Band UHF/L-Band, Flexible PCB Substrate, CST Microwave Studio, ADS, RF Shielding</div>
             <ul class="proj-bullets">
@@ -349,10 +386,56 @@
             </ul>
         </div>
         
+            <div class="proj-group-title">Software & Full-Stack Web Engineering</div>
+            
+        <div class="proj-item">
+            <div class="proj-head">
+                <span class="proj-title">iCreatePDF</span>
+                <span class="proj-plat">100% Client-Side Privacy PDF Suite</span>
+            </div>
+            <div class="proj-stack">Tech Stack: Next.js 16, TypeScript, WebAssembly (WASM), Web Workers, Tailwind CSS</div>
+            <ul class="proj-bullets">
+                <li>Architected a 100% client-side privacy-first document suite featuring 37+ PDF tools running entirely in-browser with zero server uploads</li><li>Implemented high-throughput in-memory execution using WebAssembly and Web Workers for sub-second compression, merging, and booklet imposition</li><li>Deployed production web application at icreatepdf.online featuring responsive UI, dark mode, and offline PWA capability</li>
+            </ul>
+        </div>
+        
+        <div class="proj-item">
+            <div class="proj-head">
+                <span class="proj-title">QRLoop</span>
+                <span class="proj-plat">Dynamic QR & Scan Analytics Platform</span>
+            </div>
+            <div class="proj-stack">Tech Stack: React.js, Node.js, Express.js, Supabase (PostgreSQL), JWT, HTML5 Canvas</div>
+            <ul class="proj-bullets">
+                <li>Engineered a full-stack dynamic QR platform enabling post-print destination redirection without reprinting physical media</li><li>Built real-time scan analytics capturing device telemetry, referrers, and geolocation with rate-limited JWT authentication</li><li>Developed custom HTML5 canvas rendering engine supporting brand color palettes, custom logos, and dot-matrix visual styling</li>
+            </ul>
+        </div>
+        
+        <div class="proj-item">
+            <div class="proj-head">
+                <span class="proj-title">FlashESP</span>
+                <span class="proj-plat">Web Serial Firmware Flasher & In-Browser IDE</span>
+            </div>
+            <div class="proj-stack">Tech Stack: Next.js, Web Serial API, esptool-js, Monaco Editor, Supabase, Tailwind CSS</div>
+            <ul class="proj-bullets">
+                <li>Built an in-browser ESP32 firmware flasher and editor eliminating desktop driver and toolchain dependencies via Web Serial API and esptool-js</li><li>Integrated Monaco Editor with C/C++ syntax highlighting, real-time serial baud rate monitoring, and interactive terminal telemetry</li>
+            </ul>
+        </div>
+        
+        <div class="proj-item">
+            <div class="proj-head">
+                <span class="proj-title">Energize 2026 Hackathon Portal</span>
+                <span class="proj-plat">Interactive 3D Web Application</span>
+            </div>
+            <div class="proj-stack">Tech Stack: React.js, TypeScript, Three.js, GSAP, Web Audio API, Vercel</div>
+            <ul class="proj-bullets">
+                <li>Engineered official symposium and hackathon web portals featuring interactive 3D digital twins and dynamic models rendered with Three.js</li><li>Implemented GSAP timeline choreography, magnetic cursor interactions, ambient Web Audio API state machine, and registration flows</li>
+            </ul>
+        </div>
+        
 
         <div class="sec-title">Technical Experience</div>
         <ul class="exp-bullets">
-            <li>Conceptualized, engineered, and deployed embedded and IoT solutions end-to-end, from custom PCB design (schematic to fabrication) and board bring-up to bare-metal firmware and full-stack dashboards</li><li>Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and workshops across software and hardware tracks</li>
+            <li>Conceptualized, engineered, and deployed embedded and full-stack solutions end-to-end, spanning custom PCB fabrication, bare-metal firmware, high-throughput cloud telemetry, and responsive web applications</li><li>Architected open-source client-side and full-stack software products (iCreatePDF, QRLoop, FlashESP), adopting WebAssembly, TypeScript, and modern API architectures</li><li>Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and workshops across software and hardware tracks</li>
         </ul>
         
     </div>

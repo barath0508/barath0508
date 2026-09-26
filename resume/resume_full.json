@@ -72,8 +72,9 @@
   ],
   "projects": [
     {
+      "category": "Embedded Systems & Hardware Engineering",
       "title": "Bare-Metal RISC-V Trap Handler & Context Switcher",
-      "platform": "ESP32-C6",
+      "platform": "ESP32-C6 / Bare-Metal",
       "tech_stack": "RISC-V Assembly, C, Direct MMIO, Hardware Timers, Interrupt Controller",
       "bullets": [
         "Designed and implemented a bare-metal trap handler and timer-based preemptive context switcher in assembly with no RTOS or vendor libraries",
@@ -81,6 +82,17 @@
       ]
     },
     {
+      "category": "Embedded Systems & Hardware Engineering",
+      "title": "POWER GUARD -- ESP32-C6 Smart Power Monitor",
+      "platform": "ESP32-C6 / Embedded Firmware",
+      "tech_stack": "C++, ESP-IDF, FreeRTOS, I2C, SH1106 OLED Driver, ThingSpeak IoT, ADC, Relay Protection",
+      "bullets": [
+        "Developed embedded C++ firmware on the ESP32-C6 for real-time AC voltage/current monitoring and automated overload cut-off protection",
+        "Engineered a modular SH1106 OLED display driver over I2C featuring a 10-phase diagnostic boot sequence and cloud IoT telemetry via ThingSpeak"
+      ]
+    },
+    {
+      "category": "Embedded Systems & Hardware Engineering",
       "title": "Digital Twin for Industrial Monitoring",
       "platform": "5G-Integrated IoT System",
       "tech_stack": "ESP32 / Edge Node, Multi-Sensor Fusion, 5G Telemetry, Python, Real-Time Web Dashboard",
@@ -90,6 +102,7 @@
       ]
     },
     {
+      "category": "Embedded Systems & Hardware Engineering",
       "title": "Dual-Axis Solar Tracker",
       "platform": "Embedded Control System",
       "tech_stack": "Custom PCB Prototyping, Microcontroller, Servo Motors, LDR Sensor Array, Closed-Loop Control, C/C++",
@@ -99,19 +112,63 @@
       ]
     },
     {
+      "category": "Embedded Systems & Hardware Engineering",
       "title": "Conformal Helmet-Integrated Antenna Array",
-      "platform": "RF & Antenna Hardware",
+      "platform": "RF & Defense Hardware",
       "tech_stack": "Microstrip Patch Array, Dual-Band UHF/L-Band, Flexible PCB Substrate, CST Microwave Studio, ADS, RF Shielding",
       "bullets": [
         "Engineered a flexible microstrip patch antenna array conformal to curved helmet geometry, replacing bulky whip antennas for tactical gear",
         "Modeled dual-band UHF/L-band radiation patterns in CST/ADS and integrated an RF shielding layer with ruggedized coax interfacing"
+      ]
+    },
+    {
+      "category": "Software & Full-Stack Web Engineering",
+      "title": "iCreatePDF",
+      "platform": "100% Client-Side Privacy PDF Suite",
+      "tech_stack": "Next.js 16, TypeScript, WebAssembly (WASM), Web Workers, Tailwind CSS",
+      "bullets": [
+        "Architected a 100% client-side privacy-first document suite featuring 37+ PDF tools running entirely in-browser with zero server uploads",
+        "Implemented high-throughput in-memory execution using WebAssembly and Web Workers for sub-second compression, merging, and booklet imposition",
+        "Deployed production web application at icreatepdf.online featuring responsive UI, dark mode, and offline PWA capability"
+      ]
+    },
+    {
+      "category": "Software & Full-Stack Web Engineering",
+      "title": "QRLoop",
+      "platform": "Dynamic QR & Scan Analytics Platform",
+      "tech_stack": "React.js, Node.js, Express.js, Supabase (PostgreSQL), JWT, HTML5 Canvas",
+      "bullets": [
+        "Engineered a full-stack dynamic QR platform enabling post-print destination redirection without reprinting physical media",
+        "Built real-time scan analytics capturing device telemetry, referrers, and geolocation with rate-limited JWT authentication",
+        "Developed custom HTML5 canvas rendering engine supporting brand color palettes, custom logos, and dot-matrix visual styling"
+      ]
+    },
+    {
+      "category": "Software & Full-Stack Web Engineering",
+      "title": "FlashESP",
+      "platform": "Web Serial Firmware Flasher & In-Browser IDE",
+      "tech_stack": "Next.js, Web Serial API, esptool-js, Monaco Editor, Supabase, Tailwind CSS",
+      "bullets": [
+        "Built an in-browser ESP32 firmware flasher and editor eliminating desktop driver and toolchain dependencies via Web Serial API and esptool-js",
+        "Integrated Monaco Editor with C/C++ syntax highlighting, real-time serial baud rate monitoring, and interactive terminal telemetry"
+      ]
+    },
+    {
+      "category": "Software & Full-Stack Web Engineering",
+      "title": "Energize 2026 Hackathon Portal",
+      "platform": "Interactive 3D Web Application",
+      "tech_stack": "React.js, TypeScript, Three.js, GSAP, Web Audio API, Vercel",
+      "bullets": [
+        "Engineered official symposium and hackathon web portals featuring interactive 3D digital twins and dynamic models rendered with Three.js",
+        "Implemented GSAP timeline choreography, magnetic cursor interactions, ambient Web Audio API state machine, and registration flows"
       ]
     }
   ],
   "experience": [
     {
       "bullets": [
-        "Conceptualized, engineered, and deployed embedded and IoT solutions end-to-end, from custom PCB design (schematic to fabrication) and board bring-up to bare-metal firmware and full-stack dashboards",
+        "Conceptualized, engineered, and deployed embedded and full-stack solutions end-to-end, spanning custom PCB fabrication, bare-metal firmware, high-throughput cloud telemetry, and responsive web applications",
+        "Architected open-source client-side and full-stack software products (iCreatePDF, QRLoop, FlashESP), adopting WebAssembly, TypeScript, and modern API architectures",
         "Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and workshops across software and hardware tracks"
       ]
     }

@@ -60,12 +60,12 @@ def build_latex(data: dict, compact: bool = False) -> str:
     experience = data.get("experience", [])
     languages = data.get("languages", [])
 
-    margin = "0.42in" if compact else "0.46in"
-    sec_top_space = "5pt" if compact else "6pt"
-    sec_bot_space = "2pt" if compact else "3pt"
-    item_sep = "0.4pt" if compact else "0.6pt"
-    top_sep = "1.0pt" if compact else "1.2pt"
-    proj_vspace = "1.5pt" if compact else "2.2pt"
+    margin = "0.38in" if compact else "0.44in"
+    sec_top_space = "4pt" if compact else "5.5pt"
+    sec_bot_space = "1.5pt" if compact else "2.5pt"
+    item_sep = "0.3pt" if compact else "0.5pt"
+    top_sep = "0.8pt" if compact else "1.0pt"
+    proj_vspace = "1.2pt" if compact else "1.8pt"
 
     contact_row_2 = f"\\href{{{personal['github']}}}{{{personal['github_display']}}} $\\vert$ \\href{{{personal['linkedin']}}}{{{personal['linkedin_display']}}}"
     if personal.get("portfolio"):
@@ -95,6 +95,11 @@ def build_latex(data: dict, compact: bool = False) -> str:
         r"\newcommand{\resumeProject}[3]{",
         r"  \textbf{#1} \hfill \textit{#2} \\",
         r"  \textit{Tech Stack: #3}",
+        r"}",
+        "",
+        r"\newcommand{\resumeSubSection}[1]{%",
+        r"  \vspace{3pt}%",
+        r"  \noindent\textbf{\textcolor{darkblue}{#1}}\par\vspace{1.5pt}%",
         r"}",
         "",
         r"\begin{document}",
@@ -146,7 +151,12 @@ def build_latex(data: dict, compact: bool = False) -> str:
         "",
     ])
 
+    current_cat = None
     for proj in projects:
+        cat = proj.get("category")
+        if cat and cat != current_cat:
+            current_cat = cat
+            lines.append(f"\\resumeSubSection{{{escape_latex(current_cat)}}}")
         lines.append(f"\\resumeProject{{{escape_latex(proj['title'])}}}{{{escape_latex(proj['platform'])}}}{{{escape_latex(proj['tech_stack'])}}}")
         lines.append(r"\begin{resumeItemize}")
         for bullet in proj.get("bullets", []):
@@ -205,7 +215,18 @@ def render_resume_card_html(data: dict, variant_id: str) -> str:
         """
 
     projects_html = ""
+    current_cat = None
     for p in projects:
+        cat = p.get("category")
+        if cat and cat != current_cat:
+            current_cat = cat
+            icon = "⚡" if ("Hardware" in cat or "Embedded" in cat) else "💻"
+            projects_html += f"""
+            <div class="project-group-banner">
+                <span class="group-icon">{icon}</span>
+                <span class="group-title">{cat}</span>
+            </div>
+            """
         bullets = "".join(f"<li>{b}</li>" for b in p.get("bullets", []))
         projects_html += f"""
         <div class="card project-card">
@@ -764,6 +785,28 @@ def build_portal_html(data_default: dict, data_full: dict) -> str:
             border-radius: 6px;
         }}
 
+        .project-group-banner {{
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin: 1.8rem 0 0.9rem 0;
+            padding: 0.55rem 1rem;
+            background: rgba(0, 212, 255, 0.08);
+            border-left: 3px solid var(--accent-cyan);
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }}
+
+        .project-group-banner .group-icon {{
+            font-size: 1.15rem;
+        }}
+
+        .project-group-banner .group-title {{
+            letter-spacing: -0.2px;
+        }}
+
         footer.site-footer {{
             border-top: 1px solid var(--border-color);
             text-align: center;
@@ -965,14 +1008,14 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
     experience = data.get("experience", [])
     languages = data.get("languages", [])
 
-    page_margin = "9mm 12mm 9mm 12mm" if compact else "12mm 14mm 12mm 14mm"
-    body_size = "9.1pt" if compact else "9.6pt"
-    body_lh = "1.33" if compact else "1.38"
-    header_mb = "8px" if compact else "12px"
-    sec_title_mt = "7px" if compact else "10px"
-    sec_title_mb = "3px" if compact else "5px"
-    edu_proj_mb = "3.5px" if compact else "6px"
-    bullet_mb = "1px" if compact else "1.5px"
+    page_margin = "6.5mm 11mm 6.5mm 11mm" if compact else "9mm 12mm 9mm 12mm"
+    body_size = "8.65pt" if compact else "9.05pt"
+    body_lh = "1.27" if compact else "1.32"
+    header_mb = "6px" if compact else "9px"
+    sec_title_mt = "5px" if compact else "8px"
+    sec_title_mb = "2px" if compact else "3px"
+    edu_proj_mb = "2.2px" if compact else "3.5px"
+    bullet_mb = "0.8px" if compact else "1px"
 
     skills_rows = ""
     for s in skills:
@@ -984,7 +1027,14 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         """
 
     projects_rows = ""
+    current_cat = None
     for p in projects:
+        cat = p.get("category")
+        if cat and cat != current_cat:
+            current_cat = cat
+            projects_rows += f"""
+            <div class="proj-group-title">{cat}</div>
+            """
         bullets = "".join(f"<li>{b}</li>" for b in p.get("bullets", []))
         projects_rows += f"""
         <div class="proj-item">
@@ -1220,6 +1270,30 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
             color: #27272a;
         }}
 
+        .proj-group-title {{
+            font-size: 9.3pt;
+            font-weight: 700;
+            color: #0369a1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+            margin-bottom: 4px;
+            padding-bottom: 2px;
+            border-bottom: 1px dashed #cbd5e1;
+            break-after: avoid;
+            page-break-after: avoid;
+        }}
+
+        .proj-item, .edu-item, .card {{
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }}
+
+        .sec-title {{
+            break-after: avoid;
+            page-break-after: avoid;
+        }}
+
         @media print {{
             .print-btn-bar {{
                 display: none !important;
@@ -1292,7 +1366,7 @@ def main():
         data_full = json.load(f)
 
     # 1. Generate resume.tex (Specialized Embedded & IoT)
-    tex_default = build_latex(data_default, compact=False)
+    tex_default = build_latex(data_default, compact=True)
     OUTPUT_TEX.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_TEX, "w", encoding="utf-8") as f:
         f.write(tex_default)
@@ -1312,7 +1386,7 @@ def main():
     print(f"Generated Web Portal: {OUTPUT_HTML}")
 
     # 4. Generate standalone printable HTML resumes
-    print_html_full = build_standalone_print_html(data_full)
+    print_html_full = build_standalone_print_html(data_full, compact=True)
     with open(OUTPUT_HTML_FULL, "w", encoding="utf-8") as f:
         f.write(print_html_full)
     with open(OUTPUT_HTML_FULL_RESUME, "w", encoding="utf-8") as f:
