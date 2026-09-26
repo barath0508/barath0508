@@ -1429,14 +1429,15 @@ def main():
             try:
                 cmd = [
                     str(browser_exe),
-                    "--headless",
+                    "--headless=new",
                     "--disable-gpu",
+                    "--no-sandbox",
                     "--no-pdf-header-footer",
                     f"--user-data-dir={temp_profile}",
                     f"--print-to-pdf={target_pdf}",
                     str(src_html),
                 ]
-                subprocess.run(cmd, check=True, timeout=15)
+                subprocess.run(cmd, check=True, timeout=30)
                 shutil.copy(target_pdf, DIST_DIR / target_pdf.name)
                 shutil.copy(target_pdf, ROOT_DIR / target_pdf.name)
                 print(f"Generated PDF (via {browser_exe.name}): {target_pdf}")
