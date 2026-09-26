@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.1)  26 SEP 2026 10:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.1)  26 SEP 2026 10:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -223,10 +223,6 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 10.
 File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count301
 )
-
-LaTeX Warning: Unused global option(s):
-    [10.5pt].
-
 (./resume_full.aux)
 \openout1 = `resume_full.aux'.
 
@@ -257,15 +253,15 @@ LaTeX Font Info:    ... okay on input line 31.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(27.46295pt, 542.58197pt, 27.46295pt)
-* v-part:(T,H,B)=(27.46295pt, 790.12094pt, 27.46295pt)
+* h-part:(L,W,R)=(30.35326pt, 536.80136pt, 30.35326pt)
+* v-part:(T,H,B)=(30.35326pt, 784.34033pt, 30.35326pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=542.58197pt
-* \textheight=790.12094pt
-* \oddsidemargin=-44.80704pt
-* \evensidemargin=-44.80704pt
-* \topmargin=-81.80704pt
+* \textwidth=536.80136pt
+* \textheight=784.34033pt
+* \oddsidemargin=-41.91673pt
+* \evensidemargin=-41.91673pt
+* \topmargin=-78.91673pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -315,8 +311,13 @@ LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
 [1
 
 {/opt/texlive/texdir/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/opt/texlive
-/texdir/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [2]
-(./resume_full.aux)
+/texdir/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Overfull \hbox (4.93341pt too wide) in paragraph at lines 123--124
+[]\OT1/cmr/m/n/10 Developed an HTML5 dy-namic can-vas ren-der-ing en-gine sup-p
+ort-ing SVG ex-port, cus-tom error-correction lev-els (L/M/Q/H),
+ []
+
+[2] (./resume_full.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
@@ -329,20 +330,20 @@ Package rerunfilecheck Info: File `resume_full.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 9631 strings out of 467168
- 148813 string characters out of 5411585
- 602035 words of memory out of 5000000
- 38830 multiletter control sequences out of 15000+600000
+ 9630 strings out of 467168
+ 148804 string characters out of 5411585
+ 602019 words of memory out of 5000000
+ 38829 multiletter control sequences out of 15000+600000
  629921 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,5n,79p,532b,530s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,5n,79p,532b,570s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></o
 pt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></opt/te
 xlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/texlive/
 texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/texlive/texdi
 r/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></opt/texlive/texdir/tex
 mf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on resume_full.pdf (2 pages, 104155 bytes).
+Output written on resume_full.pdf (2 pages, 105092 bytes).
 PDF statistics:
  52 PDF objects out of 1000 (max. 8388607)
  35 compressed objects within 1 object stream
