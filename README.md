@@ -96,7 +96,7 @@ class BarathR:
 <td align="center" width="33%">
 
 🔭 &nbsp;**Currently Building**<br/>
-ESP32-C6 firmware & power<br/>monitoring systems with OLED
+ESP-Drone firmware & flight<br/>controller on ESP32-C6
 
 </td>
 <td align="center" width="33%">
@@ -453,24 +453,24 @@ Interactive 3D dual-axis solar tracking station with React Three Fiber, geospati
 <tr>
 <td width="50%" valign="top">
 
-### 🔌 POWER GUARD
-**ESP32-C6 Smart Power Monitor & Embedded Firmware** &nbsp; ![Badge](https://img.shields.io/badge/Firmware-ESP32--C6-FF6B35?style=flat-square)
+### 🛸 ESP-Drone
+**ESP32-C6 Flight Controller & Autonomous Firmware** &nbsp; ![Badge](https://img.shields.io/badge/Flight%20Control-ESP32--C6-FF6B35?style=flat-square)
 
-Real-time AC power intelligence system and low-level firmware engineered on the ESP32-C6 RISC-V microcontroller with modular I2C display drivers, automated overcurrent relay protection, and IoT cloud telemetry.
+Real-time quadcopter flight controller firmware engineered on the ESP32-C6 RISC-V microcontroller with multi-axis IMU sensor fusion, high-frequency closed-loop PID attitude control, and low-latency ESP-NOW remote telemetry.
 
 ```
-🔹 Embedded C++ & ESP-IDF firmware for real-time AC voltage & current telemetry
-🔹 Modular SH1106 OLED display driver (GME12864-78 over I2C) with diagnostics
-🔹 Relay control & automated overload cut-off protection on GPIO10
-🔹 10-phase animated boot sequence, health checks & ThingSpeak cloud integration
+🔹 Real-time flight control firmware developed in C/C++ on ESP-IDF and FreeRTOS
+🔹 6-DOF IMU sensor fusion with complementary filtering & quaternion attitude estimation
+🔹 High-frequency 500 Hz closed-loop dual PID control and motor PWM driving
+🔹 Ultra-low latency remote control & live telemetry streaming via ESP-NOW and Wi-Fi
 ```
 
 ![ESP32-C6](https://img.shields.io/badge/ESP32--C6-000000?style=flat-square&logo=espressif&logoColor=E7352C)
 ![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus)
 ![ESP-IDF](https://img.shields.io/badge/ESP--IDF-v6-E7352C?style=flat-square&logo=espressif)
 ![FreeRTOS](https://img.shields.io/badge/RTOS-FreeRTOS-00D4FF?style=flat-square)
-![ThingSpeak](https://img.shields.io/badge/IoT-ThingSpeak-0096D6?style=flat-square)
-![I2C](https://img.shields.io/badge/I2C-SH1106-FF6B35?style=flat-square)
+![IMU](https://img.shields.io/badge/IMU-Sensor%20Fusion-0096D6?style=flat-square)
+![ESP-NOW](https://img.shields.io/badge/Telemetry-ESP--NOW-FF6B35?style=flat-square)
 
 <br/>
 

@@ -77,12 +77,12 @@
       ]
     },
     {
-      "title": "POWER GUARD -- ESP32-C6 Smart Power Monitor",
-      "platform": "ESP32-C6 / Embedded Firmware",
-      "tech_stack": "C++, ESP-IDF, FreeRTOS, I2C (SH1106 OLED), ThingSpeak IoT, ADC, Relay Control",
+      "title": "ESP-Drone -- Autonomous Flight Controller & Firmware",
+      "platform": "ESP32-C6 / Quadcopter Firmware",
+      "tech_stack": "C/C++, ESP-IDF, FreeRTOS, IMU Sensor Fusion, PID Control, ESP-NOW / Wi-Fi, MCPWM",
       "bullets": [
-        "Developed embedded firmware on ESP32-C6 for real-time AC voltage/current monitoring and GPIO10 overload cut-off protection",
-        "Implemented modular SH1106 OLED driver over I2C with 10-phase diagnostics boot sequence and ThingSpeak cloud telemetry"
+        "Engineered real-time flight control firmware on ESP32-C6 for quadcopter stabilization with 6-DOF IMU sensor fusion",
+        "Developed 500 Hz closed-loop PID attitude control algorithms, high-resolution motor PWM, and low-latency ESP-NOW telemetry"
       ]
     },
     {
