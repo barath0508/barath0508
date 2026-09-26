@@ -60,19 +60,20 @@ def build_latex(data: dict, compact: bool = False) -> str:
     experience = data.get("experience", [])
     languages = data.get("languages", [])
 
-    margin = "0.38in" if compact else "0.44in"
-    sec_top_space = "4pt" if compact else "5.5pt"
-    sec_bot_space = "1.5pt" if compact else "2.5pt"
-    item_sep = "0.3pt" if compact else "0.5pt"
-    top_sep = "0.8pt" if compact else "1.0pt"
-    proj_vspace = "1.2pt" if compact else "1.8pt"
+    fontsize = "9.5pt" if compact else "10pt"
+    margin = "0.33in" if compact else "0.42in"
+    sec_top_space = "3.2pt" if compact else "5pt"
+    sec_bot_space = "1.2pt" if compact else "2pt"
+    item_sep = "0.2pt" if compact else "0.5pt"
+    top_sep = "0.4pt" if compact else "0.8pt"
+    proj_vspace = "1.0pt" if compact else "1.6pt"
 
     contact_row_2 = f"\\href{{{personal['github']}}}{{{personal['github_display']}}} $\\vert$ \\href{{{personal['linkedin']}}}{{{personal['linkedin_display']}}}"
     if personal.get("portfolio"):
         contact_row_2 += f" $\\vert$ \\href{{{personal['portfolio']}}}{{{personal.get('portfolio_display', personal['portfolio'])}}}"
 
     lines = [
-        r"\documentclass[a4paper,10.5pt]{article}",
+        f"\\documentclass[a4paper,{fontsize}]{{article}}",
         "",
         f"\\usepackage[margin={margin}]{{geometry}}",
         r"\usepackage{titlesec}",
@@ -1008,14 +1009,21 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
     experience = data.get("experience", [])
     languages = data.get("languages", [])
 
-    page_margin = "6.5mm 11mm 6.5mm 11mm" if compact else "9mm 12mm 9mm 12mm"
-    body_size = "8.65pt" if compact else "9.05pt"
-    body_lh = "1.27" if compact else "1.32"
-    header_mb = "6px" if compact else "9px"
-    sec_title_mt = "5px" if compact else "8px"
-    sec_title_mb = "2px" if compact else "3px"
-    edu_proj_mb = "2.2px" if compact else "3.5px"
-    bullet_mb = "0.8px" if compact else "1px"
+    page_margin = "4.5mm 9mm 4.5mm 9mm" if compact else "8mm 11mm 8mm 11mm"
+    body_size = "8.1pt" if compact else "8.9pt"
+    body_lh = "1.21" if compact else "1.29"
+    header_mb = "3.5px" if compact else "8px"
+    sec_title_mt = "3px" if compact else "7px"
+    sec_title_mb = "1.2px" if compact else "2.5px"
+    edu_proj_mb = "1.2px" if compact else "3.2px"
+    bullet_mb = "0.3px" if compact else "0.8px"
+    name_size = "16.5pt" if compact else "19.5pt"
+    title_size = "9.2pt" if compact else "10.5pt"
+    contact_size = "8.1pt" if compact else "8.8pt"
+    sec_title_size = "9.2pt" if compact else "9.8pt"
+    bullet_size = "8.1pt" if compact else "8.8pt"
+    skill_size = "8.2pt" if compact else "9.0pt"
+    stack_size = "7.8pt" if compact else "8.5pt"
 
     skills_rows = ""
     for s in skills:
@@ -1148,7 +1156,7 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         }}
 
         h1.name {{
-            font-size: 20pt;
+            font-size: {name_size};
             font-weight: 700;
             letter-spacing: -0.3px;
             color: #111827;
@@ -1156,14 +1164,14 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         }}
 
         .title {{
-            font-size: 10.5pt;
+            font-size: {title_size};
             font-weight: 600;
             color: #0369a1;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }}
 
         .contact-line {{
-            font-size: 8.8pt;
+            font-size: {contact_size};
             color: #4b5563;
         }}
 
@@ -1177,13 +1185,13 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         }}
 
         .sec-title {{
-            font-size: 10pt;
+            font-size: {sec_title_size};
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.6px;
             color: #111827;
             border-bottom: 1.2px solid #111827;
-            padding-bottom: 2px;
+            padding-bottom: 1.5px;
             margin-top: {sec_title_mt};
             margin-bottom: {sec_title_mb};
         }}
@@ -1191,8 +1199,8 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         .summary-p {{
             text-align: justify;
             color: #27272a;
-            margin-bottom: 4px;
-            font-size: 9.3pt;
+            margin-bottom: 3px;
+            font-size: {bullet_size};
         }}
 
         .edu-item, .proj-item {{
@@ -1208,18 +1216,19 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         .edu-deg, .proj-title {{
             font-weight: 700;
             color: #09090b;
+            font-size: {bullet_size};
         }}
 
         .edu-period, .proj-plat {{
             font-style: italic;
             color: #4b5563;
-            font-size: 9pt;
+            font-size: 8.5pt;
         }}
 
         .edu-sub {{
             display: flex;
             justify-content: space-between;
-            font-size: 9pt;
+            font-size: 8.5pt;
             color: #374151;
         }}
 
@@ -1228,14 +1237,14 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         }}
 
         .edu-notes {{
-            font-size: 8.5pt;
+            font-size: 8pt;
             font-style: italic;
             color: #6b7280;
         }}
 
         .skill-line {{
-            margin-bottom: 3px;
-            font-size: 9.2pt;
+            margin-bottom: 1.8px;
+            font-size: {skill_size};
         }}
 
         .skill-name {{
@@ -1248,10 +1257,10 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         }}
 
         .proj-stack {{
-            font-size: 8.8pt;
+            font-size: {stack_size};
             font-style: italic;
             color: #0284c7;
-            margin-bottom: 2px;
+            margin-bottom: 1.5px;
         }}
 
         ul.proj-bullets, ul.exp-bullets {{
@@ -1262,7 +1271,7 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
 
         ul.proj-bullets li, ul.exp-bullets li {{
             margin-bottom: {bullet_mb};
-            font-size: 9.2pt;
+            font-size: {bullet_size};
         }}
 
         .languages-line {{
@@ -1373,7 +1382,7 @@ def main():
     print(f"Generated LaTeX (Embedded): {OUTPUT_TEX}")
 
     # 2. Generate resume_full.tex (Embedded Engineer HW + SW)
-    tex_full = build_latex(data_full, compact=True)
+    tex_full = build_latex(data_full, compact=False)
     with open(OUTPUT_TEX_FULL, "w", encoding="utf-8") as f:
         f.write(tex_full)
     print(f"Generated LaTeX (Full HW & SW): {OUTPUT_TEX_FULL}")
@@ -1386,7 +1395,7 @@ def main():
     print(f"Generated Web Portal: {OUTPUT_HTML}")
 
     # 4. Generate standalone printable HTML resumes
-    print_html_full = build_standalone_print_html(data_full, compact=True)
+    print_html_full = build_standalone_print_html(data_full, compact=False)
     with open(OUTPUT_HTML_FULL, "w", encoding="utf-8") as f:
         f.write(print_html_full)
     with open(OUTPUT_HTML_FULL_RESUME, "w", encoding="utf-8") as f:

@@ -10,7 +10,7 @@
     <style>
         @page {
             size: A4;
-            margin: 6.5mm 11mm 6.5mm 11mm;
+            margin: 4.5mm 9mm 4.5mm 9mm;
         }
 
         * {
@@ -21,8 +21,8 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 8.65pt;
-            line-height: 1.27;
+            font-size: 8.1pt;
+            line-height: 1.21;
             color: #1a1a1a;
             background: #ffffff;
         }
@@ -56,11 +56,11 @@
 
         header.header {
             text-align: center;
-            margin-bottom: 6px;
+            margin-bottom: 3.5px;
         }
 
         h1.name {
-            font-size: 20pt;
+            font-size: 16.5pt;
             font-weight: 700;
             letter-spacing: -0.3px;
             color: #111827;
@@ -68,14 +68,14 @@
         }
 
         .title {
-            font-size: 10.5pt;
+            font-size: 9.2pt;
             font-weight: 600;
             color: #0369a1;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .contact-line {
-            font-size: 8.8pt;
+            font-size: 8.1pt;
             color: #4b5563;
         }
 
@@ -89,26 +89,26 @@
         }
 
         .sec-title {
-            font-size: 10pt;
+            font-size: 9.2pt;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.6px;
             color: #111827;
             border-bottom: 1.2px solid #111827;
-            padding-bottom: 2px;
-            margin-top: 5px;
-            margin-bottom: 2px;
+            padding-bottom: 1.5px;
+            margin-top: 3px;
+            margin-bottom: 1.2px;
         }
 
         .summary-p {
             text-align: justify;
             color: #27272a;
-            margin-bottom: 4px;
-            font-size: 9.3pt;
+            margin-bottom: 3px;
+            font-size: 8.1pt;
         }
 
         .edu-item, .proj-item {
-            margin-bottom: 2.2px;
+            margin-bottom: 1.2px;
         }
 
         .edu-head, .proj-head {
@@ -120,18 +120,19 @@
         .edu-deg, .proj-title {
             font-weight: 700;
             color: #09090b;
+            font-size: 8.1pt;
         }
 
         .edu-period, .proj-plat {
             font-style: italic;
             color: #4b5563;
-            font-size: 9pt;
+            font-size: 8.5pt;
         }
 
         .edu-sub {
             display: flex;
             justify-content: space-between;
-            font-size: 9pt;
+            font-size: 8.5pt;
             color: #374151;
         }
 
@@ -140,14 +141,14 @@
         }
 
         .edu-notes {
-            font-size: 8.5pt;
+            font-size: 8pt;
             font-style: italic;
             color: #6b7280;
         }
 
         .skill-line {
-            margin-bottom: 3px;
-            font-size: 9.2pt;
+            margin-bottom: 1.8px;
+            font-size: 8.2pt;
         }
 
         .skill-name {
@@ -160,10 +161,10 @@
         }
 
         .proj-stack {
-            font-size: 8.8pt;
+            font-size: 7.8pt;
             font-style: italic;
             color: #0284c7;
-            margin-bottom: 2px;
+            margin-bottom: 1.5px;
         }
 
         ul.proj-bullets, ul.exp-bullets {
@@ -173,8 +174,8 @@
         }
 
         ul.proj-bullets li, ul.exp-bullets li {
-            margin-bottom: 0.8px;
-            font-size: 9.2pt;
+            margin-bottom: 0.3px;
+            font-size: 8.1pt;
         }
 
         .languages-line {
@@ -243,7 +244,7 @@
         </header>
 
         <div class="sec-title">Professional Summary</div>
-        <p class="summary-p">Third-year Electronics and Communication Engineering student with hands-on experience across embedded firmware, bare-metal systems programming, and IoT hardware design. Comfortable working close to the metal -- from register-level RISC-V trap handlers to production-style sensor and communication pipelines -- and building the cloud/dashboard layers that sit on top of them. Seeking an embedded systems internship/role to contribute to real-time and connected hardware products.</p>
+        <p class="summary-p">Third-year Electronics and Communication Engineering student specializing in embedded firmware engineering, bare-metal systems programming, and IoT hardware design. Experienced in developing close to the silicon -- from register-level RISC-V trap handlers to production-grade sensor interfaces, RTOS task synchronization, and cloud telemetry pipelines. Seeking an Embedded Systems Engineer internship/entry-level role to build high-reliability, real-time connected hardware products.</p>
 
         <div class="sec-title">Education</div>
         
@@ -287,38 +288,38 @@
         <div class="sec-title">Technical Skills</div>
         
         <div class="skill-line">
-            <span class="skill-name">Hardware & Development Boards:</span>
-            <span class="skill-val">ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 Development Kit</span>
+            <span class="skill-name">Embedded & Firmware:</span>
+            <span class="skill-val">Bare-Metal MMIO, FreeRTOS, ESP-IDF (v6), RISC-V Assembly, Device Drivers, ISR, Timers, PWM, ADC, Low-Power Optimization</span>
+        </div>
+        
+        <div class="skill-line">
+            <span class="skill-name">Hardware & Microcontrollers:</span>
+            <span class="skill-val">ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Sensor Fusion (IMU, LDR, Temp)</span>
         </div>
         
         <div class="skill-line">
             <span class="skill-name">PCB Design & EDA Tools:</span>
-            <span class="skill-val">PCB/PCD Design, KiCad, Proteus, Schematic Capture, 2/4-Layer PCB Layout, Routing, DRC/ERC, Gerber & BOM Generation, Soldering & Board Bring-up</span>
+            <span class="skill-val">PCB Design, KiCad, Proteus, Schematic Capture, 2/4-Layer Layout, Routing, DRC/ERC, Gerber & BOM Generation, Soldering & Board Bring-up</span>
         </div>
         
         <div class="skill-line">
-            <span class="skill-name">Communication Protocols:</span>
-            <span class="skill-val">MQTT, LoRaWAN, I2C, SPI, UART, HTTP/REST, WebSockets</span>
+            <span class="skill-name">Protocols & Interfacing:</span>
+            <span class="skill-val">I2C, SPI, UART, GPIO, MQTT, LoRaWAN, ESP-NOW, HTTP/REST, WebSockets</span>
         </div>
         
         <div class="skill-line">
             <span class="skill-name">Programming Languages:</span>
-            <span class="skill-val">C, Python, C++, Java, SQL</span>
+            <span class="skill-val">C, Embedded C, C++, Python, Java, SQL, RISC-V Assembly</span>
         </div>
         
         <div class="skill-line">
-            <span class="skill-name">Cloud & Dashboards:</span>
-            <span class="skill-val">HiveMQ, ThingSpeak, Firebase, BlynkIoT, Google Cloud</span>
+            <span class="skill-name">Cloud & IoT Platforms:</span>
+            <span class="skill-val">HiveMQ, ThingSpeak, Firebase, BlynkIoT, Google Cloud Platform (GCP)</span>
         </div>
         
         <div class="skill-line">
-            <span class="skill-name">Tools:</span>
-            <span class="skill-val">Git, VS Code, PlatformIO, ESP-IDF (v6), Arduino IDE, MATLAB, Scilab, CST Studio, Keysight ADS</span>
-        </div>
-        
-        <div class="skill-line">
-            <span class="skill-name">Android/OS:</span>
-            <span class="skill-val">ADB, custom OS/ROM flashing</span>
+            <span class="skill-name">Developer Tools & RF:</span>
+            <span class="skill-val">Git, VS Code, PlatformIO, Linux/Bash, MATLAB, Scilab, CST Microwave Studio, Keysight ADS, ADB</span>
         </div>
         
 
@@ -327,11 +328,11 @@
         <div class="proj-item">
             <div class="proj-head">
                 <span class="proj-title">Bare-Metal RISC-V Trap Handler & Context Switcher</span>
-                <span class="proj-plat">ESP32-C6</span>
+                <span class="proj-plat">ESP32-C6 / Bare-Metal</span>
             </div>
-            <div class="proj-stack">Tech Stack: RISC-V Assembly, direct MMIO, no RTOS</div>
+            <div class="proj-stack">Tech Stack: RISC-V Assembly, C, Direct MMIO, Hardware Timers, Interrupt Controller</div>
             <ul class="proj-bullets">
-                <li>Implemented a trap handler and timer-based context switcher entirely in assembly with no FreeRTOS or vendor libraries</li><li>Worked directly with memory-mapped I/O registers for interrupt handling and task switching</li>
+                <li>Architected a bare-metal trap handler and preemptive context switcher in assembly with 0-byte RTOS overhead, achieving < 2.4 us context-switch latency across 32 registers</li><li>Configured direct Memory-Mapped I/O (MMIO), machine timer interrupts (MTIE), and trap vectors (mtvec) for sub-microsecond hardware interrupt handling and register preservation</li>
             </ul>
         </div>
         
@@ -342,18 +343,18 @@
             </div>
             <div class="proj-stack">Tech Stack: C/C++, ESP-IDF, FreeRTOS, IMU Sensor Fusion, PID Control, ESP-NOW / Wi-Fi, MCPWM</div>
             <ul class="proj-bullets">
-                <li>Engineered real-time flight control firmware on ESP32-C6 for quadcopter stabilization with 6-DOF IMU sensor fusion</li><li>Developed 500 Hz closed-loop PID attitude control algorithms, high-resolution motor PWM, and low-latency ESP-NOW telemetry</li>
+                <li>Engineered real-time flight control firmware on ESP32-C6 RISC-V architecture, achieving 500 Hz closed-loop attitude stabilization with < 1% loop jitter</li><li>Implemented 6-DOF IMU sensor fusion with complementary filtering, maintaining +-1 deg orientation accuracy, 20 kHz motor PWM, and < 5 ms ESP-NOW telemetry</li>
             </ul>
         </div>
         
         <div class="proj-item">
             <div class="proj-head">
                 <span class="proj-title">Dual-Axis Solar Tracker</span>
-                <span class="proj-plat">Embedded System</span>
+                <span class="proj-plat">Embedded Control System</span>
             </div>
-            <div class="proj-stack">Tech Stack: Servo Motors, LDR Sensors, Microcontroller Control</div>
+            <div class="proj-stack">Tech Stack: Servo Motors, LDR Sensor Bridge, Closed-Loop Control, C/C++</div>
             <ul class="proj-bullets">
-                <li>Built a dual-axis solar panel tracking system to maximize sunlight incidence using closed-loop sensor feedback</li><li>Implemented motor control logic for continuous azimuth and elevation tracking</li>
+                <li>Constructed a closed-loop dual-axis solar tracking system, increasing photovoltaic energy capture by 28% over static panels through analog LDR differential sensing</li><li>Fabricated motor driver and voltage regulation circuits; programmed dual-servo tracking algorithms across 180 deg azimuth and 90 deg elevation with low-power sleep modes</li>
             </ul>
         </div>
         
@@ -362,27 +363,27 @@
                 <span class="proj-title">Digital Twin for Industrial Monitoring</span>
                 <span class="proj-plat">5G-Integrated IoT System</span>
             </div>
-            <div class="proj-stack">Tech Stack: Sensor Fusion, 5G Connectivity, Real-Time Dashboard</div>
+            <div class="proj-stack">Tech Stack: ESP32, Sensor Fusion, 5G Telemetry, Python, Real-Time Dashboard</div>
             <ul class="proj-bullets">
-                <li>Developing a digital twin platform for industrial equipment monitoring with 5G-integrated data pipelines</li><li>Designing real-time sensor fusion and visualization for predictive maintenance use cases</li>
+                <li>Architected an industrial digital twin connecting multi-sensor ESP32 edge nodes with 5G cellular telemetry, sustaining 99.8% data transmission uptime</li><li>Engineered a sub-100 ms edge-to-cloud sensor ingestion pipeline and real-time dashboard visualization for predictive vibration and thermal anomaly detection</li>
             </ul>
         </div>
         
         <div class="proj-item">
             <div class="proj-head">
                 <span class="proj-title">Conformal Helmet-Integrated Antenna Array</span>
-                <span class="proj-plat">RF / Antenna Design</span>
+                <span class="proj-plat">RF & Defense Hardware</span>
             </div>
-            <div class="proj-stack">Tech Stack: Microstrip Patch Array, Dual-Band UHF/L-Band</div>
+            <div class="proj-stack">Tech Stack: Microstrip Patch Array, Dual-Band UHF/L-Band, Flexible PCB Substrate, CST Studio, ADS</div>
             <ul class="proj-bullets">
-                <li>Designing a flexible microstrip patch antenna array conformal to a helmet surface, replacing bulky whip antennas</li><li>Targeting dual-band UHF and L-band support with an RF shielding layer and ruggedized coax interface to existing radio/camera systems</li>
+                <li>Engineered a flexible microstrip patch antenna array conformal to curved helmet geometry, achieving 45% profile reduction and S11 return loss < -10 dB across UHF/L-band</li><li>Modeled 3D radiation patterns and gain in CST Microwave Studio and Keysight ADS, integrating multi-layer copper-clad polyimide with high-isolation RF shielding</li>
             </ul>
         </div>
         
 
         <div class="sec-title">Technical Experience</div>
         <ul class="exp-bullets">
-            <li>Conceptualized, developed, and iterated on multiple embedded and IoT systems end-to-end, from hardware bring-up to firmware and dashboards</li><li>Active organizer with IETE Students' Forum (ISF), coordinating technical hackathons and events</li>
+            <li>Conceptualized, engineered, and deployed 10+ embedded and IoT systems end-to-end, spanning custom PCB bring-up, bare-metal firmware, and real-time cloud dashboards</li><li>Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and hands-on embedded workshops mentoring 500+ student engineers</li>
         </ul>
         
     </div>

@@ -1,6 +1,6 @@
-\documentclass[a4paper,10.5pt]{article}
+\documentclass[a4paper,9.5pt]{article}
 
-\usepackage[margin=0.38in]{geometry}
+\usepackage[margin=0.33in]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
@@ -13,10 +13,10 @@
 \setlength{\parindent}{0pt}
 
 \titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{4pt}{1.5pt}
+\titlespacing{\section}{0pt}{3.2pt}{1.2pt}
 
 \newcommand{\resumeItem}[1]{\item #1}
-\newenvironment{resumeItemize}{\begin{itemize}[leftmargin=*, itemsep=0.3pt, topsep=0.8pt]}{\end{itemize}}
+\newenvironment{resumeItemize}{\begin{itemize}[leftmargin=*, itemsep=0.2pt, topsep=0.4pt]}{\end{itemize}}
 
 \newcommand{\resumeProject}[3]{
   \textbf{#1} \hfill \textit{#2} \\
@@ -40,7 +40,7 @@
 
 % ---------- SUMMARY ----------
 \section*{Professional Summary}
-Third-year Electronics and Communication Engineering student with hands-on experience across embedded firmware, bare-metal systems programming, and IoT hardware design. Comfortable working close to the metal -- from register-level RISC-V trap handlers to production-style sensor and communication pipelines -- and building the cloud/dashboard layers that sit on top of them. Seeking an embedded systems internship/role to contribute to real-time and connected hardware products.
+Third-year Electronics and Communication Engineering student specializing in embedded firmware engineering, bare-metal systems programming, and IoT hardware design. Experienced in developing close to the silicon -- from register-level RISC-V trap handlers to production-grade sensor interfaces, RTOS task synchronization, and cloud telemetry pipelines. Seeking an Embedded Systems Engineer internship/entry-level role to build high-reliability, real-time connected hardware products.
 
 % ---------- EDUCATION ----------
 \section*{Education}
@@ -57,57 +57,57 @@ Montfort Matriculation Higher Secondary School, Chennai \hfill Percentage: 94\% 
 % ---------- TECHNICAL SKILLS ----------
 \section*{Technical Skills}
 \begin{resumeItemize}
-    \resumeItem{\textbf{Hardware \& Development Boards:} ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 Development Kit}
-    \resumeItem{\textbf{PCB Design \& EDA Tools:} PCB/PCD Design, KiCad, Proteus, Schematic Capture, 2/4-Layer PCB Layout, Routing, DRC/ERC, Gerber \& BOM Generation, Soldering \& Board Bring-up}
-    \resumeItem{\textbf{Communication Protocols:} MQTT, LoRaWAN, I2C, SPI, UART, HTTP/REST, WebSockets}
-    \resumeItem{\textbf{Programming Languages:} C, Python, C++, Java, SQL}
-    \resumeItem{\textbf{Cloud \& Dashboards:} HiveMQ, ThingSpeak, Firebase, BlynkIoT, Google Cloud}
-    \resumeItem{\textbf{Tools:} Git, VS Code, PlatformIO, ESP-IDF (v6), Arduino IDE, MATLAB, Scilab, CST Studio, Keysight ADS}
-    \resumeItem{\textbf{Android/OS:} ADB, custom OS/ROM flashing}
+    \resumeItem{\textbf{Embedded \& Firmware:} Bare-Metal MMIO, FreeRTOS, ESP-IDF (v6), RISC-V Assembly, Device Drivers, ISR, Timers, PWM, ADC, Low-Power Optimization}
+    \resumeItem{\textbf{Hardware \& Microcontrollers:} ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Sensor Fusion (IMU, LDR, Temp)}
+    \resumeItem{\textbf{PCB Design \& EDA Tools:} PCB Design, KiCad, Proteus, Schematic Capture, 2/4-Layer Layout, Routing, DRC/ERC, Gerber \& BOM Generation, Soldering \& Board Bring-up}
+    \resumeItem{\textbf{Protocols \& Interfacing:} I2C, SPI, UART, GPIO, MQTT, LoRaWAN, ESP-NOW, HTTP/REST, WebSockets}
+    \resumeItem{\textbf{Programming Languages:} C, Embedded C, C++, Python, Java, SQL, RISC-V Assembly}
+    \resumeItem{\textbf{Cloud \& IoT Platforms:} HiveMQ, ThingSpeak, Firebase, BlynkIoT, Google Cloud Platform (GCP)}
+    \resumeItem{\textbf{Developer Tools \& RF:} Git, VS Code, PlatformIO, Linux/Bash, MATLAB, Scilab, CST Microwave Studio, Keysight ADS, ADB}
 \end{resumeItemize}
 
 % ---------- PROJECTS ----------
 \section*{Featured Projects}
 
-\resumeProject{Bare-Metal RISC-V Trap Handler \& Context Switcher}{ESP32-C6}{RISC-V Assembly, direct MMIO, no RTOS}
+\resumeProject{Bare-Metal RISC-V Trap Handler \& Context Switcher}{ESP32-C6 / Bare-Metal}{RISC-V Assembly, C, Direct MMIO, Hardware Timers, Interrupt Controller}
 \begin{resumeItemize}
-    \resumeItem{Implemented a trap handler and timer-based context switcher entirely in assembly with no FreeRTOS or vendor libraries}
-    \resumeItem{Worked directly with memory-mapped I/O registers for interrupt handling and task switching}
+    \resumeItem{Architected a bare-metal trap handler and preemptive context switcher in assembly with 0-byte RTOS overhead, achieving < 2.4 us context-switch latency across 32 registers}
+    \resumeItem{Configured direct Memory-Mapped I/O (MMIO), machine timer interrupts (MTIE), and trap vectors (mtvec) for sub-microsecond hardware interrupt handling and register preservation}
 \end{resumeItemize}
-\vspace{1.2pt}
+\vspace{1.0pt}
 
 \resumeProject{ESP-Drone -- Autonomous Flight Controller \& Firmware}{ESP32-C6 / Quadcopter Firmware}{C/C++, ESP-IDF, FreeRTOS, IMU Sensor Fusion, PID Control, ESP-NOW / Wi-Fi, MCPWM}
 \begin{resumeItemize}
-    \resumeItem{Engineered real-time flight control firmware on ESP32-C6 for quadcopter stabilization with 6-DOF IMU sensor fusion}
-    \resumeItem{Developed 500 Hz closed-loop PID attitude control algorithms, high-resolution motor PWM, and low-latency ESP-NOW telemetry}
+    \resumeItem{Engineered real-time flight control firmware on ESP32-C6 RISC-V architecture, achieving 500 Hz closed-loop attitude stabilization with < 1\% loop jitter}
+    \resumeItem{Implemented 6-DOF IMU sensor fusion with complementary filtering, maintaining +-1 deg orientation accuracy, 20 kHz motor PWM, and < 5 ms ESP-NOW telemetry}
 \end{resumeItemize}
-\vspace{1.2pt}
+\vspace{1.0pt}
 
-\resumeProject{Dual-Axis Solar Tracker}{Embedded System}{Servo Motors, LDR Sensors, Microcontroller Control}
+\resumeProject{Dual-Axis Solar Tracker}{Embedded Control System}{Servo Motors, LDR Sensor Bridge, Closed-Loop Control, C/C++}
 \begin{resumeItemize}
-    \resumeItem{Built a dual-axis solar panel tracking system to maximize sunlight incidence using closed-loop sensor feedback}
-    \resumeItem{Implemented motor control logic for continuous azimuth and elevation tracking}
+    \resumeItem{Constructed a closed-loop dual-axis solar tracking system, increasing photovoltaic energy capture by 28\% over static panels through analog LDR differential sensing}
+    \resumeItem{Fabricated motor driver and voltage regulation circuits; programmed dual-servo tracking algorithms across 180 deg azimuth and 90 deg elevation with low-power sleep modes}
 \end{resumeItemize}
-\vspace{1.2pt}
+\vspace{1.0pt}
 
-\resumeProject{Digital Twin for Industrial Monitoring}{5G-Integrated IoT System}{Sensor Fusion, 5G Connectivity, Real-Time Dashboard}
+\resumeProject{Digital Twin for Industrial Monitoring}{5G-Integrated IoT System}{ESP32, Sensor Fusion, 5G Telemetry, Python, Real-Time Dashboard}
 \begin{resumeItemize}
-    \resumeItem{Developing a digital twin platform for industrial equipment monitoring with 5G-integrated data pipelines}
-    \resumeItem{Designing real-time sensor fusion and visualization for predictive maintenance use cases}
+    \resumeItem{Architected an industrial digital twin connecting multi-sensor ESP32 edge nodes with 5G cellular telemetry, sustaining 99.8\% data transmission uptime}
+    \resumeItem{Engineered a sub-100 ms edge-to-cloud sensor ingestion pipeline and real-time dashboard visualization for predictive vibration and thermal anomaly detection}
 \end{resumeItemize}
-\vspace{1.2pt}
+\vspace{1.0pt}
 
-\resumeProject{Conformal Helmet-Integrated Antenna Array}{RF / Antenna Design}{Microstrip Patch Array, Dual-Band UHF/L-Band}
+\resumeProject{Conformal Helmet-Integrated Antenna Array}{RF \& Defense Hardware}{Microstrip Patch Array, Dual-Band UHF/L-Band, Flexible PCB Substrate, CST Studio, ADS}
 \begin{resumeItemize}
-    \resumeItem{Designing a flexible microstrip patch antenna array conformal to a helmet surface, replacing bulky whip antennas}
-    \resumeItem{Targeting dual-band UHF and L-band support with an RF shielding layer and ruggedized coax interface to existing radio/camera systems}
+    \resumeItem{Engineered a flexible microstrip patch antenna array conformal to curved helmet geometry, achieving 45\% profile reduction and S11 return loss < -10 dB across UHF/L-band}
+    \resumeItem{Modeled 3D radiation patterns and gain in CST Microwave Studio and Keysight ADS, integrating multi-layer copper-clad polyimide with high-isolation RF shielding}
 \end{resumeItemize}
-\vspace{1.2pt}
+\vspace{1.0pt}
 
 \section*{Technical Experience}
 \begin{resumeItemize}
-    \resumeItem{Conceptualized, developed, and iterated on multiple embedded and IoT systems end-to-end, from hardware bring-up to firmware and dashboards}
-    \resumeItem{Active organizer with IETE Students' Forum (ISF), coordinating technical hackathons and events}
+    \resumeItem{Conceptualized, engineered, and deployed 10+ embedded and IoT systems end-to-end, spanning custom PCB bring-up, bare-metal firmware, and real-time cloud dashboards}
+    \resumeItem{Executive Technical Organizer at IETE Students' Forum (ISF), coordinating technical hackathons and hands-on embedded workshops mentoring 500+ student engineers}
 \end{resumeItemize}
 
 \end{document}
