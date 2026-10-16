@@ -12,7 +12,7 @@
     "portfolio": "https://barath0508-portfolio.vercel.app",
     "portfolio_display": "barath0508-portfolio.vercel.app"
   },
-  "summary": "Third-year Electronics and Communication Engineering student and Embedded Engineer with hands-on proficiency across hardware design, bare-metal firmware, and software engineering. Experienced in building from silicon to software -- from register-level RISC-V assembly and custom PCB/sensor bring-up to full-stack IoT telemetry pipelines, cloud integration, and algorithmic problem solving. Seeking an Embedded Engineer role to architect high-performance, connected hardware and software systems.",
+  "summary": "Third-year Electronics and Communication Engineering student and Embedded Engineer with hands-on proficiency across hardware design, bare-metal firmware, and software engineering. Experienced in building from silicon to software -- from register-level RISC-V assembly and RTOS firmware (FreeRTOS & Zephyr) to custom PCB/sensor bring-up, full-stack IoT telemetry pipelines, cloud integration, and algorithmic problem solving. Seeking an Embedded Engineer role to architect high-performance, connected hardware and software systems.",
   "education": [
     {
       "degree": "B.E. Electronics and Communication Engineering",
@@ -43,7 +43,7 @@
     },
     {
       "category": "Firmware & Low-Level Development",
-      "items": "Bare-Metal C/C++, FreeRTOS, ESP-IDF (v6), RISC-V Assembly, Device Drivers, ISR, Timers, PWM, ADC, DMA, Low-Power Modes"
+      "items": "Bare-Metal C/C++, FreeRTOS, Zephyr RTOS, ESP-IDF (v6), RISC-V Assembly, Device Drivers, ISR, Timers, PWM, ADC, DMA, Low-Power Modes"
     },
     {
       "category": "PCB Design & EDA Tools",
@@ -67,7 +67,7 @@
     },
     {
       "category": "Core CS & Problem Solving",
-      "items": "Data Structures & Algorithms (LeetCode streak), OOP, Concurrency, Multithreading, RTOS Architecture"
+      "items": "Data Structures & Algorithms (LeetCode streak), OOP, Concurrency, Multithreading, RTOS Architecture (FreeRTOS & Zephyr)"
     }
   ],
   "projects": [

@@ -71,6 +71,7 @@ class BarathR:
     cgpa       = "8.65 / 10"
     
     languages  = ["C", "C++", "Python", "JavaScript (ES6+)", "TypeScript", "RISC-V Assembly", "SQL"]
+    rtos       = ["FreeRTOS", "Zephyr RTOS"]
     hardware   = ["ESP32-C6", "ESP32", "ESP32-CAM", "Raspberry Pi 5", "Arduino UNO R3", "Altera DE2 FPGA", "Bare-Metal MMIO"]
     pcb_eda    = ["KiCad", "Proteus", "EasyEDA", "Multi-Layer Routing", "DRC/ERC", "Gerber Generation", "SMD/THT Soldering"]
     protocols  = ["I2C", "SPI", "UART", "MQTT", "LoRaWAN", "GPIO/PWM/ADC", "MMIO", "WebSockets", "HTTP/REST"]
@@ -159,6 +160,8 @@ Internships, freelance<br/>& collabs worldwide
   <img src="https://skillicons.dev/icons?i=arduino&theme=dark" />
   <img src="https://img.shields.io/badge/ESP32-000000?style=for-the-badge&logo=espressif&logoColor=E7352C"/>
   <img src="https://img.shields.io/badge/ESP32--C6-FF6B35?style=for-the-badge&logo=espressif&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Zephyr%20RTOS-7B2CBF?style=for-the-badge&logo=zephyrproject&logoColor=white"/>
+  <img src="https://img.shields.io/badge/FreeRTOS-008080?style=for-the-badge&logoColor=white"/>
   <img src="https://img.shields.io/badge/Altera%20FPGA-C084FC?style=for-the-badge&logoColor=white"/>
   <img src="https://img.shields.io/badge/PCB%20Design-00D4FF?style=for-the-badge&logoColor=black"/>
   <img src="https://img.shields.io/badge/KiCad-314CB0?style=for-the-badge&logo=kicad&logoColor=white"/>
@@ -200,7 +203,7 @@ Internships, freelance<br/>& collabs worldwide
 
 | Domain | Competencies & Tools |
 |:---|:---|
-| 🔌 **Hardware & Embedded** | ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Bare-Metal MMIO, CST Studio, Keysight ADS |
+| 🔌 **Hardware & Embedded** | ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Bare-Metal MMIO, FreeRTOS, Zephyr RTOS, CST Studio, Keysight ADS |
 | 📐 **PCB Design & EDA** | KiCad, Proteus, EasyEDA, Schematic Capture, Multi-Layer PCB Layout, Routing, DRC/ERC, Gerber & BOM Generation, SMD/THT Soldering, Hardware Bring-up |
 | 📡 **Hardware Protocols** | I2C, SPI, UART, MQTT, LoRaWAN, GPIO, PWM, ADC, MMIO, WebSockets, HTTP/REST |
 | 💻 **Programming Languages** | C, C++, Python, JavaScript (ES6+), TypeScript, Java, SQL, RISC-V Assembly |
@@ -208,7 +211,7 @@ Internships, freelance<br/>& collabs worldwide
 | ☁️ **Cloud, IoT & BaaS** | Firebase, HiveMQ, ThingSpeak, AWS IoT Core, Google Cloud Platform, Supabase |
 | 🗃️ **Databases** | MongoDB, PostgreSQL, MySQL, SQLite, Supabase |
 | 🛠️ **Engineering Tools & DevOps** | Git, GitHub Actions, Docker, Linux/Bash, ESP-IDF (v6), VS Code, PlatformIO, MATLAB, Scilab, ADB |
-| 🧠 **Core CS & Architecture** | Data Structures & Algorithms (LeetCode streak), OOP, Concurrency, RTOS Architecture |
+| 🧠 **Core CS & Architecture** | Data Structures & Algorithms (LeetCode streak), OOP, Concurrency, RTOS Architecture (FreeRTOS, Zephyr) |
 
 </details>
 

@@ -1,6 +1,6 @@
-\documentclass[a4paper,9.5pt]{article}
-
-\usepackage[margin=0.33in]{geometry}
+\documentclass[a4paper,9pt]{extarticle}
+\usepackage{extsizes}
+\usepackage[a4paper, top=0.28in, bottom=0.28in, left=0.32in, right=0.32in]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
@@ -12,11 +12,11 @@
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 
-\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{3.2pt}{1.2pt}
+\titleformat{\section}{\normalsize\bfseries\scshape}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{2.2pt}{0.8pt}
 
 \newcommand{\resumeItem}[1]{\item #1}
-\newenvironment{resumeItemize}{\begin{itemize}[leftmargin=*, itemsep=0.2pt, topsep=0.4pt]}{\end{itemize}}
+\newenvironment{resumeItemize}{\begin{itemize}[leftmargin=12pt, itemsep=0.2pt, parsep=0pt, topsep=0.4pt, partopsep=0pt]}{\end{itemize}}
 
 \newcommand{\resumeProject}[3]{
   \textbf{#1} \hfill \textit{#2} \\
@@ -29,35 +29,36 @@
 }
 
 \begin{document}
+\fontsize{9pt}{10.8pt}\selectfont
 
 % ---------- HEADER ----------
 \begin{center}
-    {\LARGE \textbf{Barath R}} \\[2pt]
-    Electronics \& Communication Engineering Student $\vert$ Embedded Systems \& IoT \\[2pt]
+    {\Large \textbf{Barath R}} \\[1.5pt]
+    \textbf{Electronics \& Communication Engineering Student $\vert$ Embedded Systems \& IoT} \\[1.5pt]
     Chennai, India $\vert$ +91-9442169681 $\vert$ \href{mailto:barath5727@gmail.com}{barath5727@gmail.com} \\
     \href{https://github.com/barath0508}{github.com/barath0508} $\vert$ \href{https://www.linkedin.com/in/barath0508/}{linkedin.com/in/barath0508} $\vert$ \href{https://barath0508-portfolio.vercel.app}{barath0508-portfolio.vercel.app}
 \end{center}
+\vspace{-3.5pt}
 
 % ---------- SUMMARY ----------
 \section*{Professional Summary}
-Third-year Electronics and Communication Engineering student specializing in embedded firmware engineering, bare-metal systems programming, and IoT hardware design. Experienced in developing close to the silicon -- from register-level RISC-V trap handlers to production-grade sensor interfaces, RTOS task synchronization, and cloud telemetry pipelines. Seeking an Embedded Systems Engineer internship/entry-level role to build high-reliability, real-time connected hardware products.
+Third-year Electronics and Communication Engineering student specializing in embedded firmware engineering, bare-metal systems programming, and IoT hardware design. Experienced in developing close to the silicon -- from register-level RISC-V trap handlers to production-grade sensor interfaces, RTOS (FreeRTOS \& Zephyr) task synchronization, and cloud telemetry pipelines. Seeking an Embedded Systems Engineer internship/entry-level role to build high-reliability, real-time connected hardware products.
 
 % ---------- EDUCATION ----------
 \section*{Education}
 \textbf{B.E. Electronics and Communication Engineering} \hfill 2024 -- 2028 (Expected) \\
-Rajalakshmi Institute of Technology, Chennai \hfill CGPA: 8.65/10 \\
-\textit{Currently in 3rd year} \\[2pt]
+Rajalakshmi Institute of Technology, Chennai $\vert$ \textit{Currently in 3rd year} \hfill CGPA: 8.65/10
+\\[1.5pt]
 \textbf{Higher Secondary Certificate (HSC) -- Class XII} \hfill 2023 -- 2024 \\
-Montfort Matriculation Higher Secondary School, Chennai \hfill Percentage: 95\% \\
-\textit{Tamil Nadu State Board} \\[2pt]
+Montfort Matriculation Higher Secondary School, Chennai $\vert$ \textit{Tamil Nadu State Board} \hfill Percentage: 95\%
+\\[1.5pt]
 \textbf{Secondary School Leaving Certificate (SSLC) -- Class X} \hfill 2021 -- 2022 \\
-Montfort Matriculation Higher Secondary School, Chennai \hfill Percentage: 94\% \\
-\textit{Tamil Nadu State Board}
+Montfort Matriculation Higher Secondary School, Chennai $\vert$ \textit{Tamil Nadu State Board} \hfill Percentage: 94\%
 
 % ---------- TECHNICAL SKILLS ----------
 \section*{Technical Skills}
 \begin{resumeItemize}
-    \resumeItem{\textbf{Embedded \& Firmware:} Bare-Metal MMIO, FreeRTOS, ESP-IDF (v6), RISC-V Assembly, Device Drivers, ISR, Timers, PWM, ADC, Low-Power Optimization}
+    \resumeItem{\textbf{Embedded \& Firmware:} Bare-Metal MMIO, FreeRTOS, Zephyr RTOS, ESP-IDF (v6), RISC-V Assembly, Device Drivers, ISR, Timers, PWM, ADC, Low-Power Optimization}
     \resumeItem{\textbf{Hardware \& Microcontrollers:} ESP32, ESP32-C6, ESP32-CAM, Raspberry Pi 5, Arduino UNO R3, Altera DE2 FPGA, Sensor Fusion (IMU, LDR, Temp)}
     \resumeItem{\textbf{PCB Design \& EDA Tools:} PCB Design, KiCad, Proteus, Schematic Capture, 2/4-Layer Layout, Routing, DRC/ERC, Gerber \& BOM Generation, Soldering \& Board Bring-up}
     \resumeItem{\textbf{Protocols \& Interfacing:} I2C, SPI, UART, GPIO, MQTT, LoRaWAN, ESP-NOW, HTTP/REST, WebSockets}
@@ -74,35 +75,35 @@ Montfort Matriculation Higher Secondary School, Chennai \hfill Percentage: 94\% 
     \resumeItem{Architected a bare-metal trap handler and preemptive context switcher in assembly with 0-byte RTOS overhead, achieving < 2.4 us context-switch latency across 32 registers}
     \resumeItem{Configured direct Memory-Mapped I/O (MMIO), machine timer interrupts (MTIE), and trap vectors (mtvec) for sub-microsecond hardware interrupt handling and register preservation}
 \end{resumeItemize}
-\vspace{1.0pt}
+\vspace{0.8pt}
 
 \resumeProject{ESP-Drone -- Autonomous Flight Controller \& Firmware}{ESP32-C6 / Quadcopter Firmware}{C/C++, ESP-IDF, FreeRTOS, IMU Sensor Fusion, PID Control, ESP-NOW / Wi-Fi, MCPWM}
 \begin{resumeItemize}
     \resumeItem{Engineered real-time flight control firmware on ESP32-C6 RISC-V architecture, achieving 500 Hz closed-loop attitude stabilization with < 1\% loop jitter}
     \resumeItem{Implemented 6-DOF IMU sensor fusion with complementary filtering, maintaining +-1 deg orientation accuracy, 20 kHz motor PWM, and < 5 ms ESP-NOW telemetry}
 \end{resumeItemize}
-\vspace{1.0pt}
+\vspace{0.8pt}
 
 \resumeProject{Dual-Axis Solar Tracker}{Embedded Control System}{Servo Motors, LDR Sensor Bridge, Closed-Loop Control, C/C++}
 \begin{resumeItemize}
     \resumeItem{Constructed a closed-loop dual-axis solar tracking system, increasing photovoltaic energy capture by 28\% over static panels through analog LDR differential sensing}
     \resumeItem{Fabricated motor driver and voltage regulation circuits; programmed dual-servo tracking algorithms across 180 deg azimuth and 90 deg elevation with low-power sleep modes}
 \end{resumeItemize}
-\vspace{1.0pt}
+\vspace{0.8pt}
 
 \resumeProject{Digital Twin for Industrial Monitoring}{5G-Integrated IoT System}{ESP32, Sensor Fusion, 5G Telemetry, Python, Real-Time Dashboard}
 \begin{resumeItemize}
     \resumeItem{Architected an industrial digital twin connecting multi-sensor ESP32 edge nodes with 5G cellular telemetry, sustaining 99.8\% data transmission uptime}
     \resumeItem{Engineered a sub-100 ms edge-to-cloud sensor ingestion pipeline and real-time dashboard visualization for predictive vibration and thermal anomaly detection}
 \end{resumeItemize}
-\vspace{1.0pt}
+\vspace{0.8pt}
 
 \resumeProject{Conformal Helmet-Integrated Antenna Array}{RF \& Defense Hardware}{Microstrip Patch Array, Dual-Band UHF/L-Band, Flexible PCB Substrate, CST Studio, ADS}
 \begin{resumeItemize}
     \resumeItem{Engineered a flexible microstrip patch antenna array conformal to curved helmet geometry, achieving 45\% profile reduction and S11 return loss < -10 dB across UHF/L-band}
     \resumeItem{Modeled 3D radiation patterns and gain in CST Microwave Studio and Keysight ADS, integrating multi-layer copper-clad polyimide with high-isolation RF shielding}
 \end{resumeItemize}
-\vspace{1.0pt}
+\vspace{0.8pt}
 
 \section*{Leadership \& Experience}
 \textbf{Executive Technical Organizer} \hfill 2024 -- Present \\

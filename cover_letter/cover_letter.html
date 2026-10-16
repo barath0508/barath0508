@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barath R - Cover Letter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 18mm 20mm 18mm 20mm;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 10pt;
+            line-height: 1.55;
+            color: #1a1a1a;
+            background: #f1f5f9;
+            padding: 24px;
+        }
+
+        .print-toolbar {
+            max-width: 800px;
+            margin: 0 auto 16px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0f172a;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .btn-print {
+            background: #00d4ff;
+            color: #0f172a;
+            border: none;
+            padding: 8px 16px;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-print:hover {
+            background: #38bdf8;
+            box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
+        }
+
+        .page-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 48px 56px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        header.header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1.5px solid #111827;
+        }
+
+        h1.name {
+            font-size: 22pt;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 3px;
+        }
+
+        .title {
+            font-size: 10.5pt;
+            font-weight: 600;
+            color: #0284c7;
+            margin-bottom: 6px;
+        }
+
+        .contact-line {
+            font-size: 9pt;
+            color: #4b5563;
+        }
+
+        .contact-line a {
+            color: #111827;
+            text-decoration: none;
+        }
+
+        .contact-line a:hover {
+            text-decoration: underline;
+        }
+
+        .meta-sec {
+            margin-bottom: 20px;
+            font-size: 9.5pt;
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        .meta-sec strong {
+            color: #111827;
+        }
+
+        .letter-body p {
+            margin-bottom: 14px;
+            text-align: justify;
+            color: #1f2937;
+        }
+
+        .letter-body ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        .letter-body li {
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+
+        .sign-off {
+            margin-top: 24px;
+        }
+
+        .sign-name {
+            font-weight: 700;
+            color: #111827;
+            margin-top: 16px;
+        }
+
+        @media print {
+            body {
+                background: #ffffff;
+                padding: 0;
+            }
+            .print-toolbar {
+                display: none !important;
+            }
+            .page-wrap {
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-toolbar">
+        <span><strong>Barath R</strong> — Embedded Systems & IoT Cover Letter</span>
+        <button class="btn-print" onclick="window.print()">Print / Save as PDF (Ctrl+P)</button>
+    </div>
+
+    <div class="page-wrap" contenteditable="true" title="Click anywhere to edit details before printing!">
+        <header class="header">
+            <h1 class="name">Barath R</h1>
+            <div class="title">Electronics & Communication Engineering Student | Embedded Systems & IoT</div>
+            <div class="contact-line">
+                Chennai, India &nbsp;|&nbsp; +91-9442169681 &nbsp;|&nbsp; <a href="mailto:barath5727@gmail.com">barath5727@gmail.com</a>
+            </div>
+            <div class="contact-line">
+                <a href="https://github.com/barath0508">github.com/barath0508</a> &nbsp;|&nbsp;
+                <a href="https://www.linkedin.com/in/barath0508/">linkedin.com/in/barath0508</a> &nbsp;|&nbsp;
+                <a href="https://barath0508-portfolio.vercel.app">barath0508-portfolio.vercel.app</a>
+            </div>
+        </header>
+
+        <div class="meta-sec">
+            <div><strong>Date:</strong> October 2026</div>
+            <div><strong>To:</strong> Hiring Team / Talent Acquisition</div>
+            <div><strong>Company:</strong> [Target Company Name]</div>
+            <div><strong>Role:</strong> Application for [Embedded Systems / Firmware Engineer Intern / New Grad]</div>
+        </div>
+
+        <div class="letter-body">
+            <p>Dear Hiring Team,</p>
+
+            <p>
+                I am writing to express my enthusiastic interest in the <strong>[Position Title]</strong> opportunity at <strong>[Company Name]</strong>. As a third-year Electronics and Communication Engineering student at Rajalakshmi Institute of Technology (CGPA: 8.65/10), I specialize in bare-metal systems programming, real-time operating systems (<strong>FreeRTOS</strong> and <strong>Zephyr RTOS</strong>), and hardware bring-up. My technical journey has centered on developing close to the silicon—translating architecture datasheets and register maps into deterministic firmware, designing multi-layer PCBs, and building reliable telemetry pipelines.
+            </p>
+
+            <p>Key highlights of my technical background include:</p>
+
+            <ul>
+                <li><strong>Bare-Metal RISC-V Architecture:</strong> Architected a bare-metal trap handler and preemptive context switcher in RISC-V assembly and C with 0-byte RTOS overhead on the ESP32-C6 MCU. By directly configuring Memory-Mapped I/O (MMIO), machine timer interrupts (MTIE), and trap vectors (mtvec), I achieved &lt; 2.4 &mu;s context-switch latency across 32 registers.</li>
+                <li><strong>Real-Time Flight Firmware & RTOS:</strong> Engineered real-time flight control firmware for an autonomous quadcopter (ESP-Drone) in C/C++ on ESP-IDF and FreeRTOS, sustaining a 500 Hz closed-loop attitude stabilization cycle (&lt; 1% loop jitter), 6-DOF IMU sensor fusion with quaternion estimation, and low-latency bidirectional telemetry via ESP-NOW (&lt; 5 ms).</li>
+                <li><strong>Hardware Bring-up & PCB Design:</strong> Designed and routed 2- and 4-layer PCBs using KiCad and Proteus, followed by SMD soldering and bench testing with oscilloscopes, logic analyzers, multimeters, and JTAG/SWD debuggers. Implemented analog sensor bridges (differential LDR sensing) and simulated conformal microstrip patch antenna arrays in CST Studio.</li>
+                <li><strong>Technical Leadership & Mentorship:</strong> As Executive Technical Organizer for the IETE Students' Forum (ISF), mentored 500+ student engineers across firmware development, sensor interfacing, and microcontroller bring-up while driving 10+ embedded and IoT builds end-to-end.</li>
+            </ul>
+
+            <p>
+                What attracts me most to <strong>[Company Name]</strong> is your engineering standard in [mention specific focus, e.g., automotive embedded controllers / industrial IoT / silicon solutions / robotics]. I am eager to apply my foundation in Embedded C/C++, RTOS concurrency, hardware bring-up, and low-level debugging to solve tangible engineering challenges on your team.
+            </p>
+
+            <p>
+                Thank you for your time and consideration. I would welcome the opportunity to discuss how my firmware and hardware skill set aligns with your engineering goals.
+            </p>
+
+            <div class="sign-off">
+                <p>Sincerely,</p>
+                <div class="sign-name">Barath R</div>
+                <p style="font-size: 9pt; color: #4b5563; margin-top: 2px;">Chennai, India | +91-9442169681 | barath5727@gmail.com</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

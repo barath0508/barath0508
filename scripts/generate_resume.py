@@ -60,22 +60,32 @@ def build_latex(data: dict, compact: bool = False) -> str:
     experience = data.get("experience", [])
     languages = data.get("languages", [])
 
-    fontsize = "9.5pt" if compact else "10pt"
-    margin = "0.33in" if compact else "0.42in"
-    sec_top_space = "3.2pt" if compact else "5pt"
-    sec_bot_space = "1.2pt" if compact else "2pt"
+    margin = "0.28in" if compact else "0.42in"
+    sec_top_space = "2.2pt" if compact else "5pt"
+    sec_bot_space = "0.8pt" if compact else "2pt"
     item_sep = "0.2pt" if compact else "0.5pt"
-    top_sep = "0.4pt" if compact else "0.8pt"
-    proj_vspace = "1.0pt" if compact else "1.6pt"
+    top_sep = "0.3pt" if compact else "0.8pt"
+    proj_vspace = "0.8pt" if compact else "1.6pt"
 
     contact_row_2 = f"\\href{{{personal['github']}}}{{{personal['github_display']}}} $\\vert$ \\href{{{personal['linkedin']}}}{{{personal['linkedin_display']}}}"
     if personal.get("portfolio"):
         contact_row_2 += f" $\\vert$ \\href{{{personal['portfolio']}}}{{{personal.get('portfolio_display', personal['portfolio'])}}}"
 
-    lines = [
-        f"\\documentclass[a4paper,{fontsize}]{{article}}",
-        "",
-        f"\\usepackage[margin={margin}]{{geometry}}",
+    lines = []
+    if compact:
+        lines.extend([
+            r"\documentclass[a4paper,9pt]{extarticle}",
+            r"\usepackage{extsizes}",
+            r"\usepackage[a4paper, top=0.28in, bottom=0.28in, left=0.32in, right=0.32in]{geometry}",
+        ])
+    else:
+        lines.extend([
+            r"\documentclass[a4paper,10pt]{article}",
+            "",
+            f"\\usepackage[margin={margin}]{{geometry}}",
+        ])
+
+    lines.extend([
         r"\usepackage{titlesec}",
         r"\usepackage{enumitem}",
         r"\usepackage{hyperref}",
@@ -87,11 +97,26 @@ def build_latex(data: dict, compact: bool = False) -> str:
         r"\pagestyle{empty}",
         r"\setlength{\parindent}{0pt}",
         "",
-        r"\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\titlerule]",
-        f"\\titlespacing{{\\section}}{{0pt}}{{{sec_top_space}}}{{{sec_bot_space}}}",
-        "",
-        r"\newcommand{\resumeItem}[1]{\item #1}",
-        f"\\newenvironment{{resumeItemize}}{{\\begin{{itemize}}[leftmargin=*, itemsep={item_sep}, topsep={top_sep}]}}{{\\end{{itemize}}}}",
+    ])
+
+    if compact:
+        lines.extend([
+            r"\titleformat{\section}{\normalsize\bfseries\scshape}{}{0em}{}[\titlerule]",
+            f"\\titlespacing{{\\section}}{{0pt}}{{{sec_top_space}}}{{{sec_bot_space}}}",
+            "",
+            r"\newcommand{\resumeItem}[1]{\item #1}",
+            r"\newenvironment{resumeItemize}{\begin{itemize}[leftmargin=12pt, itemsep=0.2pt, parsep=0pt, topsep=0.4pt, partopsep=0pt]}{\end{itemize}}",
+        ])
+    else:
+        lines.extend([
+            r"\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\titlerule]",
+            f"\\titlespacing{{\\section}}{{0pt}}{{{sec_top_space}}}{{{sec_bot_space}}}",
+            "",
+            r"\newcommand{\resumeItem}[1]{\item #1}",
+            f"\\newenvironment{{resumeItemize}}{{\\begin{{itemize}}[leftmargin=*, itemsep={item_sep}, topsep={top_sep}]}}{{\\end{{itemize}}}}",
+        ])
+
+    lines.extend([
         "",
         r"\newcommand{\resumeProject}[3]{",
         r"  \textbf{#1} \hfill \textit{#2} \\",
@@ -104,14 +129,34 @@ def build_latex(data: dict, compact: bool = False) -> str:
         r"}",
         "",
         r"\begin{document}",
-        "",
-        r"% ---------- HEADER ----------",
-        r"\begin{center}",
-        f"    {{\\LARGE \\textbf{{{escape_latex(personal['name'])}}}}} \\\\[2pt]",
-        f"    {escape_latex(personal['title'])} \\\\[2pt]",
-        f"    {escape_latex(personal['location'])} $\\vert$ {escape_latex(personal['phone'])} $\\vert$ \\href{{mailto:{personal['email']}}}{{{personal['email']}}} \\\\",
-        f"    {contact_row_2}",
-        r"\end{center}",
+    ])
+
+    if compact:
+        lines.extend([
+            r"\fontsize{9pt}{10.8pt}\selectfont",
+            "",
+            r"% ---------- HEADER ----------",
+            r"\begin{center}",
+            f"    {{\\Large \\textbf{{{escape_latex(personal['name'])}}}}} \\\\[1.5pt]",
+            f"    \\textbf{{{escape_latex(personal['title'])}}} \\\\[1.5pt]",
+            f"    {escape_latex(personal['location'])} $\\vert$ {escape_latex(personal['phone'])} $\\vert$ \\href{{mailto:{personal['email']}}}{{{personal['email']}}} \\\\",
+            f"    {contact_row_2}",
+            r"\end{center}",
+            r"\vspace{-3.5pt}",
+        ])
+    else:
+        lines.extend([
+            "",
+            r"% ---------- HEADER ----------",
+            r"\begin{center}",
+            f"    {{\\LARGE \\textbf{{{escape_latex(personal['name'])}}}}} \\\\[2pt]",
+            f"    {escape_latex(personal['title'])} \\\\[2pt]",
+            f"    {escape_latex(personal['location'])} $\\vert$ {escape_latex(personal['phone'])} $\\vert$ \\href{{mailto:{personal['email']}}}{{{personal['email']}}} \\\\",
+            f"    {contact_row_2}",
+            r"\end{center}",
+        ])
+
+    lines.extend([
         "",
         r"% ---------- SUMMARY ----------",
         r"\section*{Professional Summary}",
@@ -119,22 +164,33 @@ def build_latex(data: dict, compact: bool = False) -> str:
         "",
         r"% ---------- EDUCATION ----------",
         r"\section*{Education}",
-    ]
+    ])
 
-    for i, edu in enumerate(education):
-        lines.append(f"\\textbf{{{escape_latex(edu['degree'])}}} \\hfill {edu['period']} \\\\")
-        notes = edu.get("notes", "")
-        if notes:
-            lines.append(f"{escape_latex(edu['institution'])} \\hfill {escape_latex(edu['score'])} \\\\")
-            if i < len(education) - 1:
-                lines.append(f"\\textit{{{escape_latex(notes)}}} \\\\[2pt]")
-            else:
-                lines.append(f"\\textit{{{escape_latex(notes)}}}")
-        else:
-            if i < len(education) - 1:
-                lines.append(f"{escape_latex(edu['institution'])} \\hfill {escape_latex(edu['score'])} \\\\[2pt]")
+    if compact:
+        for i, edu in enumerate(education):
+            lines.append(f"\\textbf{{{escape_latex(edu['degree'])}}} \\hfill {edu['period']} \\\\")
+            notes = edu.get("notes", "")
+            if notes:
+                lines.append(f"{escape_latex(edu['institution'])} $\\vert$ \\textit{{{escape_latex(notes)}}} \\hfill {escape_latex(edu['score'])}")
             else:
                 lines.append(f"{escape_latex(edu['institution'])} \\hfill {escape_latex(edu['score'])}")
+            if i < len(education) - 1:
+                lines.append(r"\\[1.5pt]")
+    else:
+        for i, edu in enumerate(education):
+            lines.append(f"\\textbf{{{escape_latex(edu['degree'])}}} \\hfill {edu['period']} \\\\")
+            notes = edu.get("notes", "")
+            if notes:
+                lines.append(f"{escape_latex(edu['institution'])} \\hfill {escape_latex(edu['score'])} \\\\")
+                if i < len(education) - 1:
+                    lines.append(f"\\textit{{{escape_latex(notes)}}} \\\\[2pt]")
+                else:
+                    lines.append(f"\\textit{{{escape_latex(notes)}}}")
+            else:
+                if i < len(education) - 1:
+                    lines.append(f"{escape_latex(edu['institution'])} \\hfill {escape_latex(edu['score'])} \\\\[2pt]")
+                else:
+                    lines.append(f"{escape_latex(edu['institution'])} \\hfill {escape_latex(edu['score'])}")
 
     lines.extend([
         "",
@@ -1032,21 +1088,22 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
     experience = data.get("experience", [])
     languages = data.get("languages", [])
 
-    page_margin = "4.5mm 9mm 4.5mm 9mm" if compact else "8mm 11mm 8mm 11mm"
-    body_size = "8.1pt" if compact else "8.9pt"
-    body_lh = "1.21" if compact else "1.29"
-    header_mb = "3.5px" if compact else "8px"
-    sec_title_mt = "3px" if compact else "7px"
-    sec_title_mb = "1.2px" if compact else "2.5px"
-    edu_proj_mb = "1.2px" if compact else "3.2px"
-    bullet_mb = "0.3px" if compact else "0.8px"
-    name_size = "16.5pt" if compact else "19.5pt"
-    title_size = "9.2pt" if compact else "10.5pt"
-    contact_size = "8.1pt" if compact else "8.8pt"
-    sec_title_size = "9.2pt" if compact else "9.8pt"
-    bullet_size = "8.1pt" if compact else "8.8pt"
-    skill_size = "8.2pt" if compact else "9.0pt"
-    stack_size = "7.8pt" if compact else "8.5pt"
+    page_margin = "4.0mm 8mm 4.0mm 8mm" if compact else "8mm 11mm 8mm 11mm"
+    body_size = "7.8pt" if compact else "8.9pt"
+    body_lh = "1.18" if compact else "1.29"
+    header_mb = "2.5px" if compact else "8px"
+    sec_title_mt = "2.5px" if compact else "7px"
+    sec_title_mb = "1.0px" if compact else "2.5px"
+    edu_proj_mb = "1.0px" if compact else "3.2px"
+    bullet_mb = "0.2px" if compact else "0.8px"
+    name_size = "15.5pt" if compact else "19.5pt"
+    title_size = "8.8pt" if compact else "10.5pt"
+    contact_size = "7.8pt" if compact else "8.8pt"
+    sec_title_size = "8.8pt" if compact else "9.8pt"
+    bullet_size = "7.8pt" if compact else "8.8pt"
+    skill_size = "7.9pt" if compact else "9.0pt"
+    stack_size = "7.5pt" if compact else "8.5pt"
+    wrap_padding = "14px 20px" if compact else "24px 28px"
 
     skills_rows = ""
     for s in skills:
@@ -1082,20 +1139,35 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
 
     edu_rows = ""
     for e in education:
-        notes_div = f'<div class="edu-notes">{e["notes"]}</div>' if e.get("notes") else ""
-        edu_rows += f"""
-        <div class="edu-item">
-            <div class="edu-head">
-                <span class="edu-deg">{e['degree']}</span>
-                <span class="edu-period">{e['period']}</span>
+        if compact:
+            notes_str = f' &nbsp;|&nbsp; <span class="edu-notes">{e["notes"]}</span>' if e.get("notes") else ""
+            edu_rows += f"""
+            <div class="edu-item">
+                <div class="edu-head">
+                    <span class="edu-deg">{e['degree']}</span>
+                    <span class="edu-period">{e['period']}</span>
+                </div>
+                <div class="edu-sub">
+                    <span>{e['institution']}{notes_str}</span>
+                    <span class="edu-score">{e['score']}</span>
+                </div>
             </div>
-            <div class="edu-sub">
-                <span>{e['institution']}</span>
-                <span class="edu-score">{e['score']}</span>
+            """
+        else:
+            notes_div = f'<div class="edu-notes">{e["notes"]}</div>' if e.get("notes") else ""
+            edu_rows += f"""
+            <div class="edu-item">
+                <div class="edu-head">
+                    <span class="edu-deg">{e['degree']}</span>
+                    <span class="edu-period">{e['period']}</span>
+                </div>
+                <div class="edu-sub">
+                    <span>{e['institution']}</span>
+                    <span class="edu-score">{e['score']}</span>
+                </div>
+                {notes_div}
             </div>
-            {notes_div}
-        </div>
-        """
+            """
 
     exp_rows = ""
     for exp in experience:
@@ -1189,7 +1261,7 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         .page-wrap {{
             max-width: 820px;
             margin: 0 auto;
-            padding: 24px 28px;
+            padding: {wrap_padding};
             background: #ffffff;
         }}
 
@@ -1450,16 +1522,26 @@ def main():
     print(f"Generated Printable Resumes: {OUTPUT_HTML_FULL} & {OUTPUT_HTML_DEFAULT}")
 
     # 5. Automatically compile PDFs locally via headless Chrome / Edge if available
+    import shutil
     browser_paths = [
         Path(r"C:\Program Files\Google\Chrome\Application\chrome.exe"),
         Path(r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"),
         Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"),
         Path(r"C:\Program Files\Microsoft\Edge\Application\msedge.exe"),
+        Path("/usr/bin/google-chrome"),
+        Path("/usr/bin/google-chrome-stable"),
+        Path("/usr/bin/chromium-browser"),
+        Path("/usr/bin/chromium"),
     ]
     browser_exe = next((p for p in browser_paths if p.exists()), None)
+    if not browser_exe:
+        for name in ["google-chrome", "google-chrome-stable", "chromium-browser", "chromium", "chrome", "msedge"]:
+            found = shutil.which(name)
+            if found:
+                browser_exe = Path(found)
+                break
     if browser_exe:
         import subprocess
-        import shutil
         import tempfile
         pdf_targets = [
             (OUTPUT_HTML_FULL_RESUME, RESUME_DIR / "resume_full.pdf"),

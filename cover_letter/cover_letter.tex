@@ -1,0 +1,60 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\definecolor{darkblue}{RGB}{20,20,20}
+\hypersetup{colorlinks=true, urlcolor=darkblue, linkcolor=darkblue}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\begin{document}
+
+% ---------- HEADER ----------
+\begin{center}
+    {\LARGE \textbf{Barath R}} \\[3pt]
+    Electronics \& Communication Engineering Student $\vert$ Embedded Systems \& IoT \\[2pt]
+    Chennai, India $\vert$ +91-9442169681 $\vert$ \href{mailto:barath5727@gmail.com}{barath5727@gmail.com} \\
+    \href{https://github.com/barath0508}{github.com/barath0508} $\vert$ \href{https://www.linkedin.com/in/barath0508/}{linkedin.com/in/barath0508} $\vert$ \href{https://barath0508-portfolio.vercel.app}{barath0508-portfolio.vercel.app}
+\end{center}
+
+\vspace{6pt}
+\hrule
+\vspace{12pt}
+
+% ---------- METADATA ----------
+\textbf{Date:} \today \\
+\textbf{To:} Hiring Team / Talent Acquisition \\
+\textbf{Company:} [Company Name] \\
+\textbf{Subject:} Application for [Position Title -- e.g., Embedded Systems / Firmware Engineer Intern]
+
+\vspace{8pt}
+
+Dear Hiring Team,
+
+I am writing to express my enthusiastic interest in the \textbf{[Position Title]} opportunity at \textbf{[Company Name]}. As a third-year Electronics and Communication Engineering student at Rajalakshmi Institute of Technology (CGPA: 8.65/10), I specialize in bare-metal systems programming, real-time operating systems (\textbf{FreeRTOS} and \textbf{Zephyr RTOS}), and IoT hardware bring-up. My technical journey has centered on developing close to the silicon---translating architecture datasheets and register maps into deterministic firmware, designing multi-layer PCBs, and building reliable telemetry pipelines.
+
+Key highlights of my technical background include:
+
+\begin{itemize}[leftmargin=14pt, itemsep=3pt, topsep=2pt]
+    \item \textbf{Bare-Metal RISC-V Architecture:} Architected a bare-metal trap handler and preemptive context switcher in RISC-V assembly and C with zero RTOS overhead on the ESP32-C6 MCU. By directly configuring Memory-Mapped I/O (MMIO), machine timer interrupts (MTIE), and trap vectors (mtvec), I achieved $<$ 2.4 $\mu$s context-switch latency across 32 registers.
+    \item \textbf{Real-Time Flight Firmware \& RTOS:} Engineered real-time flight control firmware for an autonomous quadcopter (ESP-Drone) in C/C++ on ESP-IDF and FreeRTOS, sustaining a 500 Hz closed-loop attitude stabilization cycle ($<$ 1\% loop jitter), 6-DOF IMU sensor fusion with quaternion estimation, and low-latency bidirectional telemetry via ESP-NOW ($<$ 5 ms).
+    \item \textbf{Hardware Bring-up \& PCB Design:} Designed and routed 2- and 4-layer PCBs using KiCad and Proteus, followed by SMD soldering and bench testing with oscilloscopes, logic analyzers, multimeters, and JTAG/SWD debuggers. Implemented analog sensor bridges (differential LDR sensing) and simulated conformal microstrip patch antenna arrays in CST Studio.
+    \item \textbf{Technical Leadership:} As Executive Technical Organizer for the IETE Students' Forum (ISF), mentored 500+ student engineers across firmware development, sensor interfacing, and microcontroller bring-up while driving 10+ embedded and IoT builds end-to-end.
+\end{itemize}
+
+What attracts me most to \textbf{[Company Name]} is your engineering standard in [mention specific focus, e.g., automotive embedded controllers / industrial IoT / silicon solutions / robotics]. I am eager to apply my foundation in Embedded C/C++, RTOS concurrency, hardware bring-up, and low-level debugging to solve tangible engineering challenges on your team.
+
+Thank you for your time and consideration. I would welcome the opportunity to discuss how my firmware and hardware skill set aligns with your engineering goals.
+
+\vspace{12pt}
+\noindent Sincerely, \\[16pt]
+\textbf{Barath R} \\
+Chennai, India $\vert$ +91-9442169681 $\vert$ \href{mailto:barath5727@gmail.com}{barath5727@gmail.com}
+
+\end{document}

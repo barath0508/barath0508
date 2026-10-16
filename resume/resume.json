@@ -12,7 +12,7 @@
     "portfolio": "https://barath0508-portfolio.vercel.app",
     "portfolio_display": "barath0508-portfolio.vercel.app"
   },
-  "summary": "Third-year Electronics and Communication Engineering student specializing in embedded firmware engineering, bare-metal systems programming, and IoT hardware design. Experienced in developing close to the silicon -- from register-level RISC-V trap handlers to production-grade sensor interfaces, RTOS task synchronization, and cloud telemetry pipelines. Seeking an Embedded Systems Engineer internship/entry-level role to build high-reliability, real-time connected hardware products.",
+  "summary": "Third-year Electronics and Communication Engineering student specializing in embedded firmware engineering, bare-metal systems programming, and IoT hardware design. Experienced in developing close to the silicon -- from register-level RISC-V trap handlers to production-grade sensor interfaces, RTOS (FreeRTOS & Zephyr) task synchronization, and cloud telemetry pipelines. Seeking an Embedded Systems Engineer internship/entry-level role to build high-reliability, real-time connected hardware products.",
   "education": [
     {
       "degree": "B.E. Electronics and Communication Engineering",
@@ -39,7 +39,7 @@
   "skills": [
     {
       "category": "Embedded & Firmware",
-      "items": "Bare-Metal MMIO, FreeRTOS, ESP-IDF (v6), RISC-V Assembly, Device Drivers, ISR, Timers, PWM, ADC, Low-Power Optimization"
+      "items": "Bare-Metal MMIO, FreeRTOS, Zephyr RTOS, ESP-IDF (v6), RISC-V Assembly, Device Drivers, ISR, Timers, PWM, ADC, Low-Power Optimization"
     },
     {
       "category": "Hardware & Microcontrollers",
