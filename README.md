@@ -30,6 +30,9 @@
   <a href="https://barath0508.github.io/barath0508/">
     <img src="https://img.shields.io/badge/Resume%20Portal-Live%20HTML-FF6B35?style=for-the-badge&logo=githubpages&logoColor=white"/>
   </a>
+  <a href="https://barath0508.github.io/barath0508/cover_letter.html">
+    <img src="https://img.shields.io/badge/Cover%20Letter-Interactive%20Live-10B981?style=for-the-badge&logo=googledocs&logoColor=white"/>
+  </a>
   <a href="https://barath0508.github.io/barath0508/resume.pdf">
     <img src="https://img.shields.io/badge/Resume%20PDF-Embedded%20%26%20IoT-00D4FF?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"/>
   </a>

@@ -29,6 +29,10 @@ OUTPUT_HTML_FULL_RESUME = RESUME_DIR / "resume_full.html"
 OUTPUT_HTML_DEFAULT = DIST_DIR / "resume.html"
 OUTPUT_HTML_DEFAULT_RESUME = RESUME_DIR / "resume.html"
 
+COVER_LETTER_DIR = ROOT_DIR / "cover_letter"
+COVER_LETTER_HTML = COVER_LETTER_DIR / "cover_letter.html"
+OUTPUT_COVER_LETTER_DIST = DIST_DIR / "cover_letter.html"
+
 
 def escape_latex(text: str) -> str:
     """Escapes special characters in text for LaTeX compatibility."""
@@ -940,6 +944,9 @@ def build_portal_html(data_default: dict, data_full: dict) -> str:
                 <a href="resume_full.html" target="_blank" class="btn btn-secondary" id="btn-printable" title="View print-ready HTML resume">
                     Printable HTML
                 </a>
+                <a href="cover_letter.html" target="_blank" class="btn btn-secondary" id="btn-cover-letter" title="Interactive In-Browser Cover Letter">
+                    ✉️ Cover Letter
+                </a>
                 <a href="{personal['github']}" target="_blank" class="btn btn-secondary">
                     GitHub
                 </a>
@@ -1521,8 +1528,13 @@ def main():
         f.write(print_html_default)
     print(f"Generated Printable Resumes: {OUTPUT_HTML_FULL} & {OUTPUT_HTML_DEFAULT}")
 
-    # 5. Automatically compile PDFs locally via headless Chrome / Edge if available
+    # 5. Copy interactive cover letter to dist/ for GitHub Pages
     import shutil
+    if COVER_LETTER_HTML.exists():
+        shutil.copy(COVER_LETTER_HTML, OUTPUT_COVER_LETTER_DIST)
+        print(f"Deployed Cover Letter to dist: {OUTPUT_COVER_LETTER_DIST}")
+
+    # 6. Automatically compile PDFs locally via headless Chrome / Edge if available
     browser_paths = [
         Path(r"C:\Program Files\Google\Chrome\Application\chrome.exe"),
         Path(r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"),
@@ -1546,6 +1558,7 @@ def main():
         pdf_targets = [
             (OUTPUT_HTML_FULL_RESUME, RESUME_DIR / "resume_full.pdf"),
             (OUTPUT_HTML_DEFAULT_RESUME, RESUME_DIR / "resume.pdf"),
+            (COVER_LETTER_HTML, COVER_LETTER_DIR / "cover_letter.pdf"),
         ]
         for src_html, target_pdf in pdf_targets:
             temp_profile = tempfile.mkdtemp(prefix="browser_pdf_")

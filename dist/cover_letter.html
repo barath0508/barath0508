@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barath R - Cover Letter (Interactive & Printable)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 16mm 18mm 16mm 18mm;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 9.8pt;
+            line-height: 1.52;
+            color: #1a1a1a;
+            background: #0f172a;
+            padding: 24px 16px;
+            min-height: 100vh;
+        }
+
+        /* Top Bar Controls */
+        .toolbar-wrapper {
+            max-width: 840px;
+            margin: 0 auto 16px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .action-bar {
+            background: #1e293b;
+            border: 1px solid rgba(0, 212, 255, 0.25);
+            padding: 12px 18px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            color: #f8fafc;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .bar-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+        }
+
+        .brand-badge {
+            background: rgba(0, 212, 255, 0.15);
+            color: #00d4ff;
+            border: 1px solid rgba(0, 212, 255, 0.35);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .save-indicator {
+            font-size: 11px;
+            color: #10b981;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .bar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, #00d4ff, #0077b6);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-print:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0, 212, 255, 0.45);
+        }
+
+        .btn-portal {
+            background: #334155;
+            color: #e2e8f0;
+            border-color: #475569;
+        }
+
+        .btn-portal:hover {
+            background: #475569;
+            color: #00d4ff;
+        }
+
+        .btn-reset {
+            background: transparent;
+            color: #94a3b8;
+            border-color: #475569;
+        }
+
+        .btn-reset:hover {
+            color: #ef4444;
+            border-color: #ef4444;
+        }
+
+        /* Quick-Fill Panel */
+        .quickfill-panel {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 12px 18px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) auto;
+            gap: 12px;
+            align-items: end;
+        }
+
+        .field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .field-group label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .field-group input {
+            background: #0f172a;
+            border: 1px solid #475569;
+            color: #f8fafc;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .field-group input:focus {
+            border-color: #00d4ff;
+            box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+        }
+
+        .btn-apply {
+            background: #0284c7;
+            color: #ffffff;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            align-self: flex-end;
+            height: 33px;
+        }
+
+        .btn-apply:hover {
+            background: #0369a1;
+        }
+
+        /* Printable Letter Paper */
+        .page-wrap {
+            max-width: 840px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 44px 52px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+            outline: none;
+        }
+
+        .page-wrap[contenteditable="true"]:hover {
+            box-shadow: 0 12px 45px rgba(0, 212, 255, 0.25);
+        }
+
+        header.header {
+            text-align: center;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1.5px solid #111827;
+        }
+
+        h1.name {
+            font-size: 21pt;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 3px;
+            letter-spacing: -0.3px;
+        }
+
+        .title {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #0284c7;
+            margin-bottom: 5px;
+        }
+
+        .contact-line {
+            font-size: 8.8pt;
+            color: #4b5563;
+            line-height: 1.4;
+        }
+
+        .contact-line a {
+            color: #111827;
+            text-decoration: none;
+        }
+
+        .contact-line a:hover {
+            text-decoration: underline;
+        }
+
+        .meta-sec {
+            margin-bottom: 16px;
+            font-size: 9.3pt;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        .meta-sec strong {
+            color: #111827;
+        }
+
+        .letter-body p {
+            margin-bottom: 11px;
+            text-align: justify;
+            color: #1f2937;
+        }
+
+        .letter-body ul {
+            margin-left: 20px;
+            margin-bottom: 13px;
+        }
+
+        .letter-body li {
+            margin-bottom: 6px;
+            color: #1f2937;
+        }
+
+        .letter-body li strong {
+            color: #0f172a;
+        }
+
+        .highlight-var {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 1px 4px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .sign-off {
+            margin-top: 18px;
+        }
+
+        .sign-name {
+            font-weight: 700;
+            color: #111827;
+            margin-top: 12px;
+            font-size: 10.5pt;
+        }
+
+        @media print {
+            body {
+                background: #ffffff;
+                padding: 0;
+            }
+            .toolbar-wrapper {
+                display: none !important;
+            }
+            .page-wrap {
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+            }
+            .highlight-var {
+                background: transparent !important;
+                color: inherit !important;
+                padding: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toolbar-wrapper">
+        <div class="action-bar">
+            <div class="bar-left">
+                <span class="brand-badge">Cover Letter Portal</span>
+                <span class="save-indicator" id="save-status">● Auto-Save Active</span>
+            </div>
+            <div class="bar-right">
+                <button class="btn btn-print" onclick="window.print()">
+                    🖨️ Print / Save as PDF (Ctrl+P)
+                </button>
+                <button class="btn btn-reset" onclick="resetTemplate()" title="Reset to default Barath R template">
+                    ↺ Reset
+                </button>
+                <a href="index.html" class="btn btn-portal">
+                    ← Resume Portal
+                </a>
+            </div>
+        </div>
+
+        <div class="quickfill-panel">
+            <div class="field-group">
+                <label for="input-company">Company Name</label>
+                <input type="text" id="input-company" placeholder="e.g. Qualcomm / Bosch / Ather" />
+            </div>
+            <div class="field-group">
+                <label for="input-role">Job Title / Position</label>
+                <input type="text" id="input-role" placeholder="e.g. Embedded Firmware Engineer Intern" />
+            </div>
+            <div class="field-group">
+                <label for="input-date">Date</label>
+                <input type="text" id="input-date" />
+            </div>
+            <button class="btn-apply" onclick="applyQuickFill()">Apply to Letter</button>
+        </div>
+    </div>
+
+    <div class="page-wrap" id="letter-content" contenteditable="true" spellcheck="false" title="Click anywhere to edit freely before printing!">
+        <header class="header">
+            <h1 class="name">Barath R</h1>
+            <div class="title">Embedded Systems & Firmware Engineer | RISC-V, RTOS & IoT Systems</div>
+            <div class="contact-line">
+                Chennai, India &nbsp;|&nbsp; +91-9442169681 &nbsp;|&nbsp; <a href="mailto:barath5727@gmail.com">barath5727@gmail.com</a>
+            </div>
+            <div class="contact-line">
+                <a href="https://github.com/barath0508" target="_blank">github.com/barath0508</a> &nbsp;|&nbsp;
+                <a href="https://www.linkedin.com/in/barath0508/" target="_blank">linkedin.com/in/barath0508</a> &nbsp;|&nbsp;
+                <a href="https://barath0508-portfolio.vercel.app" target="_blank">barath0508-portfolio.vercel.app</a>
+            </div>
+        </header>
+
+        <div class="meta-sec">
+            <div><strong>Date:</strong> <span id="meta-date">October 16, 2026</span></div>
+            <div><strong>To:</strong> Hiring Team / Talent Acquisition</div>
+            <div><strong>Company:</strong> <span class="highlight-var" id="meta-company">[Target Company Name]</span></div>
+            <div><strong>Subject:</strong> Application for <span class="highlight-var" id="meta-role">[Embedded Systems / Firmware Engineer Intern]</span></div>
+        </div>
+
+        <div class="letter-body">
+            <p>Dear Hiring Team,</p>
+
+            <p>
+                I am writing to express my enthusiastic interest in the <strong class="highlight-var" id="body-role">[Position Title]</strong> opportunity at <strong class="highlight-var" id="body-company">[Company Name]</strong>. As a third-year Electronics and Communication Engineering student at Rajalakshmi Institute of Technology (CGPA: 8.65/10), I specialize in bare-metal systems programming, real-time operating systems (<strong>FreeRTOS</strong> and <strong>Zephyr RTOS</strong>), and hardware bring-up. My technical journey has centered on developing close to the silicon—translating architecture datasheets and register maps into deterministic firmware, designing multi-layer PCBs, and building reliable telemetry pipelines.
+            </p>
+
+            <p>Key highlights of my technical background include:</p>
+
+            <ul>
+                <li><strong>Bare-Metal RISC-V Architecture:</strong> Architected a bare-metal trap handler and preemptive context switcher in RISC-V assembly and C with 0-byte RTOS overhead on the ESP32-C6 MCU. By directly configuring Memory-Mapped I/O (MMIO), machine timer interrupts (MTIE), and trap vectors (mtvec), I achieved &lt; 2.4 &mu;s context-switch latency across 32 registers.</li>
+                <li><strong>Real-Time Flight Firmware & RTOS:</strong> Engineered real-time flight control firmware for an autonomous quadcopter (ESP-Drone) in C/C++ on ESP-IDF and FreeRTOS, sustaining a 500 Hz closed-loop attitude stabilization cycle (&lt; 1% loop jitter), 6-DOF IMU sensor fusion with quaternion estimation, and low-latency bidirectional telemetry via ESP-NOW (&lt; 5 ms).</li>
+                <li><strong>Hardware Bring-up & PCB Design:</strong> Designed and routed 2- and 4-layer PCBs using KiCad and Proteus, followed by SMD soldering and bench testing with oscilloscopes, logic analyzers, multimeters, and JTAG/SWD debuggers. Implemented analog sensor bridges (differential LDR sensing) and simulated conformal microstrip patch antenna arrays in CST Studio.</li>
+                <li><strong>Technical Leadership & Mentorship:</strong> As Executive Technical Organizer for the IETE Students' Forum (ISF), mentored 500+ student engineers across firmware development, sensor interfacing, and microcontroller bring-up while driving 10+ embedded and IoT builds end-to-end.</li>
+            </ul>
+
+            <p>
+                What attracts me most to <strong class="highlight-var" id="body-company2">[Company Name]</strong> is your engineering standard in building mission-critical, high-reliability embedded hardware. I am eager to apply my foundation in Embedded C/C++, RTOS concurrency, hardware bring-up, and low-level debugging to solve tangible engineering challenges on your team.
+            </p>
+
+            <p>
+                Thank you for your time and consideration. I would welcome the opportunity to discuss how my firmware and hardware skill set aligns with your engineering goals.
+            </p>
+
+            <div class="sign-off">
+                <p>Sincerely,</p>
+                <div class="sign-name">Barath R</div>
+                <p style="font-size: 8.8pt; color: #4b5563; margin-top: 2px;">Chennai, India | +91-9442169681 | barath5727@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const STORAGE_KEY = 'barath_cover_letter_custom_html';
+        const letterEl = document.getElementById('letter-content');
+        const defaultHTML = letterEl.innerHTML;
+
+        // Load saved edits if present
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+            letterEl.innerHTML = saved;
+        }
+
+        // Set default date
+        const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        document.getElementById('input-date').value = today;
+
+        // Auto-save on every keystroke
+        letterEl.addEventListener('input', () => {
+            localStorage.setItem(STORAGE_KEY, letterEl.innerHTML);
+            const status = document.getElementById('save-status');
+            status.innerText = '● Saved';
+            status.style.color = '#10b981';
+        });
+
+        function applyQuickFill() {
+            const comp = document.getElementById('input-company').value.trim();
+            const role = document.getElementById('input-role').value.trim();
+            const dt = document.getElementById('input-date').value.trim();
+
+            if (dt) {
+                const el = document.getElementById('meta-date');
+                if (el) el.innerText = dt;
+            }
+            if (comp) {
+                const c1 = document.getElementById('meta-company');
+                const c2 = document.getElementById('body-company');
+                const c3 = document.getElementById('body-company2');
+                if (c1) { c1.innerText = comp; c1.classList.remove('highlight-var'); }
+                if (c2) { c2.innerText = comp; c2.classList.remove('highlight-var'); }
+                if (c3) { c3.innerText = comp; c3.classList.remove('highlight-var'); }
+            }
+            if (role) {
+                const r1 = document.getElementById('meta-role');
+                const r2 = document.getElementById('body-role');
+                if (r1) { r1.innerText = role; r1.classList.remove('highlight-var'); }
+                if (r2) { r2.innerText = role; r2.classList.remove('highlight-var'); }
+            }
+
+            localStorage.setItem(STORAGE_KEY, letterEl.innerHTML);
+            const status = document.getElementById('save-status');
+            status.innerText = '● Applied & Saved';
+            status.style.color = '#10b981';
+        }
+
+        function resetTemplate() {
+            if (confirm('Are you sure you want to reset the cover letter back to the original template? Any unsaved edits will be cleared.')) {
+                localStorage.removeItem(STORAGE_KEY);
+                letterEl.innerHTML = defaultHTML;
+                document.getElementById('input-company').value = '';
+                document.getElementById('input-role').value = '';
+                const status = document.getElementById('save-status');
+                status.innerText = '● Template Reset';
+                status.style.color = '#38bdf8';
+            }
+        }
+    </script>
+</body>
+</html>
