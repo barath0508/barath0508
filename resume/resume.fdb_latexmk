@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1792147866.39152 "resume.tex" "resume.pdf" "resume" 1792147866.94208 0
+["pdflatex"] 1792149458.9744 "resume.tex" "resume.pdf" "resume" 1792149459.39031 0
   "/opt/texlive/texdir/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/opt/texlive/texdir/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/opt/texlive/texdir/texmf-dist/fonts/tfm/jknappen/ec/tcrm0900.tfm" 1136768653 1536 c4f439db76ef96a9c53bc437f35ffe20 ""
@@ -65,9 +65,9 @@
   "/opt/texlive/texdir/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1790873945 5609345 1b2b3adc34073d267b8a5f51210ec97d ""
   "/opt/texlive/texdir/texmf-var/web2c/pdftex/pdflatex.fmt" 1790873998 3668356 0ddcaf1aa60edaf799737828f6537715 ""
   "/opt/texlive/texdir/texmf.cnf" 1790873936 555 bd60ff59e4d560b42d96b004436f91d3 ""
-  "resume.aux" 1792147866.83972 162 55205a9e8a8eca30d36afb389b0617bf "pdflatex"
-  "resume.out" 1792147866.71871 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "resume.tex" 1792147774.34886 7466 7f8fa54c6f7f7db1d67db42c06ba01a9 ""
+  "resume.aux" 1792149459.31663 162 55205a9e8a8eca30d36afb389b0617bf "pdflatex"
+  "resume.out" 1792149459.21863 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "resume.tex" 1792149363.75739 7679 fe6a354e32a4e84a105e5b4fbc4c0c94 ""
   (generated)
   "resume.aux"
   "resume.log"
