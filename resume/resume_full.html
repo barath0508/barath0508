@@ -6,7 +6,8 @@
     <title>Barath R - Embedded Systems & Firmware Engineer | Full-Stack & IoT Systems</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/latin-modern-roman">
     <style>
         @page {
             size: A4;
@@ -20,10 +21,10 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 8.9pt;
-            line-height: 1.29;
-            color: #1a1a1a;
+            font-family: 'Latin Modern Roman', 'Computer Modern Serif', 'LMRoman10', 'CMU Serif', 'Nimbus Roman No9 L', 'Times New Roman', Times, serif;
+            font-size: 9.0pt;
+            line-height: 1.30;
+            color: #141414;
             background: #ffffff;
         }
 
@@ -35,6 +36,7 @@
             justify-content: space-between;
             align-items: center;
             font-size: 13px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         .print-btn {
@@ -56,31 +58,33 @@
 
         header.header {
             text-align: center;
-            margin-bottom: 8px;
+            margin-bottom: 7px;
         }
 
         h1.name {
-            font-size: 19.5pt;
+            font-size: 20pt;
             font-weight: 700;
-            letter-spacing: -0.3px;
-            color: #111827;
-            margin-bottom: 2px;
+            letter-spacing: 0;
+            color: #141414;
+            margin-bottom: 1.5px;
+            line-height: 1.15;
         }
 
         .title {
             font-size: 10.5pt;
-            font-weight: 600;
-            color: #0369a1;
-            margin-bottom: 3px;
+            font-weight: 700;
+            color: #141414;
+            margin-bottom: 2px;
         }
 
         .contact-line {
             font-size: 8.8pt;
-            color: #4b5563;
+            color: #141414;
+            line-height: 1.35;
         }
 
         .contact-line a {
-            color: #111827;
+            color: #141414;
             text-decoration: none;
         }
 
@@ -89,22 +93,25 @@
         }
 
         .sec-title {
-            font-size: 9.8pt;
+            font-family: 'Latin Modern Roman', 'Computer Modern Serif', 'LMRomanCaps10', 'CMU Serif', serif;
+            font-size: 10.0pt;
             font-weight: 700;
+            font-variant: small-caps;
             text-transform: uppercase;
-            letter-spacing: 0.6px;
-            color: #111827;
-            border-bottom: 1.2px solid #111827;
-            padding-bottom: 1.5px;
-            margin-top: 7px;
+            letter-spacing: 0.5px;
+            color: #141414;
+            border-bottom: 0.75pt solid #141414;
+            padding-bottom: 1.2px;
+            margin-top: 6.5px;
             margin-bottom: 2.5px;
         }
 
         .summary-p {
             text-align: justify;
-            color: #27272a;
-            margin-bottom: 3px;
+            color: #141414;
+            margin-bottom: 2.5px;
             font-size: 8.8pt;
+            line-height: 1.30;
         }
 
         .edu-item, .proj-item {
@@ -119,80 +126,92 @@
 
         .edu-deg, .proj-title, .exp-role {
             font-weight: 700;
-            color: #09090b;
+            color: #141414;
             font-size: 8.8pt;
         }
 
         .edu-period, .proj-plat, .exp-period {
+            font-style: normal;
+            color: #141414;
+            font-size: 8.8pt;
+        }
+
+        .proj-plat {
             font-style: italic;
-            color: #4b5563;
-            font-size: 8.5pt;
         }
 
         .edu-sub, .exp-sub {
             display: flex;
             justify-content: space-between;
-            font-size: 8.5pt;
-            color: #374151;
+            font-size: 8.6pt;
+            color: #141414;
         }
 
         .edu-score {
-            font-weight: 600;
+            font-weight: normal;
+            color: #141414;
         }
 
         .edu-notes {
-            font-size: 8pt;
+            font-size: 8.6pt;
             font-style: italic;
-            color: #6b7280;
+            color: #141414;
         }
 
         .skill-line {
-            margin-bottom: 1.8px;
-            font-size: 9.0pt;
+            margin-bottom: 1.2px;
+            font-size: 8.9pt;
+            line-height: 1.30;
         }
 
         .skill-name {
             font-weight: 700;
-            color: #18181b;
+            color: #141414;
         }
 
         .skill-val {
-            color: #374151;
+            color: #141414;
         }
 
         .proj-stack {
             font-size: 8.5pt;
             font-style: italic;
-            color: #0284c7;
+            color: #141414;
             margin-bottom: 1.5px;
         }
 
         ul.proj-bullets, ul.exp-bullets {
             list-style: disc outside;
-            margin-left: 18px;
-            color: #27272a;
+            margin-left: 15px;
+            padding-left: 0;
+            color: #141414;
         }
 
         ul.proj-bullets li, ul.exp-bullets li {
             margin-bottom: 0.8px;
             font-size: 8.8pt;
+            line-height: 1.30;
+            text-align: justify;
+            color: #141414;
+        }
+
+        ul.proj-bullets li strong, ul.exp-bullets li strong {
+            color: #141414;
+            font-weight: 700;
         }
 
         .languages-line {
-            font-size: 9.2pt;
-            color: #27272a;
+            font-size: 8.8pt;
+            color: #141414;
         }
 
         .proj-group-title {
-            font-size: 9.3pt;
+            font-size: 10.0pt;
             font-weight: 700;
-            color: #0369a1;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 8px;
-            margin-bottom: 4px;
-            padding-bottom: 2px;
-            border-bottom: 1px dashed #cbd5e1;
+            font-style: italic;
+            color: #141414;
+            margin-top: 5px;
+            margin-bottom: 2px;
             break-after: avoid;
             page-break-after: avoid;
         }

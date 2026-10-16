@@ -443,6 +443,8 @@ def build_portal_html(data_default: dict, data_full: dict) -> str:
     <meta name="description" content="Resume of {personal['name']} - Embedded Engineer & IoT Developer">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/latin-modern-roman">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {{
@@ -697,190 +699,198 @@ def build_portal_html(data_default: dict, data_full: dict) -> str:
             border: none;
         }}
 
-        /* Web Resume Aesthetic */
+        /* Web Resume Aesthetic - Authentic LaTeX Style */
         .resume-paper {{
-            background: var(--bg-card);
+            font-family: 'Latin Modern Roman', 'Computer Modern Serif', 'LMRoman10', 'CMU Serif', 'Nimbus Roman No9 L', 'Times New Roman', Times, serif;
+            background: #ffffff;
+            color: #141414;
             border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 2.5rem;
+            border-radius: 6px;
+            padding: 3rem 3.5rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(10px);
+            max-width: 880px;
+            margin: 0 auto;
+        }}
+
+        [data-theme="dark"] .resume-paper {{
+            background: #111827;
+            color: #f3f4f6;
         }}
 
         .resume-header {{
             text-align: center;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 1.5rem;
-            margin-bottom: 2rem;
+            border-bottom: none;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1.2rem;
         }}
 
         .resume-header h1 {{
             font-size: 2.3rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            letter-spacing: -0.5px;
+            font-weight: 700;
+            color: inherit;
+            letter-spacing: 0;
+            line-height: 1.15;
         }}
 
         .resume-subtitle {{
             font-size: 1.05rem;
-            color: var(--accent-cyan);
-            font-weight: 600;
-            margin-top: 0.3rem;
+            color: inherit;
+            font-weight: 700;
+            margin-top: 0.25rem;
         }}
 
         .contact-links {{
-            margin-top: 0.8rem;
+            margin-top: 0.5rem;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1.2rem;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+            gap: 1rem;
+            font-size: 0.95rem;
+            color: inherit;
         }}
 
         .contact-links a {{
-            color: var(--text-primary);
+            color: inherit;
             text-decoration: none;
         }}
 
         .contact-links a:hover {{
-            color: var(--accent-cyan);
             text-decoration: underline;
         }}
 
         section.resume-sec {{
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }}
 
         .section-heading {{
+            font-family: 'Latin Modern Roman', 'Computer Modern Serif', 'LMRomanCaps10', 'CMU Serif', serif;
             font-size: 1.15rem;
+            font-variant: small-caps;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.6px;
             font-weight: 700;
-            color: var(--text-primary);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 0.3rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            color: inherit;
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 2px;
+            margin-top: 1.2rem;
+            margin-bottom: 0.65rem;
+            display: block;
         }}
 
         .section-heading::before {{
-            content: "";
-            display: inline-block;
-            width: 4px;
-            height: 16px;
-            background: var(--accent-cyan);
-            border-radius: 2px;
+            display: none !important;
         }}
 
         .summary-text {{
-            color: var(--text-secondary);
+            color: inherit;
             font-size: 0.98rem;
-            line-height: 1.7;
+            line-height: 1.55;
+            text-align: justify;
         }}
 
         .card {{
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 1.2rem;
-            margin-bottom: 1rem;
-            transition: all 0.2s ease;
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            margin-bottom: 0.85rem !important;
+            box-shadow: none !important;
+            transform: none !important;
         }}
 
         .card:hover {{
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
+            transform: none !important;
+            border-color: transparent !important;
         }}
 
         .card-header {{
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.5rem;
+            align-items: baseline;
+            margin-bottom: 0.2rem;
         }}
 
         .card-title {{
-            font-size: 1.1rem;
+            font-size: 1.02rem;
             font-weight: 700;
-            color: var(--text-primary);
+            color: inherit;
         }}
 
         .badge {{
-            font-size: 0.75rem;
-            font-family: var(--font-mono);
-            background: rgba(0, 212, 255, 0.1);
-            color: var(--accent-cyan);
-            border: 1px solid var(--border-color);
-            padding: 2px 8px;
-            border-radius: 6px;
-            font-weight: 600;
+            font-style: italic;
+            color: inherit;
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            font-size: 0.95rem;
         }}
 
         .period-badge {{
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            color: inherit;
+            font-style: normal;
         }}
 
         .tech-stack {{
-            font-size: 0.88rem;
-            color: var(--accent-cyan);
-            font-family: var(--font-mono);
-            margin-bottom: 0.75rem;
+            font-size: 0.94rem;
+            font-style: italic;
+            color: inherit;
+            margin-bottom: 0.35rem;
         }}
 
         .bullet-list {{
-            list-style: disc inside;
-            color: var(--text-secondary);
-            font-size: 0.93rem;
-            margin-left: 0.5rem;
+            list-style: disc outside;
+            margin-left: 1.4rem;
+            color: inherit;
+            font-size: 0.96rem;
+            line-height: 1.48;
         }}
 
         .bullet-list li {{
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
+            text-align: justify;
+            color: inherit;
+        }}
+
+        .bullet-list li strong {{
+            color: inherit;
+            font-weight: 700;
         }}
 
         .skill-group {{
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }}
 
         .skill-category {{
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.4rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: inherit;
+            margin-bottom: 0.15rem;
         }}
 
         .skill-tags {{
             display: flex;
             flex-wrap: wrap;
-            gap: 0.4rem;
+            gap: 0.35rem;
         }}
 
         .skill-tag {{
-            font-size: 0.82rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            padding: 3px 10px;
-            border-radius: 6px;
+            font-size: 0.95rem;
+            background: transparent !important;
+            border: none !important;
+            color: inherit !important;
+            padding: 0 !important;
         }}
 
         .project-group-banner {{
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            margin: 1.8rem 0 0.9rem 0;
-            padding: 0.55rem 1rem;
-            background: rgba(0, 212, 255, 0.08);
-            border-left: 3px solid var(--accent-cyan);
-            border-radius: 0 8px 8px 0;
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             font-weight: 700;
-            color: var(--text-primary);
+            font-style: italic;
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 1.2rem 0 0.4rem 0 !important;
+            color: inherit !important;
         }}
 
         .project-group-banner .group-icon {{
@@ -1095,22 +1105,23 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
     experience = data.get("experience", [])
     languages = data.get("languages", [])
 
-    page_margin = "4.0mm 8mm 4.0mm 8mm" if compact else "8mm 11mm 8mm 11mm"
-    body_size = "7.8pt" if compact else "8.9pt"
-    body_lh = "1.18" if compact else "1.29"
-    header_mb = "2.5px" if compact else "8px"
-    sec_title_mt = "2.5px" if compact else "7px"
+    page_margin = "5.5mm 8mm 5.5mm 8mm" if compact else "8mm 11mm 8mm 11mm"
+    body_size = "8.2pt" if compact else "9.0pt"
+    body_lh = "1.20" if compact else "1.30"
+    header_mb = "2.0px" if compact else "7px"
+    sec_title_mt = "2.5px" if compact else "6.5px"
     sec_title_mb = "1.0px" if compact else "2.5px"
-    edu_proj_mb = "1.0px" if compact else "3.2px"
+    edu_proj_mb = "1.2px" if compact else "3.2px"
     bullet_mb = "0.2px" if compact else "0.8px"
-    name_size = "15.5pt" if compact else "19.5pt"
-    title_size = "8.8pt" if compact else "10.5pt"
-    contact_size = "7.8pt" if compact else "8.8pt"
-    sec_title_size = "8.8pt" if compact else "9.8pt"
-    bullet_size = "7.8pt" if compact else "8.8pt"
-    skill_size = "7.9pt" if compact else "9.0pt"
-    stack_size = "7.5pt" if compact else "8.5pt"
-    wrap_padding = "14px 20px" if compact else "24px 28px"
+    name_size = "16.5pt" if compact else "20pt"
+    title_size = "9.0pt" if compact else "10.5pt"
+    contact_size = "8.0pt" if compact else "8.8pt"
+    sec_title_size = "9.2pt" if compact else "10.0pt"
+    bullet_size = "8.1pt" if compact else "8.8pt"
+    skill_size = "8.1pt" if compact else "8.9pt"
+    stack_size = "7.8pt" if compact else "8.5pt"
+    sub_size = "7.9pt" if compact else "8.6pt"
+    wrap_padding = "10px 18px" if compact else "24px 28px"
 
     skills_rows = ""
     for s in skills:
@@ -1224,7 +1235,8 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
     <title>{personal['name']} - {personal['title']}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/latin-modern-roman">
     <style>
         @page {{
             size: A4;
@@ -1238,10 +1250,10 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         }}
 
         body {{
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Latin Modern Roman', 'Computer Modern Serif', 'LMRoman10', 'CMU Serif', 'Nimbus Roman No9 L', 'Times New Roman', Times, serif;
             font-size: {body_size};
             line-height: {body_lh};
-            color: #1a1a1a;
+            color: #141414;
             background: #ffffff;
         }}
 
@@ -1253,6 +1265,7 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
             justify-content: space-between;
             align-items: center;
             font-size: 13px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }}
 
         .print-btn {{
@@ -1280,25 +1293,27 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         h1.name {{
             font-size: {name_size};
             font-weight: 700;
-            letter-spacing: -0.3px;
-            color: #111827;
-            margin-bottom: 2px;
+            letter-spacing: 0;
+            color: #141414;
+            margin-bottom: 1.5px;
+            line-height: 1.15;
         }}
 
         .title {{
             font-size: {title_size};
-            font-weight: 600;
-            color: #0369a1;
-            margin-bottom: 3px;
+            font-weight: 700;
+            color: #141414;
+            margin-bottom: 2px;
         }}
 
         .contact-line {{
             font-size: {contact_size};
-            color: #4b5563;
+            color: #141414;
+            line-height: 1.35;
         }}
 
         .contact-line a {{
-            color: #111827;
+            color: #141414;
             text-decoration: none;
         }}
 
@@ -1307,22 +1322,25 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         }}
 
         .sec-title {{
+            font-family: 'Latin Modern Roman', 'Computer Modern Serif', 'LMRomanCaps10', 'CMU Serif', serif;
             font-size: {sec_title_size};
             font-weight: 700;
+            font-variant: small-caps;
             text-transform: uppercase;
-            letter-spacing: 0.6px;
-            color: #111827;
-            border-bottom: 1.2px solid #111827;
-            padding-bottom: 1.5px;
+            letter-spacing: 0.5px;
+            color: #141414;
+            border-bottom: 0.75pt solid #141414;
+            padding-bottom: 1.2px;
             margin-top: {sec_title_mt};
             margin-bottom: {sec_title_mb};
         }}
 
         .summary-p {{
             text-align: justify;
-            color: #27272a;
-            margin-bottom: 3px;
+            color: #141414;
+            margin-bottom: 2.5px;
             font-size: {bullet_size};
+            line-height: {body_lh};
         }}
 
         .edu-item, .proj-item {{
@@ -1337,80 +1355,92 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
 
         .edu-deg, .proj-title, .exp-role {{
             font-weight: 700;
-            color: #09090b;
+            color: #141414;
             font-size: {bullet_size};
         }}
 
         .edu-period, .proj-plat, .exp-period {{
+            font-style: normal;
+            color: #141414;
+            font-size: {bullet_size};
+        }}
+
+        .proj-plat {{
             font-style: italic;
-            color: #4b5563;
-            font-size: 8.5pt;
         }}
 
         .edu-sub, .exp-sub {{
             display: flex;
             justify-content: space-between;
-            font-size: 8.5pt;
-            color: #374151;
+            font-size: {sub_size};
+            color: #141414;
         }}
 
         .edu-score {{
-            font-weight: 600;
+            font-weight: normal;
+            color: #141414;
         }}
 
         .edu-notes {{
-            font-size: 8pt;
+            font-size: {sub_size};
             font-style: italic;
-            color: #6b7280;
+            color: #141414;
         }}
 
         .skill-line {{
-            margin-bottom: 1.8px;
+            margin-bottom: 1.2px;
             font-size: {skill_size};
+            line-height: {body_lh};
         }}
 
         .skill-name {{
             font-weight: 700;
-            color: #18181b;
+            color: #141414;
         }}
 
         .skill-val {{
-            color: #374151;
+            color: #141414;
         }}
 
         .proj-stack {{
             font-size: {stack_size};
             font-style: italic;
-            color: #0284c7;
+            color: #141414;
             margin-bottom: 1.5px;
         }}
 
         ul.proj-bullets, ul.exp-bullets {{
             list-style: disc outside;
-            margin-left: 18px;
-            color: #27272a;
+            margin-left: 15px;
+            padding-left: 0;
+            color: #141414;
         }}
 
         ul.proj-bullets li, ul.exp-bullets li {{
             margin-bottom: {bullet_mb};
             font-size: {bullet_size};
+            line-height: {body_lh};
+            text-align: justify;
+            color: #141414;
+        }}
+
+        ul.proj-bullets li strong, ul.exp-bullets li strong {{
+            color: #141414;
+            font-weight: 700;
         }}
 
         .languages-line {{
-            font-size: 9.2pt;
-            color: #27272a;
+            font-size: {bullet_size};
+            color: #141414;
         }}
 
         .proj-group-title {{
-            font-size: 9.3pt;
+            font-size: {sec_title_size};
             font-weight: 700;
-            color: #0369a1;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 8px;
-            margin-bottom: 4px;
-            padding-bottom: 2px;
-            border-bottom: 1px dashed #cbd5e1;
+            font-style: italic;
+            color: #141414;
+            margin-top: 5px;
+            margin-bottom: 2px;
             break-after: avoid;
             page-break-after: avoid;
         }}
@@ -1569,6 +1599,8 @@ def main():
                     "--disable-gpu",
                     "--no-sandbox",
                     "--no-pdf-header-footer",
+                    "--run-all-compositor-stages-before-draw",
+                    "--virtual-time-budget=4000",
                     f"--user-data-dir={temp_profile}",
                     f"--print-to-pdf={target_pdf}",
                     str(src_html),
