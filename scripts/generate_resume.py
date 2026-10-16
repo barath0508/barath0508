@@ -204,7 +204,7 @@ def build_latex(data: dict, compact: bool = False) -> str:
         r"\end{resumeItemize}",
         "",
         r"% ---------- PROJECTS ----------",
-        r"\section*{Featured Projects}",
+        r"\section*{Technical Projects}",
         "",
     ])
 
@@ -223,7 +223,7 @@ def build_latex(data: dict, compact: bool = False) -> str:
         lines.append("")
 
     lines.extend([
-        r"\section*{Leadership \& Experience}",
+        r"\section*{Technical Experience \& Leadership}",
     ])
     for exp in experience:
         if exp.get("role") and exp.get("organization"):
@@ -401,15 +401,15 @@ def render_resume_card_html(data: dict, variant_id: str) -> str:
             {skills_html}
         </section>
 
-        <!-- Featured Projects -->
+        <!-- Technical Projects -->
         <section class="resume-sec">
-            <h2 class="section-heading">Featured Projects</h2>
+            <h2 class="section-heading">Technical Projects</h2>
             {projects_html}
         </section>
 
-        <!-- Leadership & Experience -->
+        <!-- Technical Experience & Leadership -->
         <section class="resume-sec">
-            <h2 class="section-heading">Leadership & Experience</h2>
+            <h2 class="section-heading">Technical Experience & Leadership</h2>
             {exp_html}
         </section>
         {languages_sec}
@@ -1445,11 +1445,11 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
             <h1 class="name">{personal['name']}</h1>
             <div class="title">{personal['title']}</div>
             <div class="contact-line">
-                {personal['location']} &nbsp;|&nbsp; {personal['phone']} &nbsp;|&nbsp; <a href="mailto:{personal['email']}">{personal['email']}</a>
+                {personal['location']} | {personal['phone']} | <a href="mailto:{personal['email']}">{personal['email']}</a>
             </div>
             <div class="contact-line">
-                <a href="{personal['github']}">{personal['github_display']}</a> &nbsp;|&nbsp;
-                <a href="{personal['linkedin']}">{personal['linkedin_display']}</a> &nbsp;|&nbsp;
+                <a href="{personal['github']}">{personal['github_display']}</a> |
+                <a href="{personal['linkedin']}">{personal['linkedin_display']}</a> |
                 {portfolio_link}
             </div>
         </header>
@@ -1463,10 +1463,10 @@ def build_standalone_print_html(data: dict, compact: bool = False) -> str:
         <div class="sec-title">Technical Skills</div>
         {skills_rows}
 
-        <div class="sec-title">Featured Projects</div>
+        <div class="sec-title">Technical Projects</div>
         {projects_rows}
 
-        <div class="sec-title">Leadership & Experience</div>
+        <div class="sec-title">Technical Experience & Leadership</div>
         {exp_rows}
         {languages_sec}
     </div>
