@@ -81,8 +81,8 @@ INPUT /opt/texlive/texdir/texmf-dist/tex/latex/graphics-def/pdftex.def
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/graphics/mathcolor.ltx
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/graphics/mathcolor.ltx
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/graphics/mathcolor.ltx
-INPUT /opt/texlive/texdir/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT /opt/texlive/texdir/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /opt/texlive/texdir/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def
+INPUT /opt/texlive/texdir/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def
 INPUT ./resume_full.aux
 INPUT ./resume_full.aux
 INPUT resume_full.aux
